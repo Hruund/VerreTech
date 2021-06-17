@@ -13,7 +13,7 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
-            <img class="hidden lg:block h-8 w-auto" src="https://i.imgur.com/imy5E5o.png" alt="Workflow" />
+            <router-link to="/"><img class="hidden lg:block h-8 w-auto" src="https://i.imgur.com/imy5E5o.png" alt="Workflow" /></router-link>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">

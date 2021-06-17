@@ -1,22 +1,19 @@
-<template>
-  <div id="app">
-    <Navbar/>
-    <Home titre1="Produits vedettes" titre2="Nos nouveautés"/>
-    <Footer/>
+<template>   <div id="app">
+    <Navbar />
+      <router-view> </router-view>   <!-- Route render here -->
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
-import Home from './components/Home.vue'
+import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer,
-    Home
+    AppFooter,
   }
 }
 </script>
