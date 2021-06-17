@@ -12,12 +12,19 @@
                 <p>Depuis son origine Verre-Tech est spécialisée et leader dans la fabrication et la distribution en magasins de produits en verre techniques et décoratifs.
                     Petit à petit l'entreprise a sû se répandre dans différents secteurs en ouvrant d'autres entrepôts permettant à tous d'accèder à notre gamme de produits de verre.</p>
             </div>
-            <div>
-                <a href="#top">
+            <div @click="scrollToTop" class="cursor-pointer">
                     PICTO POUR REMONTER
-                </a>
             </div>
         </div>
         <hr>
     </div>
 </template>
+<script>
+export default {
+    methods:{
+        scrollToTop(){
+            document.body.scrollY = 0;
+        }
+    }
+}
+</script>

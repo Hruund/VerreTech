@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container mx-auto h-screen">
     <carousel>
       <carousel-slide>
         IMG1
@@ -41,15 +41,14 @@
 </template>
 
 <script>
-import Carousel from '../components/carousel/Carousel.vue'
-import CarouselSlide from '../components/carousel/CarouselSlide.vue'
+import Carousel from './carousel/Carousel.vue'
+import CarouselSlide from './carousel/CarouselSlide.vue'
 
 export default {
   components: { 
     Carousel, 
     CarouselSlide 
   },
-  name: 'Home',
   props: {
     titre1: String,
     titre2: String
