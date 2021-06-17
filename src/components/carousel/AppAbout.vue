@@ -1,0 +1,23 @@
+<template>
+    <div id="about">
+        <div class="text-center font-bold">
+            Verre Tech, entreprise familiale
+        </div>
+        <div>
+            IMAGE TO ADD
+        </div>
+        <div class="flex">
+            <div>
+                <p>Le groupe Verre-Tech est un groupe 100% familial créé en 1995 qui a étalie son siège social dans la ville de Besançon dans l'est de la France.</p>
+                <p>Depuis son origine Verre-Tech est spécialisée et leader dans la fabrication et la distribution en magasins de produits en verre techniques et décoratifs.
+                    Petit à petit l'entreprise a sû se répandre dans différents secteurs en ouvrant d'autres entrepôts permettant à tous d'accèder à notre gamme de produits de verre.</p>
+            </div>
+            <div>
+                <a href="#top">
+                    PICTO POUR REMONTER
+                </a>
+            </div>
+        </div>
+        <hr>
+    </div>
+</template>

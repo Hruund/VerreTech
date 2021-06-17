@@ -17,7 +17,7 @@
         Plan de site
         </div>
         <div class="h-full w-3/12 text-center flex flex-col justify-center">
-        <router-link to="about"> A propos </router-link>
+        <router-link to="/#about"> A propos </router-link>
         </div>
       </div>
   </footer>
