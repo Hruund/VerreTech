@@ -1,6 +1,6 @@
 <template>   <div id="app">
     <Navbar />
-      <router-view> </router-view>   <!-- Route render here -->
+      <router-view class="h-full"> </router-view>   <!-- Route render here -->
     <AppFooter />
   </div>
 </template>
