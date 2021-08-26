@@ -1,14 +1,14 @@
 <template>
-  <div class="container mx-auto h-screen">
+  <div class="h-auto mx-auto">
     <carousel>
       <carousel-slide>
-        {{ image1 }}
+        img
       </carousel-slide>
       <carousel-slide>
-        {{ image2 }}
+        img
       </carousel-slide>
       <carousel-slide>
-        {{ image3 }}
+        img
       </carousel-slide>
     </carousel>
     <div class="container mx-auto">
