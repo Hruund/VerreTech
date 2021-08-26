@@ -5,8 +5,8 @@
     </div>
 </template>
 <script>
-import AppHome from "../components/AppHome.vue"
-import AppAbout from "../components/AppAbout.vue"
+import AppHome from "../components/index/AppHome.vue"
+import AppAbout from "../components/index/AppAbout.vue"
 
 export default {
     components: { 

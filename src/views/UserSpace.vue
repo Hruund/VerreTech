@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Informations from "../components/PersonalInfosComponent";
-import Commandes from "../components/OrdersComponent";
-import Support from "../components/SupportComponent";
+import Informations from "../components/user/PersonalInfosComponent";
+import Commandes from "../components/user/OrdersComponent";
+import Support from "../components/user/SupportComponent";
 
 export default {
   data: function() {
