@@ -12,7 +12,7 @@
             </div>
         </div>
         
-        <component :is="selected"></component>
+        <component :is="selected" class="ml-10"></component>
     </div>
 </template>
 
