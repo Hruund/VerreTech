@@ -1,6 +1,7 @@
-<template>   <div id="app">
+<template>   
+  <div id="app" class="relative">
     <Navbar />
-      <router-view class="h-full"> </router-view>   <!-- Route render here -->
+      <router-view class="h-auto w-screen"> </router-view>   <!-- Route render here -->
     <AppFooter />
   </div>
 </template>
