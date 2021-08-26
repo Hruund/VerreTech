@@ -80,11 +80,11 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 
 const navigation = [
-  { name: 'Paroi de douche', href: '/products/ParoiDeDouche', current: true },
-  { name: 'Crédence cuisine', href: '/products/CrednceCuisine', current: false },
-  { name: 'Cloison', href: '/products/Cloison', current: false },
-  { name: 'Miroir', href: '/products/Miroir', current: false },
-  { name: 'Verre décoratif', href: '/products/VerreDecoratif', current: false },
+  { name: 'Paroi de douche', href: '#/products', current: true },
+  { name: 'Crédence cuisine', href: '#/products', current: false },
+  { name: 'Cloison', href: '#/products', current: false },
+  { name: 'Miroir', href: '#/products', current: false },
+  { name: 'Verre décoratif', href: '#/products', current: false },
 ]
 
 export default {
