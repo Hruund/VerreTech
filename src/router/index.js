@@ -4,6 +4,7 @@ import About from '../views/About.vue'
 import AppContact from '../views/Contact.vue'
 import AppProduct from '../views/Products.vue'
 import AppUserSpace from '../views/UserSpace.vue'
+import AppUnitProduct from '../views/FicheProduit.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: '/products',
     name: 'Produits',
     component: AppProduct 
+  },
+  {
+    path: '/ficheProduit',
+    name: 'Fiche Produit',
+    component: AppUnitProduct
   },
   {
     path: '/userspace',
