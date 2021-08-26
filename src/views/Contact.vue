@@ -1,5 +1,5 @@
 <template>
-    <div class="container maxHeightCenter">
+    <div class="container w-screen mx-auto my-56">
         <div class="text-4xl font-bold">Contact</div>
         <div class="mt-24 w-auto text-left text-2xl">
             Pour nous contacter quel que soit le motif, merci d'adresser un mail à l'adresse : <span class="font-bold">verretech@contact.com</span><br>
