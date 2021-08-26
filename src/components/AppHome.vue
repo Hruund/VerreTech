@@ -2,13 +2,13 @@
   <div class="container mx-auto h-screen">
     <carousel>
       <carousel-slide>
-        IMG1
+        {{ image1 }}
       </carousel-slide>
       <carousel-slide>
-        IMG2
+        {{ image2 }}
       </carousel-slide>
       <carousel-slide>
-        IMG3
+        {{ image3 }}
       </carousel-slide>
     </carousel>
     <div class="container mx-auto">
