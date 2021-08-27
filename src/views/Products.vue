@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mx-auto">
         <div class="text-4xl font-bold">Nom du Produit</div>
         <nav id="filter" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
@@ -41,7 +41,7 @@
             </div>
         </nav>
         <div id="cards" class="w-full z-30 top-0 px-6 py-1">
-            <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-12 py-3">
+            <div class="w-full container mx-auto flex flex-wrap items-center justify-between px-12 py-3">
                 <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                     <div class="max-w-xs rounded overflow-hidden shadow-lg">
                         <img class="w-full" src="../assets/produits/miroirs/miroir2.jpeg">

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mx-auto">
         <div class="text-4xl font-bold">
             Fiche Produit
         </div>
