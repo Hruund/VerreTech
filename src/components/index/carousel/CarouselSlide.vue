@@ -1,21 +1,48 @@
 <template>
-    <div>
-        <img :src="image"/>
-        <slot></slot>
-    </div>
+    <transition name="slide">
+        <div v-show="visible">
+            Index: {{ index }}
+            <slot></slot>
+        </div>
+    </transition>
 </template>
 
 <script>
-import image1 from "../../../assets/1.jpg";
-import image2 from "../../../assets/2.jpg";
-import image3 from "../../../assets/3.jpg";
-
 export default {
-    
-    data() {
+    data () {
         return {
-            image: image1, image2, image3
+            index: 0
+        }
+    },
+
+    computed: {
+        visible () {
+            return this.index === this.$parent.index;
         }
     }
+    
 }
 </script>
+
+<style>
+    .slide-enter-active {
+        animation: slideIn 5s;
+    }
+
+    .slide-enter-active {
+        animation: slideOut 5s;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%);}
+        to { transform: translateX(0);}
+    }
+
+    @keyframes slideOut {
+        from { transform: translateX(0);}
+        to { transform: translateX(-100%);}
+    }
+</style>
