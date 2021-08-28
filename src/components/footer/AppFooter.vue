@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-500 h-32 w-screen flex">
+  <footer class="bg-gray-500 h-32 w-screen flex bottom-0">
       <div class="h-full w-6/12 text-center flex flex-col justify-center">
         Copyright Verre-Tech @2021
       </div>
