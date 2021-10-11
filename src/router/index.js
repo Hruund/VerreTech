@@ -7,6 +7,7 @@ import AppUserSpace from '../views/UserSpace.vue'
 import AppUnitProduct from '../views/FicheProduit.vue'
 import AppLogin from '../views/Login.vue'
 import AppSignUp from '../views/SignUp.vue'
+import AppCart from '../views/Cart.vue'
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/signup',
     name: 'Inscription',
     component: AppSignUp 
+  },
+  {
+    path: '/panier',
+    name: 'Panier',
+    component: AppCart 
   }
 ]
 
