@@ -5,6 +5,8 @@ import AppContact from '../views/Contact.vue'
 import AppProduct from '../views/Products.vue'
 import AppUserSpace from '../views/UserSpace.vue'
 import AppUnitProduct from '../views/FicheProduit.vue'
+import AppLogin from '../views/Login.vue'
+import AppSignUp from '../views/SignUp.vue'
 
 const routes = [
   {
@@ -36,6 +38,16 @@ const routes = [
     path: '/userspace',
     name: 'Espace membre',
     component: AppUserSpace 
+  },
+  {
+    path: '/login',
+    name: 'Connexion',
+    component: AppLogin 
+  },
+  {
+    path: '/signup',
+    name: 'Inscription',
+    component: AppSignUp 
   }
 ]
 
