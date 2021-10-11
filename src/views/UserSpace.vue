@@ -1,18 +1,18 @@
 <template>
     <div class="bg-center">
-        <h2 class="mt-4 mb-4 font-semi-bold text-3xl">Espace membre</h2>
+        <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Espace membre</h2>
     </div>
 
     <div class="flex items-start place-content-center">
         <div class="w-1/6 border-2 rounded-sm">
             <div v-for="tab in tabs" :key="tab" >
-                <button class="flex-shrink-0 text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-900 hover:text-white focus:outline-none" :class="tab == selected ? 'bg-gray-900 text-white' : 'bg-gray-100'" @click="selected = tab;">
+                <button class="flex-shrink-0 text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none" :class="tab == selected ? 'bg-gray-900 hover:bg-gray-900 text-white' : 'bg-gray-100'" @click="selected = tab;">
                     {{ tab }}
                 </button>
             </div>
         </div>
         
-        <component :is="selected" class="ml-10  w-1/2"></component>
+        <component :is="selected" class="ml-10 w-1/2"></component>
     </div>
 </template>
 

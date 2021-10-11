@@ -31,7 +31,7 @@
 
                         <input
                         v-model="email"
-                        type="text"
+                        type="email"
                         name="email"
                         placeholder="E-mail"
                         class="w-4/5 mb-5 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
