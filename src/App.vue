@@ -1,9 +1,11 @@
 <template>   
-  <div id="app" class="relative">
+  <body id="app" class="flex flex-col min-h-screen">
     <Navbar />
-      <router-view class="h-auto w-screen"> </router-view>   <!-- Route render here -->
+    <main class="flex-grow">
+      <router-view> </router-view>   <!-- Route render here -->
+    </main>
     <AppFooter />
-  </div>
+  </body>
 </template>
 
 <script>

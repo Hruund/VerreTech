@@ -4,15 +4,15 @@
     </div>
 
     <div class="flex items-start place-content-center">
-        <div class="border-2 rounded-sm">
+        <div class="w-1/6 border-2 rounded-sm">
             <div v-for="tab in tabs" :key="tab" >
-                <button class="bg-gray-100 p-3 w-full transition-all duration-100 ease-linear hover:bg-blue-300" @click="selected = tab;">
+                <button class="flex-shrink-0 text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-900 hover:text-white focus:outline-none" :class="tab == selected ? 'bg-gray-900 text-white' : 'bg-gray-100'" @click="selected = tab;">
                     {{ tab }}
                 </button>
             </div>
         </div>
         
-        <component :is="selected" class="ml-10"></component>
+        <component :is="selected" class="ml-10  w-1/2"></component>
     </div>
 </template>
 
