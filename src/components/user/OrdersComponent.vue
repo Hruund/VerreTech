@@ -2,18 +2,16 @@
   <div class="mb-10">
     <div class="mx-auto px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
 
-      <div class="w-full" v-for="order in orders" :key="order">
-        <button class="mb-2 rounded text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none" @click="order.show = !order.show">
+      <div class="mb-3 w-full border-2" v-for="order in orders" :key="order">
+        <button class="text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none" :class="order.show ? 'bg-gray-900 hover:bg-gray-900 text-white' : ''" @click="order.show = !order.show">
           Commande du {{ order.date }} | {{ order.state }}
         </button>
 
-        <div class="mb-8" v-if="order.show">
+        <div class="m-4" v-if="order.show">
           <div class="flex items-center mb-2">
-            <div class="flex-grow">
-              <label v-if="order.state == 'Validation du paiement'">Votre commande est en attente de validation du paiement.</label>
-              <label v-if="order.state == 'En attente de retrait'">Votre commande est en attente de retrait.</label>
-              <label v-if="order.state == 'Retirée'">Votre commande a été retirée le {{ order.date_maj }}.</label>
-            </div>
+            <p v-if="order.state == 'Validation du paiement'">Votre commande est en attente de validation du paiement.</p>
+            <p v-if="order.state == 'En attente de retrait'">Votre commande est en attente de retrait.</p>
+            <p v-if="order.state == 'Retirée'">Votre commande a été retirée le {{ order.date_maj }}.</p>
 
             <div class="m-1 flex-grow-none h-24 w-24" v-for="product in order.products" :key="product">
               <img src="../../assets/produits/miroirs/miroir2.jpeg">
@@ -21,14 +19,14 @@
             </div>
           </div>
           <div class="flex">
-            <div class="flex-grow">
-              <div><label class="font-semibold">Coût total : </label> {{ order.cost }}€</div>
-              <div><label class="font-semibold">Date de la commande : </label> {{ order.date }}</div>
+            <div class="flex-grow text-left">
+              <p class="font-semibold">Coût total : {{ order.cost }}€</p>
+              <p class="font-semibold">Date de la commande : {{ order.date }}</p>
             </div>
-            <router-link :to="`/order/${order.number}`">
-              <a class="mb-2 rounded text-base font-semibold py-2 px-4 shadow-md w-1/4 hover:bg-gray-700 hover:text-white focus:outline-none">
+            <router-link :to="`/order/${order.number}`" class="w-48 mr-1" >
+              <button  class="bg-gray-200 w-full rounded text-base font-semibold py-2 px-4 shadow-md hover:bg-gray-700 hover:text-white focus:outline-none">
                 Détails
-              </a>
+              </button>
             </router-link>
           </div>
         </div>
