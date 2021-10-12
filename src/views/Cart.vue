@@ -78,7 +78,7 @@
                     <router-link to="/products"> Continuer mes achats </router-link>
                 </button>
                 <button class="shadow bg-blue-400 hover:bg-blue-200 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                    Valider mon panier
+                    <router-link to="/checkout"> Valider mon panier </router-link>
                 </button>
             </div>
         </div>

@@ -8,6 +8,7 @@ import AppUnitProduct from '../views/FicheProduit.vue'
 import AppLogin from '../views/Login.vue'
 import AppSignUp from '../views/SignUp.vue'
 import AppCart from '../views/Cart.vue'
+import AppPaiement from '../views/InformationsPaiement.vue'
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: '/panier',
     name: 'Panier',
     component: AppCart 
+  },
+  {
+    path: '/checkout',
+    name: 'Informations client',
+    component: AppPaiement 
   }
 ]
 
