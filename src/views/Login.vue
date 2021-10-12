@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto h-full bg-gray-100 p-6">
+    <div class="container mx-auto h-screen bg-gray-100 p-6">
         <img class= "mx-auto pt-4" width="100" height="100" src="../assets/user.png">
         <div class="text-4xl font-bold mb-6">Connexion</div>
         <form action="#" method="#" class="mx-auto w-3/5 p-8 border-gray-900 rounded-lg border border-4">
@@ -10,7 +10,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <input class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="email" placeholder="email@namespace.com">
+                    <input v-model="email" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" type="email" placeholder="email@namespace.com">
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -20,7 +20,7 @@
                     </label>
                 </div>
                 <div class="md:w-2/3">
-                    <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="******************">
+                    <input v-model="password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" type="password" placeholder="******************">
                 </div>
             </div>
             <div class="md:flex md:items-center mb-6">
@@ -47,3 +47,16 @@
         </form>
     </div>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                email: "",
+                password: "",
+                success: null,
+                error: null,
+            };
+        },
+    }
+</script>

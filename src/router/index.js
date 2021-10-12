@@ -9,6 +9,7 @@ import AppLogin from '../views/Login.vue'
 import AppSignUp from '../views/SignUp.vue'
 import AppCart from '../views/Cart.vue'
 import AppOrderDetails from '../views/order/_id.vue'
+import AppPaiement from '../views/InformationsPaiement.vue'
 
 const routes = [
   {
@@ -60,6 +61,11 @@ const routes = [
     path: '/order/:id',
     name: 'Détails de la commande',
     component: AppOrderDetails
+  },
+  {
+    path: '/checkout',
+    name: 'Informations client',
+    component: AppPaiement 
   }
 ]
 
