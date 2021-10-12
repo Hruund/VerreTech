@@ -1,6 +1,6 @@
 <template>
     <div id="about" class="mx-auto container">
-        <div class="text-4xl font-bold mb-4">
+        <div class="text-gray-900 text-4xl font-bold mb-4 mt-24">
             Verre Tech, entreprise familiale
         </div>
         <div>
