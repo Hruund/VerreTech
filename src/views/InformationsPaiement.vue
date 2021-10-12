@@ -80,13 +80,13 @@
                 <div class="p-6 md:text-left">
                     <h2 class="font-bold mb-4">Choisir la boutique près de chez moi :</h2>
                     <div class="mt-4">
-                        <select v-model="selected" class="bg-gray-200 border border-gray-900 text-gray-700 px-8 py-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="localisation">
+                        <select v-model="maps" class="bg-gray-200 border border-gray-900 text-gray-700 px-8 py-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="localisation">
                             <option selected disabled value="">Choisissez</option>
-                            <option>23 Rue Bouffard, 33000 Bordeaux</option>
+                            <option v-for="shop in listShop" v-bind:key="shop.address" :value="shop.localisation">{{shop.address}}</option>
                         </select>
                     </div>
                     <div class="mt-4 rounded-lg border">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.1103618453076!2d-0.5821868486748426!3d44.83968578281391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527c32b2508d3%3A0xac7c05a3e443d4e5!2s23%20Rue%20Bouffard%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1634037329491!5m2!1sfr!2sfr" width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe :src=maps width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -105,3 +105,17 @@
         </form>
     </div>
 </template>
+
+<script>
+  export default {
+    data() {
+    return{
+        listShop: [
+            { address: '23 Rue Bouffard, 33000 Bordeaux', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.1103618453076!2d-0.5821868486748426!3d44.83968578281391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527c32b2508d3%3A0xac7c05a3e443d4e5!2s23%20Rue%20Bouffard%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1634037329491!5m2!1sfr!2sfr'},
+            { address: '23 Rue Bouffard, 54000 Nancy', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.8183355130536!2d6.17225065142327!3d48.689837820411654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47949873fb4e9999%3A0x454ee20d6d28cdb!2sGare%20de%20Nancy-Ville!5e0!3m2!1sfr!2sfr!4v1634046584457!5m2!1sfr!2sfr'},
+        ],
+        maps: null
+    }
+}
+  }
+</script>
