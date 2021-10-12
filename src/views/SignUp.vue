@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto h-full bg-gray-100 p-6">
+    <div class="container mx-auto h-screen bg-gray-100 p-6">
         <img class= "mx-auto pt-4" width="100" height="100" src="../assets/user.png">
         <div class="text-4xl font-bold mb-6">Inscription</div>
         <form action="#" method="#" class="mx-auto p-8 border-gray-900 rounded-lg border border-4">
