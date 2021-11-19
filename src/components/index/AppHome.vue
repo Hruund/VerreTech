@@ -16,27 +16,27 @@
 					<div class="grid grid-cols-3 gap-4 mt-3 font-serif">
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Paroi de douche</p>
+							<p id="home" class="my-2">Paroi de douche</p><a class="underline" href="#/products">Voir</a>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Cloison</p>
+							<p id="home" class="my-2">Cloison</p><a class="underline" href="#/products">Voir</a>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Insert Cheminée</p>
+							<p id="home" class="my-2">Insert Cheminée</p><a class="underline" href="#/products">Voir</a>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Miroirs</p>
+							<p id="home" class="my-2">Miroirs</p><a class="underline" href="#/products">Voir</a>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Crédence de cuisine</p>
+							<p id="home" class="my-2">Crédence de cuisine</p><a class="underline" href="#/products">Voir</a>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Verre décoratif</p>
+							<p id="home" class="my-2">Verre décoratif</p><a class="underline" href="#/products">Voir</a>
 						</div>
 					</div>
 				</div>
@@ -49,15 +49,15 @@
 					<div class="grid grid-cols-3 gap-4">
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Arbor</p>
+							<p id="home" class="my-2">Arbor</p><a class="underline" href="">Voir</a>
 						</div>					
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Echo</p>
+							<p id="home" class="my-2">Echo</p><a class="underline" href="">Voir</a>
 						</div>					
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							<p id="home" class="my-2">Filae</p>
+							<p id="home" class="my-2">Filae</p><a class="underline" href="">Voir</a>
 						</div>
 					</div>
 				</div>
