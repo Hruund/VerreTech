@@ -2,13 +2,13 @@
 	<div class="h-auto mx-auto">
 		<div class="mx-24 flex content-center items-center my-24 grid grid-cols-4">
 			<div class="w-1/2"></div>
-			<div class="w-1/2 h-full text-left text-gray-900 text-4xl font-bold">VerreTech vous accompagne dans toutes vos démarches de construction et de pose !</div>
+			<div id="home" class="w-1/2 h-full text-left text-gray-900 text-4xl font-bold">VerreTech vous accompagne dans toutes vos démarches de construction et de pose !</div>
 			<div class="w-1/1 h-full">
 				<img class= "rounded-3xl h-full object-cover" width="800" height="1080" src="../../assets/1.jpg">
 			</div>
 			<div class="w-1/2"></div>
 		</div>
-		<div class="container mx-auto">
+		<div id="home" class="container mx-auto">
 			<div class="container mx-auto my-12">
 				<div>
 					<!-- <h1>{{ titre1 }}</h1> En attendant d'utiliser les props--> 
@@ -16,27 +16,27 @@
 					<div class="grid grid-cols-3 gap-4 mt-3 font-serif">
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Paroi de douche
+							<p id="home" class="my-2">Paroi de douche</p>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Cloison
+							<p id="home" class="my-2">Cloison</p>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Insert Cheminée
+							<p id="home" class="my-2">Insert Cheminée</p>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Miroirs
+							<p id="home" class="my-2">Miroirs</p>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Crédence de cuisine
+							<p id="home" class="my-2">Crédence de cuisine</p>
 						</div>
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Verre décoratif
+							<p id="home" class="my-2">Verre décoratif</p>
 						</div>
 					</div>
 				</div>
@@ -49,15 +49,15 @@
 					<div class="grid grid-cols-3 gap-4">
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Arbor
+							<p id="home" class="my-2">Arbor</p>
 						</div>					
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Echo
+							<p id="home" class="my-2">Echo</p>
 						</div>					
 						<div class="mx-auto">
 							<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-							Filae
+							<p id="home" class="my-2">Filae</p>
 						</div>
 					</div>
 				</div>
@@ -85,5 +85,10 @@ export default {
 </script>
 
 <style>
-
+#home {
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
 </style>

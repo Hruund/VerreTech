@@ -4,7 +4,7 @@
             FAQ : Foire aux questions
         </div>
 
-        <div class="p-4 m-6 text-left">
+        <div id="faq" class="p-4 mx-24 my-12 text-left">
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
                 1. Je souhaite annuler ma commande, est-ce possible ?
                 <hr style="height: 2px; width: 50%;">
@@ -39,3 +39,12 @@
         </div>
     </div>
 </template>
+
+<style>
+#faq {
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+</style>

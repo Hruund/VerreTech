@@ -1,12 +1,12 @@
 <template>
     <div id="about" class="mx-auto container">
-        <div class="text-gray-900 text-4xl font-bold mb-4 mt-24">
+        <div id="home" class="text-gray-900 text-4xl font-bold mb-4 mt-24">
             Verre Tech, entreprise familiale
         </div>
         <div>
             <img src="../../assets/ville.png">
         </div>
-        <div class="mt-4">
+        <div id="home" class="mt-4">
             <div class="text-left p-2 m-4">
                 <p>
                     Le groupe Verre-Tech est un groupe 100% familial créé en 1995 qui a étalie son siège social dans la ville de Besançon dans l'est de la France.
@@ -32,3 +32,9 @@ export default {
     }
 }
 </script>
+#home {
+  font-family: "Josefin Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}

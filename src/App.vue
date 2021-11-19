@@ -29,4 +29,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+@font-face {
+  font-family: "Josefin Sans";
+  src: local("Josefin Sans"),
+   url(./fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf) format("truetype");
+}
 </style>
