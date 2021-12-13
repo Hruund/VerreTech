@@ -10,6 +10,7 @@ import AppSignUp from '../views/SignUp.vue'
 import AppCart from '../views/Cart.vue'
 import AppOrderDetails from '../views/order/_id.vue'
 import AppPaiement from '../views/InformationsPaiement.vue'
+import AppAdmin from '../views/Administration.vue'
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
     path: '/userspace',
     name: 'Espace membre',
     component: AppUserSpace 
+  },
+  {
+    path: '/administration',
+    name: 'Administration',
+    component: AppAdmin
   },
   {
     path: '/login',

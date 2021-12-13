@@ -1,12 +1,12 @@
 <template>
-	<div class="h-auto mx-auto">
-		<div class="mx-24 flex content-center items-center my-24 grid grid-cols-4">
-			<div class="w-1/2"></div>
-			<div id="home" class="w-1/2 h-full text-left text-gray-900 text-4xl font-bold">VerreTech vous accompagne dans toutes vos démarches de construction et de pose !</div>
-			<div class="w-1/1 h-full">
-				<img class= "rounded-3xl h-full object-cover" width="800" height="1080" src="../../assets/1.jpg">
+	<div class="h-auto mx-auto w-full">
+		<div class="mx-24 flex content-center items-center my-24 h-full">
+			<div class="h-full w-1/2">
+				<img class= "h-full rounded-3xl" src="../../assets/1.jpg">
 			</div>
-			<div class="w-1/2"></div>
+			<div id="home" class="h-full w-1/2 text-gray-900 text-4xl text-justify font-bold ml-24">
+				VerreTech vous accompagne dans toutes vos démarches de construction et de pose !
+			</div>
 		</div>
 		<div id="home" class="container mx-auto">
 			<div class="container mx-auto my-12">

@@ -19,19 +19,17 @@
 <script>
 import Informations from "../components/user/PersonalInfosComponent";
 import Commandes from "../components/user/OrdersComponent";
-import Support from "../components/user/SupportComponent";
 
 export default {
   data: function() {
     return {
-      tabs: ["Informations", "Commandes", "Support"],
+      tabs: ["Informations", "Commandes"],
       selected: "Informations"
     };
   },
   components: {
     Informations,
-    Commandes,
-    Support
+    Commandes
   }
 };
 </script>
