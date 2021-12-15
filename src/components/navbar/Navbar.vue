@@ -40,6 +40,63 @@
             <BellIcon class="h-6 w-6" aria-hidden="true" />
           </button>
 
+          <!-- Panier -->
+          <Menu as="div" class="ml-3 relative">
+            <div>
+              <MenuButton class="p-1 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                <span class="sr-only">Open cart</span>
+                <i class="fas fa-shopping-cart fa-lg"></i>
+              </MenuButton>
+            </div>
+            <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+              <MenuItems class="origin-top-right absolute right-0 mt-2 w-64 py-1 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <MenuItem v-slot="{ active }">
+                  <div :class="[active ? '' : '', '']">
+                    <div class="flex border rounded-md">
+
+                      <div class="bg-white w-full ">
+
+                        <header class="bg-gray-300 py-5 py-3 font-extrabold px-8">
+                          Mon panier
+                        </header>
+
+                        <div class="flex flex-col justify-center">
+                          <!-- Premier article du panier (mettre un v-for en back pour lister tous les articles mis en panier-->
+                          <div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
+                            <div class="w-full md:w-1/3 bg-white grid place-items-center">
+                              <img src="../../assets/produits/miroirs/miroir2.jpeg" alt="product" class="rounded-xl" />
+                            </div>
+                            <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 text-left">
+                              Nom du produit
+                              <p class="text-gray-600">Catégorie</p>
+                            </div>
+                          </div>
+                          <hr>
+                          <!-- Deuxième article du panier -->
+                          <div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
+                            <div class="w-full md:w-1/3 bg-white grid place-items-center">
+                              <img src="../../assets/produits/miroirs/miroir2.jpeg" alt="product" class="rounded-xl" />
+                            </div>
+                            <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 text-left">
+                              Nom du produit
+                              <p class="text-gray-600">Catégorie</p>
+                            </div>
+                          </div>
+                        </div>
+                          
+                      </div>
+                    </div>
+                  </div>
+                </MenuItem>
+                <MenuItem v-slot="{ active }">
+                <div :class="[active ? '' : '', 'block px-4 py-2 text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-600']">
+                  <router-link to="/panier"> Visualiser mon panier </router-link>
+                </div>
+                </MenuItem>
+              </MenuItems>
+            </transition>
+          </Menu>
+
           <!-- Profile dropdown -->
           <Menu as="div" class="ml-3 relative">
             <div>

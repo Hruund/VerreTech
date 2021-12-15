@@ -7,12 +7,12 @@
                 <img class="h-64 lg:h-auto lg:w-64 object-cover" src="../assets/produits/miroirs/miroir2.jpeg" alt="image"/>
                 <div class="flex-1 w-full flex flex-col items-baseline justify-around h-1/2 pl-6 sm:h-full sm:items-baseline sm:w-1/2">
                     <div class="w-full flex justify-between items-center">
-                    <h1 class="text-lg font-normal text-gray-600 font-sans">
-                        Paroi de douche Arbor
-                    </h1>
-                    <h1 class="font-bold text-gray-900 mr-8">$200</h1>
+                        <h1 class="text-lg font-normal text-gray-600 font-sans">
+                            Paroi de douche Arbor
+                        </h1>
+                        <h1 class="font-bold text-gray-900 mr-8">$200</h1>
                     </div>
-                        <p class="text-gray-600">Paroi de douche</p>
+                    <p class="text-gray-600">Paroi de douche</p>
                     <div class="w-full flex justify-between items-center">
                         <div class="text-left mt-4">
                             <span>Quantité : </span>
