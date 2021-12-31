@@ -42,62 +42,9 @@
         </nav>
         <div id="cards" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between px-12 py-3">
-                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
-                    <div class="max-w-xs rounded overflow-hidden shadow-lg">
-                        <img class="w-full" src="../assets/produits/miroirs/miroir2.jpeg">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-lg mb-2">Paroi de douche Arbor</div>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2">250€</span>
-                            <button class="bg-gray-400 hover:bg-gray-600 text-xs text-white font-bold py-2 px-4 rounded">
-                                <router-link to="/ficheProduit"> Consulter l'article </router-link>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
-                    <div class="max-w-xs rounded overflow-hidden shadow-lg">
-                        <img class="w-full" src="../assets/produits/miroirs/miroir2.jpeg">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-lg mb-2">Paroi de douche Arbor</div>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2">250€</span>
-                            <button class="bg-gray-400 hover:bg-gray-600 text-xs text-white font-bold py-2 px-4 rounded">
-                                <router-link to="/ficheProduit"> Consulter l'article </router-link>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
-                    <div class="max-w-xs rounded overflow-hidden shadow-lg">
-                        <img class="w-full" src="../assets/produits/miroirs/miroir2.jpeg">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-lg mb-2">Paroi de douche Arbor</div>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2">250€</span>
-                            <button class="bg-gray-400 hover:bg-gray-600 text-xs text-white font-bold py-2 px-4 rounded">
-                                <router-link to="/ficheProduit"> Consulter l'article </router-link>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
-                    <div class="max-w-xs rounded overflow-hidden shadow-lg">
-                        <img class="w-full" src="../assets/produits/miroirs/miroir2.jpeg">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-lg mb-2">Paroi de douche Arbor</div>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2">250€</span>
-                            <button class="bg-gray-400 hover:bg-gray-600 text-xs text-white font-bold py-2 px-4 rounded">
-                                <router-link to="/ficheProduit"> Consulter l'article </router-link>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <Product
+                    imageLink='https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/8/5/8/858743bb35_50169458_chien-min.jpg'
+                ></Product>
             </div>
         </div>
         <div class="text-4xl font-bold">1   2   3</div>
@@ -112,3 +59,26 @@
     transform: translate(-50%,-50%);
 }
 </style>
+<script>
+
+import Product from "./Product.vue";
+
+export default {
+     components: {
+        Product
+     },
+    data(){
+        return{
+
+        }
+    },
+    mounted() {
+        this.getProducts();
+    },
+    methods:{
+        getProducts(){
+            console.log("toto");
+        }
+    }
+}
+</script>
