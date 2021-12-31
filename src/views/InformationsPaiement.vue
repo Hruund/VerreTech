@@ -53,7 +53,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="addressCP" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="addressCP" type="text">
+                            <input v-model="addressCP" type="text" onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="5" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="addressCP">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="md:w-2/3">
                     <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-                        Passer au paiement
+                        <router-link to="/cards"> Passer au paiement </router-link>
                     </button>
                 </div>
             </div>
