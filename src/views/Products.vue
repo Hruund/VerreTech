@@ -41,9 +41,13 @@
             </div>
         </nav>
         <div id="cards" class="w-full z-30 top-0 px-6 py-1">
-            <div class="w-full container mx-auto flex flex-wrap items-center justify-between px-12 py-3">
+            <div class="w-full container mx-auto flex flex-wrap items-center justify-between px-12 py-3" v-if="productListIsEmpty && readyToDisplay">
                 <Product
-                    imageLink='https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/8/5/8/858743bb35_50169458_chien-min.jpg'
+                    v-for="product in productsList"
+                    :key="product.id"
+                    :name="product.name"
+                    :imageLink="product.image"
+                    :price="product.price"
                 ></Product>
             </div>
         </div>
@@ -62,6 +66,7 @@
 <script>
 
 import Product from "./Product.vue";
+const axios = require('axios').default;
 
 export default {
      components: {
@@ -69,15 +74,33 @@ export default {
      },
     data(){
         return{
-
+            productsList: [],
+            readyToDisplay : false
         }
     },
     mounted() {
         this.getProducts();
     },
+    computed:{
+        productListIsEmpty(){
+            if(typeof this.productsList != "undefined"){
+                return true;
+            }
+            return this.productsList.length === 0;
+        }
+    },
     methods:{
         getProducts(){
-            console.log("toto");
+            //axios call for getting products list without filter
+            axios.get('http://127.0.0.1:3000/api/products')
+                .then(response => {
+                    console.log("aa");
+                    this.productsList = response.data;
+                    this.readyToDisplay = true;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 }
