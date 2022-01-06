@@ -1,8 +1,21 @@
 <template>
     <div class="bg-center">
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Administration</h2>
+        <Chart/>
+        
     </div>
 </template>
+
+
+
+<script>
+import Chart from '../components/Chart.vue'
+export default {
+  components: {
+    Chart
+  }
+}
+</script>
 
 <style scoped>
 .maxHeightCenter{

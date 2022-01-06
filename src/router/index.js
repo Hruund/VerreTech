@@ -11,6 +11,7 @@ import AppCart from '../views/Cart.vue'
 import AppOrderDetails from '../views/order/_id.vue'
 import AppPaiement from '../views/InformationsPaiement.vue'
 import AppAdmin from '../views/Administration.vue'
+import AppCards from '../views/PaymentForm.vue'
 
 const routes = [
   {
@@ -72,6 +73,11 @@ const routes = [
     path: '/checkout',
     name: 'Informations client',
     component: AppPaiement 
+  } ,
+  {
+    path: '/cards',
+    name: 'Informations paiement',
+    component: AppCards 
   }
 ]
 
