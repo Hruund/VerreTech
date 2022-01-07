@@ -60,10 +60,10 @@
                           Mon panier
                         </header>
 
-                        <div class="flex flex-col justify-center">
+                        <div class="flex flex-col justify-center" v-if="cartIsReady">
                           <ProductCartMini
                               v-for="productcart in productsList"
-                              :key="productcart.name"
+                              :key="productcart.id"
                               :name="productcart.name"
                               :imageLink="productcart.image"
                               :categorie="productcart.categorie"
@@ -150,10 +150,24 @@ export default {
   data(){
     return{
       productsList: [
-        
+        {
+          id: 1,
+          name: 'Crédence cuisine',
+          image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+          categorie: 'Crédence',
+        },
+        {
+          id: 2,
+          name: 'Crédence cuisine',
+          image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+          categorie: 'Crédence',
+        }
       ],
-      readyToDisplay : false
+      cartIsReady : false
     }
+  },
+  mounted(){
+    this.cartIsReady = true;
   },
   setup() {
     const open = ref(false)

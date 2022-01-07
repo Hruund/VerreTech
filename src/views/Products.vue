@@ -94,7 +94,6 @@ export default {
             //axios call for getting products list without filter
             axios.get('http://127.0.0.1:3000/api/products')
                 .then(response => {
-                    console.log("aa");
                     this.productsList = response.data;
                     this.readyToDisplay = true;
                 })

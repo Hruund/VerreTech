@@ -5,11 +5,11 @@
             <div class="flex-1 w-full flex flex-col items-baseline justify-around h-1/2 pl-6 sm:h-full sm:items-baseline sm:w-1/2">
                 <div class="w-full flex justify-between items-center">
                     <h1 class="text-lg font-normal text-gray-600 font-sans">
-                        {{name.default}}
+                        {{name}}
                     </h1>
-                    <h1 class="font-bold text-gray-900 mr-8">{{price.default}}</h1>
+                    <h1 class="font-bold text-gray-900 mr-8">{{price}}€</h1>
                 </div>
-                <p class="text-gray-600">{{categorie.default}}</p>
+                <p class="text-gray-600">{{categorie}}</p>
                 <div class="w-full flex justify-between items-center">
                     <div class="text-left mt-4">
                         <span>Quantité : </span>

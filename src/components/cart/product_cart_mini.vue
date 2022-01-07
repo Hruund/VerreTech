@@ -4,8 +4,8 @@
             <img :src="imageLink.default" alt="product" ref="image" class="rounded-xl" />
         </div>
         <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 text-left">
-            {{name.default}}
-            <p class="text-gray-600">{{categorie.default}}</p>
+            {{name}}
+            <p class="text-gray-600">{{categorie}}</p>
         </div>
     </div>
 </template>
