@@ -61,29 +61,15 @@
                         </header>
 
                         <div class="flex flex-col justify-center">
-                          <!-- Premier article du panier (mettre un v-for en back pour lister tous les articles mis en panier-->
-                          <div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                            <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                              <img src="../../assets/produits/miroirs/miroir2.jpeg" alt="product" class="rounded-xl" />
-                            </div>
-                            <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 text-left">
-                              Nom du produit
-                              <p class="text-gray-600">Catégorie</p>
-                            </div>
-                          </div>
+                          <ProductCartMini
+                              v-for="productcart in productsList"
+                              :key="productcart.name"
+                              :name="productcart.name"
+                              :imageLink="productcart.image"
+                              :categorie="productcart.categorie"
+                          ></ProductCartMini>
                           <hr>
-                          <!-- Deuxième article du panier -->
-                          <div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-white">
-                            <div class="w-full md:w-1/3 bg-white grid place-items-center">
-                              <img src="../../assets/produits/miroirs/miroir2.jpeg" alt="product" class="rounded-xl" />
-                            </div>
-                            <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3 text-left">
-                              Nom du produit
-                              <p class="text-gray-600">Catégorie</p>
-                            </div>
-                          </div>
                         </div>
-                          
                       </div>
                     </div>
                   </div>
@@ -130,15 +116,18 @@
     </DisclosurePanel>
   </Disclosure>
 </template>
-<!-- -->
+
+
 <script>
 import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/vue/outline'
 
+import ProductCartMini from "../cart/product_cart_mini.vue";
+
 const navigation = [
-  { name: 'Paroi de douche', href: '#/products', current: true },
-  { name: 'Crédence cuisine', href: '#/products', current: false },
+  { name: 'Paroi de douche', href: '#/products', current: false },
+  { name: 'Crédence cuisine', href: '#/products', current: true },
   { name: 'Cloison', href: '#/products', current: false },
   { name: 'Miroir', href: '#/products', current: false },
   { name: 'Verre décoratif', href: '#/products', current: false },
@@ -156,6 +145,15 @@ export default {
     BellIcon,
     MenuIcon,
     XIcon,
+    ProductCartMini,
+  },
+  data(){
+    return{
+      productsList: [
+        
+      ],
+      readyToDisplay : false
+    }
   },
   setup() {
     const open = ref(false)

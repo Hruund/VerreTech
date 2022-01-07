@@ -1,64 +1,16 @@
 <template>
     <div class="container mx-auto h-screen bg-gray-100 p-6">
         <div class="text-4xl font-bold mb-6">Panier</div>
-        <!-- Cards 1 -->
-        <div class="flex justify-center items-center w-full">
-            <div class="bg-white shadow-md h-64 mx-3 rounded-3xl flex flex-col justify-around items-center overflow-hidden sm:flex-row sm:h-52 sm:w-3/5 md:w-96">
-                <img class="h-64 lg:h-auto lg:w-64 object-cover" src="../assets/produits/miroirs/miroir2.jpeg" alt="image"/>
-                <div class="flex-1 w-full flex flex-col items-baseline justify-around h-1/2 pl-6 sm:h-full sm:items-baseline sm:w-1/2">
-                    <div class="w-full flex justify-between items-center">
-                        <h1 class="text-lg font-normal text-gray-600 font-sans">
-                            Paroi de douche Arbor
-                        </h1>
-                        <h1 class="font-bold text-gray-900 mr-8">$200</h1>
-                    </div>
-                    <p class="text-gray-600">Paroi de douche</p>
-                    <div class="w-full flex justify-between items-center">
-                        <div class="text-left mt-4">
-                            <span>Quantité : </span>
-                            <select class="bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 w-36 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="quantite">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <button class="mr-8"><i class="fa fa-times text-red-600 fa-2x"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cards 2 -->
-        <div class="flex justify-center items-center w-full mt-6">
-            <div class="bg-white shadow-md h-64 mx-3 rounded-3xl flex flex-col justify-around items-center overflow-hidden sm:flex-row sm:h-52 sm:w-3/5 md:w-96">
-                <img class="h-64 lg:h-auto lg:w-64 object-cover" src="../assets/produits/miroirs/miroir2.jpeg" alt="image"/>
-                <div class="flex-1 w-full flex flex-col items-baseline justify-around h-1/2 pl-6 sm:h-full sm:items-baseline sm:w-1/2">
-                    <div class="w-full flex justify-between items-center">
-                        <h1 class="text-lg font-normal text-gray-600 font-sans">
-                            Paroi de douche Arbor
-                        </h1>
-                        <h1 class="font-bold text-gray-900 mr-8">$200</h1>
-                    </div>
-                        <p class="text-gray-600">Paroi de douche</p>
-                    <div class="w-full flex justify-between items-center">
-                        <div class="text-left mt-4">
-                            <span>Quantité : </span>
-                            <select class="bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 w-36 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="quantite">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <button class="mr-8"><i class="fa fa-times text-red-600 fa-2x"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- / -->
+        <!-- Cards des articles du panier -->
+        <ProductCart
+            v-for="productcart in productsList"
+            :key="productcart.id"
+            :name="productcart.name"
+            :imageLink="productcart.image"
+            :price="productcart.price"
+            :categorie="productcart.categorie"
+        ></ProductCart>
+        <!-- Résumé du montant à payer -->
         <hr style="height: 2px; width: 50%; background-color: black;" class="border-solid mx-auto mt-8">
         <div class="container mx-auto px-64 m-10">
             <p style="text-align:left;">
@@ -68,9 +20,9 @@
                 </span>
             </p>
             <p style="text-align:left; font-weight: bold;">
-                Total
+                Total du panier
                 <span style="float:right;">
-                    404€
+                    {{totalProduct}}
                 </span>
             </p>
             <div>
@@ -84,3 +36,51 @@
         </div>
     </div>
 </template>
+
+
+<script>
+
+import ProductCart from "../components/cart/product_cart.vue";
+const axios = require('axios').default;
+
+export default {
+     components: {
+        ProductCart
+     },
+    data(){
+        return{
+            productsList: [],
+            readyToDisplay : false
+        }
+
+    },
+    mounted() {
+        this.getProducts();
+    },
+    computed:{
+        productListIsEmpty(){
+            if(typeof this.productsList != "undefined"){
+                return true;
+            }
+            return this.productsList.length === 0;
+        },
+        totalProduct(){
+          return "mettre la somme des prix";
+        }
+    },
+    methods:{
+        getProducts(){
+            //axios call for getting products list without filter
+            axios.get('http://127.0.0.1:3000/api/cart_product')
+                .then(response => {
+                    console.log("aa");
+                    this.productsList = response.data;
+                    this.readyToDisplay = true;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    }
+}
+</script>
