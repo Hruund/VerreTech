@@ -1,10 +1,10 @@
 <template>
-    <div id="faq">
+    <div id="faq" class="mx-auto container">
         <div class="text-gray-900 mx-auto text-4xl font-bold mt-24">
             FAQ : Foire aux questions
         </div>
 
-        <div id="faq" class="p-4 mx-24 my-12 text-left">
+        <div id="faq" class="p-4 text-left">
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
                 1. Je souhaite annuler ma commande, est-ce possible ?
                 <hr style="height: 2px; width: 50%;">

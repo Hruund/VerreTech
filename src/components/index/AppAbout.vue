@@ -17,7 +17,7 @@
                 </p>
             </div>
             <div @click="scrollToTop" class="cursor-pointer">
-                    PICTO POUR REMONTER
+                Remonter en haut de la page
             </div>
         </div>
         <hr style="height: 2px; width: 50%;" class="mx-auto">
@@ -26,8 +26,12 @@
 <script>
 export default {
     methods:{
-        scrollToTop(){
-            document.body.scrollY = 0;
+        scrollToTop(){ // Revenir en haut de la page d'accueil
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
         }
     }
 }
