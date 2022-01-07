@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-900 h-10 w-screen flex bottom-0">
+  <footer class="bg-gray-900 h-10 flex bottom-0">
       <div class="h-full w-6/12 text-center text-white flex flex-col justify-center">
         Copyright Verre-Tech @2021
       </div>
@@ -8,16 +8,13 @@
           <router-link to="/contact"> Contact </router-link>
         </div>
         <div class="h-full w-3/12 text-center text-white flex flex-col justify-center">
-        Mentions légales
+          <router-link to="/fr-fr/mentions-legales"> Mentions légales </router-link>
         </div>
         <div class="h-full w-3/12 text-center text-white flex flex-col justify-center">
-        Cookies
+          <router-link to="/fr-fr/charte-d-utilisation-des-cookies"> Cookies </router-link>
         </div>
         <div class="h-full w-3/12 text-center text-white flex flex-col justify-center">
-        Plan de site
-        </div>
-        <div class="h-full w-3/12 text-center text-white flex flex-col justify-center">
-        <router-link to="/#about"> A propos </router-link>
+          <router-link to="/#about"> A propos </router-link>
         </div>
       </div>
   </footer>

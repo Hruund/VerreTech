@@ -12,6 +12,8 @@ import AppOrderDetails from '../views/order/_id.vue'
 import AppPaiement from '../views/InformationsPaiement.vue'
 import AppAdmin from '../views/Administration.vue'
 import AppCards from '../views/PaymentForm.vue'
+import AppMentions from '../views/footer_infos/MentionsLegales.vue'
+import AppCookies from '../views/footer_infos/cookies.vue'
 
 const routes = [
   {
@@ -78,6 +80,16 @@ const routes = [
     path: '/cards',
     name: 'Informations paiement',
     component: AppCards 
+  }, 
+  {
+    path: '/fr-fr/mentions-legales',
+    name: 'Mentions Légales',
+    component: AppMentions 
+  },
+  {
+    path: '/fr-fr/charte-d-utilisation-des-cookies',
+    name: 'Cookies',
+    component: AppCookies 
   }
 ]
 
