@@ -14,7 +14,7 @@
           <div class="flex-shrink-0 flex float-left">
             <router-link to="/"><img class="mx-6 h-5 md:h-8 w-auto lg:block" src="https://i.imgur.com/imy5E5o.png" alt="Workflow" /></router-link>
           </div>
-          <div class="hidden sm:block sm:ml-6 w-full">
+          <div class="hidden sm:block sm:ml-6 absolute inset-y-0 right-0 mt-3 mr-24">
             <div class="flex space-x-4">
               <div class="relative text-gray-600">
                 <input class="mx-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
