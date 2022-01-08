@@ -1,9 +1,9 @@
 <template>
-    <div class="container mx-auto h-screen bg-gray-100 p-6">
+    <div class="container mx-auto bg-gray-100 p-6">
         <div class="text-4xl font-bold mb-6">Informations de paiement</div>
         <form method="#" class="mx-auto p-8 border-gray-900 rounded-lg border border-4">
-            <div class="grid grid-cols-2">
-                <div class="mr-8 border-r-4 border-gray-600 p-6 md:text-left">
+            <div class="md:grid md:grid-cols-2">
+                <div class="md:mr-8 md:border-r-4 md:border-gray-600 p-6 md:text-left">
                     <h2 class="font-bold mb-4">Je vérifie mes informations</h2>
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/3">
@@ -80,13 +80,13 @@
                 <div class="p-6 md:text-left">
                     <h2 class="font-bold mb-4">Choisir la boutique près de chez moi :</h2>
                     <div class="mt-4">
-                        <select v-model="maps" class="bg-gray-200 border border-gray-900 text-gray-700 px-8 py-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="localisation">
+                        <select v-model="maps" class="w-full bg-gray-200 border border-gray-900 text-gray-700 px-8 py-2 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="localisation">
                             <option selected disabled value="">Choisissez</option>
                             <option v-for="shop in listShop" v-bind:key="shop.address" :value="shop.localisation">{{shop.address}}</option>
                         </select>
                     </div>
                     <div class="mt-4 rounded-lg border">
-                        <iframe :src=maps width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe :src=maps height="450" class="w-full" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
