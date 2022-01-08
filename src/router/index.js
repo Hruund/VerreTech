@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import AppIndex from '../views/Index.vue'
-import About from '../views/About.vue'
 import AppContact from '../views/Contact.vue'
 import AppProduct from '../views/Products.vue'
 import AppUserSpace from '../views/UserSpace.vue'
@@ -20,11 +19,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: AppIndex
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About 
   },
   {
     path: '/contact',

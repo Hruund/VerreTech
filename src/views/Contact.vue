@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto h-screen bg-gray-100 p-6 mb-12">
+    <div class="container mx-auto bg-gray-100 p-6 mb-12">
         <div id="contact">
             <div class="text-gray-900 mx-auto text-4xl font-bold">
                 Contactez-nous !
@@ -14,15 +14,15 @@
                     </li>
                 </ul>
             </div>
-            <div id="contact" class="p-4 mx-24 my-12 text-left">
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+            <div id="contact" class="p-4 md:mx-24 my-12 text-left">
+                <div class="text-left text-gray-900 text-2xl font-bold">
                     Pour les commandes faites sur le site
                     <hr style="height: 2px; width: 50%;">
                 </div>
                 <p>
-                    Si vous rencontrez un soucis lors de votre commande, n'hésitez pas à consulter notre FAQ. Il se peut que des réponses puissent vous guider.
+                    Si vous rencontrez un problème lors de votre commande, n'hésitez pas à consulter notre FAQ. Il se peut que des réponses puissent vous guider.
                 </p>
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-2xl font-bold mt-12">
                     Prendre contact
                     <hr style="height: 2px; width: 50%;">
                 </div>
@@ -31,14 +31,14 @@
                     <br><br>
                     Par précaution, nous conseillons de ne pas envoyer plusieurs e-mails pour la même requête afin de laissez le temps à nos agents de vous répondre et de vous retourner la réponse la plus optimale.
                 </p>
-                <div class="text-left text-gray-900 text-xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-xl font-bold mt-12">
                     Par téléphone
                     <hr style="height: 2px; width: 50%;">
                 </div> 
                 <p>
                     Vous pouvez nous joindre au xx xx xx xx xx du Lundi au Vendredi de 9h à 19h, notre service vous prendra en charge et essayera de vous guider quelque soit le soucis rencontré.
                 </p>
-                <div class="text-left text-gray-900 text-xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-xl font-bold mt-12">
                     Par mail
                     <hr style="height: 2px; width: 50%;">
                 </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto h-full bg-gray-100 p-6 mb-12">
+    <div class="container mx-auto bg-gray-100 p-6 mb-12">
         <div id="cookies">
             <div class="text-gray-900 mx-auto text-4xl font-bold">
                 Charte d'utilisation des cookies chez Verre Tech
@@ -15,8 +15,8 @@
                     </li>
                 </ul>
             </div>
-            <div id="cookies" class="p-4 mx-24 my-12 text-left">
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+            <div id="cookies" class="p-4 md:mx-24 my-12 text-left">
+                <div class="text-left text-gray-900 text-2xl font-bold">
                     1. Explications du cookie :
                     <hr style="height: 2px; width: 50%;">
                 </div>
@@ -28,14 +28,14 @@
                     Nous pouvons ainsi vous offrir le contenu le plus adapté et la meilleure expérience utilisateur.
                 </p>
 
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-2xl font-bold mt-12">
                     2. Utilisation du cookie :
                     <hr style="height: 2px; width: 50%;">
                 </div>
                 <p>
                     Pour le cas des cookies plucitaires, leur fonctionnement sert à enregistrer des informations sur la navigation des utilisateurs afin de définir ses centres d'intérêts. Ils offrent aux sociétés le moyen de personnaliser leur publicité en fonction des actions effectuées sur le site visité.
                 </p>
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-2xl font-bold mt-12">
                     3. Désactivation des cookies
                     <hr style="height: 2px; width: 50%;">
                 </div>

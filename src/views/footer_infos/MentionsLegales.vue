@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto h-full bg-gray-100 p-6 mb-12">
+    <div class="container mx-auto bg-gray-100 p-6 mb-12">
         <div id="mentions">
             <div class="text-gray-900 mx-auto text-4xl font-bold">
                 Mentions légales d'utilisation
@@ -15,8 +15,8 @@
                     </li>
                 </ul>
             </div>
-            <div id="mentions" class="p-4 mx-24 my-12 text-left">
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+            <div id="mentions" class="p-4 md:mx-24 my-12 text-left">
+                <div class="text-left text-gray-900 text-2xl font-bold">
                     Date de mise à jour :
                     <hr style="height: 2px; width: 50%;">
                 </div>
@@ -24,7 +24,7 @@
                     07.01.2022
                 </p>
 
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-2xl font-bold mt-12">
                     Editeur du site :
                     <hr style="height: 2px; width: 50%;">
                 </div>
@@ -37,7 +37,7 @@
                     Pour tout contact : <span class="font-bold"><a href="mailto:servicesclientsVerreTech@contact.com" class="btn btn-primary">servicesclientsVerreTech</a></span>
                 </p>
 
-                <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+                <div class="text-left text-gray-900 text-2xl font-bold mt-12">
                     Hébergeur :
                     <hr style="height: 2px; width: 50%;">
                 </div>
