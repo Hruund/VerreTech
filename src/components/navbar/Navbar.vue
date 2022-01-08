@@ -12,8 +12,8 @@
           </DisclosureButton>
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex-shrink-0 flex items-center">
-            <router-link to="/"><img class="mx-6 hidden lg:block h-8 w-auto" src="https://i.imgur.com/imy5E5o.png" alt="Workflow" /></router-link>
+          <div class="flex-shrink-0 flex float-left">
+            <router-link to="/"><img class="mx-6 h-5 w-auto lg:block" src="https://i.imgur.com/imy5E5o.png" alt="Workflow" /></router-link>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <button class="bg-gray-900 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+          <button class="bg-gray-900 p-1 hidden rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
             <span class="sr-only">View notifications</span>
             <BellIcon class="h-6 w-6" aria-hidden="true" />
           </button>

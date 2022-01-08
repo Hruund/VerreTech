@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto h-screen bg-gray-100 p-6">
+    <div class="container mx-auto lg:h-screen md:h-full bg-gray-100 p-2">
         <div class="text-4xl font-bold mb-6">Panier</div>
         <!-- Cards des articles du panier -->
         <ProductCart
@@ -12,10 +12,10 @@
         ></ProductCart>
         <!-- Résumé du montant à payer -->
         <hr style="height: 2px; width: 50%; background-color: black;" class="border-solid mx-auto mt-8">
-        <div class="container mx-auto px-64 m-10">
+        <div class="m-10">
             <p style="text-align:left;">
                 Taxes
-                <span style="float:right;">
+                <span class="float-right">
                     4€
                 </span>
             </p>
@@ -25,8 +25,8 @@
                     {{totalProduct}}
                 </span>
             </p>
-            <div>
-                <button class="mr-20 shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+            <div class="">
+                <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
                     <router-link to="/products"> Continuer mes achats </router-link>
                 </button>
                 <button class="shadow bg-blue-400 hover:bg-blue-200 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
