@@ -1,8 +1,8 @@
 <template>
-    <div class="container mx-auto h-screen bg-gray-100 p-6">
+    <div class="container mx-auto bg-gray-100 p-6 h-screen">
         <img class= "mx-auto pt-4" width="100" height="100" src="../assets/user.png">
         <div class="text-4xl font-bold mb-6">Connexion</div>
-        <form action="#" method="#" class="mx-auto w-3/5 p-8 border-gray-900 rounded-lg border border-4">
+        <form action="#" method="post" class="lg:w-3/5 lg:mx-auto p-8 border-gray-900 rounded-lg border border-4">
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
                     <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="email">
@@ -17,6 +17,7 @@
                 <div class="md:w-1/3">
                     <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="password">
                         Mot de passe
+                        <p class="text-gray-500 text-xs mb-2"><a href="#">Mot de passe oublié</a></p>
                     </label>
                 </div>
                 <div class="md:w-2/3">
@@ -26,12 +27,11 @@
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3 text-right">
                     <input class="leading-tight" type="checkbox">
-                    <label class=" font-bold md:text-left md:mb-0 pr-8" for="inline-password">
+                    <label class="font-bold md:text-left md:mb-0 pr-8" for="inline-password">
                         Se souvenir de moi
                     </label>
                 </div>
             </div>
-            <p class="text-gray-500 text-xs italic mb-2"><a href="#">Mot de passe oublié</a></p>
             <div class="md:flex md:items-center">
                 <div class="md:w-2/3">
                     <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
