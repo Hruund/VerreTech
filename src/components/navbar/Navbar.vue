@@ -14,9 +14,9 @@
           <div class="flex-shrink-0 flex float-left">
             <router-link to="/"><img class="mx-6 h-5 md:h-8 w-auto lg:block" src="https://i.imgur.com/imy5E5o.png" alt="Workflow" /></router-link>
           </div>
-          <div class="hidden sm:block sm:ml-6">
+          <div class="hidden sm:block sm:ml-6 w-full">
             <div class="flex space-x-4">
-              <div class="relative mx-auto text-gray-600">
+              <div class="relative text-gray-600">
                 <input class="mx-6 border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                   type="search" name="search" placeholder="Rechercher un produit">
                 <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
@@ -29,11 +29,11 @@
                   </svg>
                 </button>
               </div>
+              <a v-for="item in navigation" :key="item.name" v-on:click="navTabSelected = item.name;" :href="item.href" :class="[item.name == navTabSelected ? 'bg-gray-900 text-white' : 'text-gray-700 font-bold hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.name == navTabSelected ? 'page' : undefined">{{ item.name }}</a>
             </div>
           </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <a v-for="item in navigation" :key="item.name" v-on:click="navTabSelected = item.name;" :href="item.href" :class="[item.name == navTabSelected ? 'invisible md:visible bg-gray-900 text-white' : 'invisible md:visible text-gray-700 font-bold hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.name == navTabSelected ? 'page' : undefined">{{ item.name }}</a>
           <!-- Panier -->
           <Menu as="div" class="ml-3 relative">
             <div>
