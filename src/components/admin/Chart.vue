@@ -17,7 +17,7 @@
 
 <script>
 import Chart from 'chart.js'
-import {currentYearOrdersData, currentMonthViewsData} from '../../chart-data.js'
+import {currentYearOrdersData, currentMonthViewsData} from '../../../chart-data.js'
 
 export default {
   name: 'Chart',
