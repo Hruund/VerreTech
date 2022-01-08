@@ -30,7 +30,7 @@
                   </svg>
                 </button>
               </div>
-              <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-700 font-bold hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+              <a v-for="item in navigation" :key="item.name" v-on:click="navTabSelected = item.name;" :href="item.href" :class="[item.name == navTabSelected ? 'bg-gray-900 text-white' : 'text-gray-700 font-bold hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.name == navTabSelected ? 'page' : undefined">{{ item.name }}</a>
             </div>
           </div>
         </div>
@@ -163,7 +163,8 @@ export default {
           categorie: 'Crédence',
         }
       ],
-      cartIsReady : false
+      cartIsReady : false,
+      navTabSelected: 'Paroi de douche'
     }
   },
   mounted(){

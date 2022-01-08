@@ -10,7 +10,7 @@
         <p>Prix total: {{ cost }}€.</p>
         <h3 class="mt-12 mb-4 font-semi-bold text-2xl text-gray-900">Articles</h3>
     </div>
-    <div class="flex-grow grid grid-flow-col justify-items-center mx-12">
+    <div class="flex-grow grid grid-flow-col justify-items-center mx-12 md:w-1/2 container mx-auto">
         <div v-for="product in products" :key="product" class="text-gray-900 justify-items-center">
             <router-link :to="`/ficheProduit`">
                 <!--<img v-if="product.img" :src="product.img" class="w-full">-->

@@ -13,9 +13,6 @@
         <div class="h-full w-3/12 text-center text-white flex flex-col justify-center">
           <router-link to="/fr-fr/charte-d-utilisation-des-cookies"> Cookies </router-link>
         </div>
-        <div class="h-full w-3/12 text-center text-white flex flex-col justify-center">
-          <router-link to="/#about"> A propos </router-link>
-        </div>
       </div>
   </footer>
 </template>
