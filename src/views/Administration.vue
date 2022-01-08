@@ -1,8 +1,9 @@
 <template>
-    <div class="bg-center">
+    <div class="w-screen">
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Administration</h2>
-        <Chart/>
-        
+        <div class="w-1/2 container mx-auto">
+          <Chart/>
+        </div>
     </div>
 </template>
 
