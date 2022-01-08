@@ -50,7 +50,7 @@
             </div>
             <div class="font-bold mt-6">Boutiques Verre Tech proposant de retirer cet article :</div>
 
-            <div class="flex w-full place-content-center mt-3">
+            <div class="md:flex w-full place-content-center mt-3">
                 <label class="inline-flex items-center mr-6">
                     <input type="checkbox" class="form-checkbox h-5 w-5 text-gray-600" checked><span class="ml-2 text-gray-700">Lille</span>
                 </label>
