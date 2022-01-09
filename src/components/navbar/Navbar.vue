@@ -82,16 +82,24 @@
             <div>
               <MenuButton class="bg-gray-900 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                 <span class="sr-only">Open user menu</span>
-                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                <img class="h-8 w-8 rounded-full" :src="(userIsConnected)?'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80':'https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1606/tuktukdesign160600119/59070200-user-icon-man-profil-homme-d-affaires-avatar-personne-ic%C3%B4ne-illustration-vectorielle.jpg?ver=6'" alt="" />
               </MenuButton>
             </div>
             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-              <MenuItems class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <MenuItems v-if="userIsConnected" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
                   <router-link to="/userspace"><p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Espace membre</p></router-link>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                  <a href="#" v-on:click="navTabSelected = 'Accueil';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Déconnexion</a>
+                  <a href="#" v-on:click="navTabSelected = 'Accueil';disconnectedUser()" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Déconnexion</a>
+                </MenuItem>
+              </MenuItems>
+              <MenuItems v-else class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <MenuItem v-slot="{ active }">
+                  <p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Vous n'êtes pas connecté</p>
+                </MenuItem>
+                <MenuItem v-slot="{ active }">
+                  <router-link to="/login"><p :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Connexion/inscription</p></router-link>
                 </MenuItem>
               </MenuItems>
             </transition>
@@ -110,6 +118,7 @@
 
 
 <script>
+// const axios = require('axios');
 import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
@@ -152,11 +161,58 @@ export default {
         }
       ],
       cartIsReady : false,
-      navTabSelected: 'Accueil'
+      navTabSelected: 'Accueil',
+      userIsConnected: false,
     }
   },
   mounted(){
+    document.addEventListener("userLoggedIn",this.updateNavbar);
     this.cartIsReady = true;
+    this.updateNavbar();
+  },
+  methods:{
+    disconnectedUser(){
+      this.userIsConnected = false;
+      var allCookies = document.cookie.split(';');
+      // The "expire" attribute of every cookie is 
+      // Set to "Thu, 01 Jan 1970 00:00:00 GMT"
+      for (var i = 0; i < allCookies.length; i++)
+          document.cookie = allCookies[i] + "=;expires="
+          + new Date(0).toUTCString();    
+    },
+    updateNavbar(){
+      if(this.checkIfuserIsConnected()){
+        this.userIsConnected = true;
+      }else{
+        this.userIsConnected = false;
+      }
+    },
+    checkIfuserIsConnected(){
+      try{
+        if(document.cookie.length > 0){
+          const cookies = document.cookie.split(';');
+          let actualCookies = {};
+          for(let i = 0; i < cookies.length; i++){
+            let cookiename = cookies[i].split('=')[0];
+            let cookievalue = cookies[i].split('=')[1];
+            actualCookies[cookiename.trim()] = cookievalue;
+          }
+          //test if access_token, id and username exist and is not null
+          if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+            return true;
+          }else{
+            return false;
+          }
+        }else{
+          return false;
+        }
+      }catch(err){
+        return false;
+      }
+    },
+  },
+  beforeUnmount(){
+    document.removeEventListener("userLoggedIn",this.updateNavbar);
   },
   setup() {
     const open = ref(false)
