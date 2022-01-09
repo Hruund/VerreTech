@@ -1,13 +1,15 @@
 <template>
-    <div class="flex justify-center items-center w-full">
-        <div class="bg-white shadow-md h-64 mx-3 rounded-3xl flex flex-col justify-around items-center overflow-hidden sm:flex-row sm:h-52 sm:w-3/5 md:w-96">
-            <img class="h-64 lg:h-auto lg:w-64 object-cover" :src="imageLink.default" alt="image" ref="image"/>
+    <div class="mx-auto flex mb-10 my-1 px-1 md:w-1/2">
+        <div class="px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl flex flex-col sm:flex-row md:w-96 place-content-center">
+            <div class="lg:w-1/4 mr-6 lg:my-auto">
+                <img class="rounded-3xl lg:h-auto lg:w-64" :src="imageLink.default" alt="image" ref="image"/>
+            </div>
             <div class="flex-1 w-full flex flex-col items-baseline justify-around h-1/2 pl-6 sm:h-full sm:items-baseline sm:w-1/2">
-                <div class="w-full flex justify-between items-center">
+                <div class="w-3/4 text-left">
                     <h1 class="text-lg font-normal text-gray-600 font-sans">
                         {{name}}
                     </h1>
-                    <h1 class="font-bold text-gray-900 mr-8">{{price}}€</h1>
+                    <h1 class="font-bold text-gray-900 mr-8">{{price}} €</h1>
                 </div>
                 <p class="text-gray-600">{{categorie}}</p>
                 <div class="w-full flex justify-between items-center">
