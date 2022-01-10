@@ -13,7 +13,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="lastname" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="lastname" type="text">
+                            <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required v-model="lastname" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="lastname" type="text">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -23,7 +23,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="firstname" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="firstname" type="text">
+                            <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required v-model="firstname" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="firstname" type="text">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -33,7 +33,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="email" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="email" type="email" placeholder="email@namespace.com">
+                            <input required v-model="email" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="email" type="email" placeholder="email@namespace.com">
                         </div>
                     </div>
                     <h2 class="font-bold text-xl pb-4">Sécuriser mon compte</h2>
@@ -44,7 +44,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="password" type="password" placeholder="******************">
+                            <input required v-model="password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="password" type="password" placeholder="******************">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -54,7 +54,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="repassword" type="password" placeholder="******************">
+                            <input required class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="repassword" type="password" placeholder="******************">
                         </div>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="address" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="address" type="text">
+                            <input required v-model="address" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="address" type="text">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -77,7 +77,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="addressCP" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="addressCP" type="text">
+                            <input onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="5" required v-model="addressCP" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="addressCP" type="text">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -87,7 +87,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="city" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="city" type="text">
+                            <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required v-model="city" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="city" type="text">
                         </div>
                     </div>
                     <div class="md:flex md:items-center mb-6">
@@ -97,7 +97,7 @@
                             </label>
                         </div>
                         <div class="md:w-2/3">
-                            <input v-model="number" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="number" type="text">
+                            <input onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10" required v-model="number" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="number" type="text">
                         </div>
                     </div>
                     <div class="md:w-1/3 text-right">

@@ -1,6 +1,6 @@
 <template>
  <div class="col-span-1 lg:col-span-6">
-  <h4 class="text-3xl text-gray-700 mb-5">Méthode de paiement</h4>
+  <h4 class="text-4xl font-bold text-gray-700 mb-5">Méthode de paiement</h4>
   <div class="p-10 rounded-md shadow-md bg-white">
    <div class="mb-6">
     <label class="block mb-3 text-gray-600 font-bold" for="">Nom figurant sur la carte</label>

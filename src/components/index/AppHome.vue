@@ -6,14 +6,14 @@
 		<div id="home" class="text-gray-900 lg:text-4xl font-bold mb-4 mt-24 md:text-xs">
             VerreTech vous accompagne dans toutes vos démarches de construction et de pose !
         </div>
-		<div id="home" class="container mx-auto">
+		<div id="home" class="container mx-auto w-full">
 			<div class="my-12 px-4 md:px-12">
 				<h1 class="text-left text-gray-900 text-4xl font-bold">Produits vedettes</h1>
 
 				<div class="flex flex-wrap -mx-1 lg:-mx-4">
 					<!-- <h1>{{ titre1 }}</h1> En attendant d'utiliser les props-->
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/paroi_douche/paroidouche8.jpeg">
 						<div class="items-center justify-between leading-tight p-2 md:p-4">
 							<router-link to="/products" class="underline"> Paroi de douche </router-link>	
 						</div>
@@ -27,28 +27,28 @@
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/insert_cheminée/insert2.jpg">
 						<div class="items-center justify-between leading-tight p-2 md:p-4">
 							<router-link to="/products" class="underline"> Insert Cheminée </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/miroirs/miroir2.jpeg">
 						<div class=" items-center justify-between leading-tight p-2 md:p-4">
 							<router-link to="/products" class="underline"> Miroirs </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/crédence/crédence6.jpg">
 						<div class=" items-center justify-between leading-tight p-2 md:p-4">
 							<router-link to="/products" class="underline"> Crédence de cuisine </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/verredecoratif/verredecoratif.jpg">
 						<div class=" items-center justify-between leading-tight p-2 md:p-4">
 							<router-link to="/products" class="underline"> Verre décoratif </router-link>
 						</div>
@@ -65,11 +65,11 @@
 						<router-link to="/ficheProduit" class="underline"> Arbor </router-link>
 					</div>					
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/miroirs/miroir2.jpeg">
 						<router-link to="/ficheProduit" class="underline"> Echo </router-link>
 					</div>					
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
+						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/verredecoratif/verredecoratif.jpg">
 						<router-link to="/ficheProduit" class="underline"> Filae </router-link>
 					</div>
 				</div>

@@ -22,20 +22,20 @@ export default {
     return {
       items: [
         {
-          title: "Article 1",
-          description: "lorem impsu liwe",
+          title: "Paroi de douche Arbor",
+          description: "Superbe vitre",
           price: 550,
           img: "https://picsum.photos/seed/picsum/200/300"
         },
         {
-          title: "Article 2",
-          description: "lorem impsu liwe",
+          title: "Crédence de cuisine",
+          description: "Opaque",
           price: 250,
           img: "https://picsum.photos/seed/picsum/200/300"
         },
         {
-          title: "Article 3",
-          description: "lorem impsu liwe",
+          title: "Cloison",
+          description: "Laisse passer la lumière",
           price: 150,
           img: "https://picsum.photos/seed/picsum/200/300"
         }

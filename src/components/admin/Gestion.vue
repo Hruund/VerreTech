@@ -1,6 +1,6 @@
 <template>
   <div class="mb-10">
-    <div class="">
+    <div class="space-y-2">
 
         <div>
             <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Ajouter un article</h2>
@@ -8,11 +8,18 @@
 
         <form class="container mx-auto mb-12">
             <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
+                <div class="w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="article-name">
                     Nom de l'article
                     </label>
                     <input v-model="article_name" class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="article-name" type="text" placeholder="Parroi de douche">
+                </div>
+
+                <div class="w-1/2 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="article-name">
+                    Image
+                    </label>
+                    <input type="file" accept="image/*" @change="uploadImage($event)" id="file-input">
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -84,6 +91,28 @@
                 Valider
             </button>
         </form>
+
+        <div>
+            <h2 class="mt-24 mb-4 font-semi-bold text-3xl text-gray-900">Modifier ou supprimer des articles</h2>
+        </div>
+
+        <div class="w-full flex text-xl items-center md:space-x-10" v-for="product in products" :key="product">
+            <!--<img :src="product.img" PK CA MARCHE PAS CTE MERDE alt="product" ref="image" class="rounded-xl" />-->
+            <img src="../../assets/produits/miroirs/miroir1.jpeg" alt="product" ref="image" class="rounded-xl w-16 h-16" />
+            <p>{{ product.name }}</p>
+
+            <div class="flex space-x-2">
+                <router-link :to="`/admin/${product.id}`" >
+                    <button class="bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded">
+                        Modifier
+                    </button>
+                </router-link>
+
+                <button class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded">
+                    Supprimer
+                </button>
+            </div>
+        </div>
     </div>
     <table class="container mx-auto">
         <tr>

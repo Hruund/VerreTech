@@ -86,14 +86,22 @@
               </MenuButton>
             </div>
             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+              <!-- L'utilisateur est connecté -->
               <MenuItems v-if="userIsConnected" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <!-- Accès à son espace personnel -->
                 <MenuItem v-slot="{ active }">
                   <router-link to="/userspace"><p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Espace membre</p></router-link>
                 </MenuItem>
+                <!-- Accès à l'espace administration -->
+                <MenuItem v-slot="{ active }">
+                  <router-link to="/administration"><p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Administration</p></router-link>
+                </MenuItem>
+                <!-- Déconnexion de l'utilisateur -->
                 <MenuItem v-slot="{ active }">
                   <a href="#" v-on:click="navTabSelected = 'Accueil';disconnectedUser()" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Déconnexion</a>
                 </MenuItem>
               </MenuItems>
+              <!-- L'utilisateur est déconnecté -->
               <MenuItems v-else class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
                   <p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Vous n'êtes pas connecté</p>
@@ -125,10 +133,10 @@ import { MenuIcon, XIcon } from '@heroicons/vue/outline'
 
 import ProductCartMini from "../cart/product_cart_mini.vue";
 
+// Boutons disponibles lorsque l'utilisateur n'est pas connecté
 const navigation = [
   { name: 'Accueil', href: '#/', current: true },
   { name: 'Catalogue', href: '#/products', current: false },
-  { name: 'Administration', href: '#/administration', current: false },
 ]
 
 export default {

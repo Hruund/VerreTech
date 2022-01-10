@@ -1,6 +1,6 @@
 <template>
     <div class="bg-center">
-        <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Espace membre</h2>
+        <h2 class="mt-4 mb-4 font-bold text-4xl text-gray-900">Espace membre</h2>
     </div>
 
     <div v-if="canBeDisplay" class="md:flex md:items-start md:place-content-center">
