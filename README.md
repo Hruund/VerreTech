@@ -1,4 +1,26 @@
-# verretech
+# Site E-commerce Verre Tech
+
+## Présentation projet
+
+**Auteurs:**
+-
+* Vasselin William
+
+* Chognot Ambre
+
+* Hirsh Claude
+
+* Victorion Lucas
+
+
+**Fonctionnalités:**
+-
+* Inscription / Connexion / Déconnexion
+* Interface utilisateur
+* Visualisation de produit
+* Ajout de produit
+* Ajout de produit au panier
+* Consultation de graphiques (administration)
 
 ## Project setup
 ```
