@@ -33,10 +33,10 @@ export default {
     },
     methods:{
         clickOnEditItem(){
-
+            this.$router.push(`/admin/${this.id}`);
         },
         clickOnDeleteItem(){
-            axios.delete(`http://127.0.0.1:3000/api/products/${this.id}`)
+            axios.delete(`http://127.0.0.1:3000/api/product/${this.id}`)
             .then(response => {
                 console.log(response);
                 this.$emit('deleteItem',this.id);

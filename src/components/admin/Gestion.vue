@@ -19,7 +19,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="article-name">
                     Image
                     </label>
-                    <input type="file" accept="image/*" @change="uploadImage($event)" id="file-input">
+                    <input v-model="article_imageLink" class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="article-image" type="text" placeholder="https://superbeImage.fr">
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -109,7 +109,8 @@
             v-for="product in products" 
             :key="product.id" 
             :name="product.name" 
-            :description="product.feature" 
+            :description="product.feature"
+            :image="product.image" 
             :price="product.price" 
             :category="product.id_categorie" 
             :id="product.id"
@@ -135,6 +136,7 @@
                 article_price:'',
                 article_categorie:'',
                 article_id:'',
+                article_imageLink:'',
             }
         },
         mounted(){
@@ -153,7 +155,7 @@
             },
             addArticle(){
                 //test every field and send to axios post request
-                if(this.article_name == '' || this.article_desc == '' || this.article_price == '' || this.article_categorie == ''){
+                if(this.article_name == '' || this.article_desc == '' || this.article_price == '' || this.article_categorie == '' || this.article_imageLink == ''){
                     alert('Veuillez remplir tous les champs')
                 }else{
                     const objectToSend = {
@@ -161,6 +163,7 @@
                         feature:this.article_desc,
                         price:this.article_price,
                         id_categorie:this.article_categorie,
+                        image:this.article_imageLink
                     }
                     axios.post('http://127.0.0.1:3000/api/addProduct', null,  { params : objectToSend})
                     .then(response => {
