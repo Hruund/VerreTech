@@ -125,6 +125,7 @@
 </template>
 
 <script>
+const axios = require('axios');
 export default {
     data() {
         return {
@@ -142,18 +143,49 @@ export default {
     },
     methods: {
          async register() {
-            this.error = null;
-        try {
-            this.$axios.setToken(false);
-            await this.$axios.post("auth/local/register", {
-                email: this.email,
-                password: this.password,
-            });
-            this.success = `Inscription réussie !`;
-        }   catch (e) {
-                this.error = e.response.data.message[0].messages[0].message;
-            }
+             if( this.lastname == "" || this.firstname == "" || this.email == "" || this.password == "" || this.address == "" || this.addressCP == "" || this.city == "" || this.number == ""){
+                    this.error = "Veuillez remplir tous les champs";
+                    this.success = null;
+            }else{
+                try {
+                    const objectToSend = {
+                        lastname: this.lastname,
+                        firstname: this.firstname,
+                        email: this.email,
+                        password: this.password,
+                        address: this.address,
+                        addressCP: this.addressCP,
+                        city: this.city,
+                        number: this.number,
+                    }
+                    const response = await axios.post('http://127.0.0.1:3000/api/register', null, { params : objectToSend });
+                    if(response.data.message != "success"){
+                        this.success = null;
+                        this.error = response.data.message;
+                        this.clearInput();
+                        alert(this.error);
+                    }else{
+                        this.success = response.data.message;
+                        this.error = null;
+                    }
+                } catch (error) {
+                    this.error = error.response.data.message;
+                    this.success = null;
+                    this.clearInput();
+                    alert(this.error);
+                }
+             }
         },
+        clearInput(){
+            this.lastname = "";
+            this.firstname = "";
+            this.email = "";
+            this.password = "";
+            this.address = "";
+            this.addressCP = "";
+            this.city = "";
+            this.number = "";
+        }
     },
 };
 </script>
