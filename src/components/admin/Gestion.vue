@@ -95,24 +95,6 @@
         <div>
             <h2 class="mt-24 mb-4 font-semi-bold text-3xl text-gray-900">Modifier ou supprimer des articles</h2>
         </div>
-
-        <div class="w-full flex text-xl items-center md:space-x-10" v-for="product in products" :key="product">
-            <!--<img :src="product.img" PK CA MARCHE PAS CTE MERDE alt="product" ref="image" class="rounded-xl" />-->
-            <img src="../../assets/produits/miroirs/miroir1.jpeg" alt="product" ref="image" class="rounded-xl w-16 h-16" />
-            <p>{{ product.name }}</p>
-
-            <div class="flex space-x-2">
-                <router-link :to="`/admin/${product.id}`" >
-                    <button class="bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded">
-                        Modifier
-                    </button>
-                </router-link>
-
-                <button class="bg-red-700 hover:bg-red-800 text-white py-2 px-4 rounded">
-                    Supprimer
-                </button>
-            </div>
-        </div>
     </div>
     <table class="container mx-auto">
         <tr>
