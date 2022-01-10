@@ -8,6 +8,7 @@ import AppLogin from '../views/Login.vue'
 import AppSignUp from '../views/SignUp.vue'
 import AppCart from '../views/Cart.vue'
 import AppOrderDetails from '../views/order/_id.vue'
+import AppChangeProduct from '../views/admin/_id.vue'
 import AppPaiement from '../views/InformationsPaiement.vue'
 import AppAdmin from '../views/Administration.vue'
 import AppCards from '../views/PaymentForm.vue'
@@ -64,6 +65,11 @@ const routes = [
     path: '/order/:id',
     name: 'Détails de la commande',
     component: AppOrderDetails
+  },
+  {
+    path: '/admin/:id',
+    name: 'Modifier un article',
+    component: AppChangeProduct
   },
   {
     path: '/checkout',

@@ -15,9 +15,11 @@
                             <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Tous les produits </router-link></button></li>
                         </ul>
                     </div>
-                    <button class="py-2 px-4 w-full mt-8 text-lg text-white rounded-lg shadow outline-none bg-gray-900 hover:bg-gray-800 hover:shadow-lg focus:outline-none">
-                        <router-link to="/products"> Retour </router-link>
-                    </button>
+                    <router-link to="/products">
+                        <button class="py-2 px-4 w-full mt-8 text-lg text-white rounded-lg shadow outline-none bg-gray-900 hover:bg-gray-800 hover:shadow-lg focus:outline-none">
+                            Retour
+                        </button>
+                    </router-link>
                 </div>
                 <!-- Card de la fiche Produit -->
                 <div class="mx-auto flex mb-10 my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-2/3">
