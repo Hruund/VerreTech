@@ -8,7 +8,7 @@
 
 * Chognot Ambre
 
-* Hirsh Claude
+* Hirsch Claude
 
 * Victorion Lucas
 
