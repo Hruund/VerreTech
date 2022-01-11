@@ -66,7 +66,7 @@
 <script>
 
 import Product from "./Product.vue";
-const axios = require('axios').default;
+const axios = require('axios');
 
 export default {
      components: {

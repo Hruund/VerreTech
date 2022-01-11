@@ -66,6 +66,8 @@
 </template>
 
 <script>
+const axios = require('axios');
+
 export default {
     data(){
         return{
@@ -90,14 +92,14 @@ export default {
     methods:{
         getInfosProduct(){
             //axios call for getting products list without filter
-            // axios.get('http://127.0.0.1:3000/api/products')
-            //     .then(response => {
-            //         this.productsList = response.data;
-            //         this.readyToDisplay = true;
-            //     })
-            //     .catch(error => {
-            //         console.log(error);
-            //     });
+            axios.get('http://127.0.0.1:3000/api/products')
+                .then(response => {
+                    this.productsList = response.data;
+                    this.readyToDisplay = true;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     }
 }
