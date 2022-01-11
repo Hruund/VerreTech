@@ -23,20 +23,19 @@
                 </div>
                 <!-- Card de la fiche Produit -->
                 <div class="mx-auto flex mb-10 my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-2/3">
-                    <div class="px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl flex flex-col sm:flex-row md:w-96 place-content-center">
+                    <div class="px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl flex flex-col sm:flex-row md:w-96 place-content-center" v-if="readyToDisplay">
                         <div class="lg:w-1/4 mr-6 lg:my-auto">
-                            <img class="rounded-3xl lg:h-auto lg:w-64" src="../assets/produits/miroirs/miroir2.jpeg" alt="image"/>
+                            <img class="rounded-3xl lg:h-auto lg:w-64" :src="image" alt="image"/>
                         </div>
                         <div class="w-3/4 text-left">
                             <h1 class="text-gray-900 font-bold text-xl mb-3 mt-3">
-                                Paroi de douche Arbor
+                                {{ name }}
                             </h1>
-                            <span class="text-gray-900 text-2xl leading-none mr-2">250 €</span><span class="text-gray-600">Taxes incluses</span>
+                            <span class="text-gray-900 text-2xl leading-none mr-2">{{ price }} €</span><span class="text-gray-600">Taxes incluses</span>
                             <p>
                                 <span class="mt-4 font-semibold"> Description : </span>
                                 <br>
-                                La paroi de douche Arbor sera parfaitement étanche pour éviter les projections d'eau tout en sublimant votre salle de bain.
-                                Facile à nettoyer, laissant passer la lumière en apportant confort et modernité à la pièce.
+                                {{ description }}
                             </p>
                             <div class="mt-4">
                                 <span class="text-xl">Quantité : </span>
@@ -65,6 +64,44 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+            name : "Paroi de douche Arbor",
+            image : 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+            price : 250,
+            description : "La paroi de douche Arbor sera parfaitement étanche pour éviter les projections d'eau tout en sublimant votre salle de bain. Facile à nettoyer, laissant passer la lumière en apportant confort et modernité à la pièce.",
+            readyToDisplay : true
+        }
+    },
+    mounted() {
+        this.getInfosProduct();
+    },
+    computed:{
+        productListIsEmpty(){
+            if(typeof this.productsList != "undefined"){
+                return true;
+            }
+            return this.productsList.length === 0;
+        }
+    },
+    methods:{
+        getInfosProduct(){
+            //axios call for getting products list without filter
+            // axios.get('http://127.0.0.1:3000/api/products')
+            //     .then(response => {
+            //         this.productsList = response.data;
+            //         this.readyToDisplay = true;
+            //     })
+            //     .catch(error => {
+            //         console.log(error);
+            //     });
+        }
+    }
+}
+</script>
 
 <style>
 #category_but {
