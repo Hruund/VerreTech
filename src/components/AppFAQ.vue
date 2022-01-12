@@ -36,6 +36,15 @@
             <p>
                 Lorsque vous commandez votre produit sur notre boutique, il vous ai proposé à la fin de la commande, un lieu de retrait, la livraison à domicile n'est pas disponible, une fois votre commande passé et le point de retrait choisis, il vous ait donné une date et une heure à laquelle récupérer la commande passée précédemment. Il ne vous reste plus qu'à venir et repartir avec votre produit.
             </p>
+            
+            <div class="text-left text-gray-900 text-2xl font-bold mt-6">
+                5. Comment utiliser ce site ?
+                <hr style="height: 2px; width: 50%;">
+            </div>
+            <p>
+                Si vous avez quelques difficultés à utiliser notre site e-commerce, nous disposons d'un manuel d'utilisation.
+                Vous pouvez le visualiser en cliquant <a href="https://drive.google.com/file/d/1_gWsEgbwuKlxnOph7xiTa0m4o-yh60kV/view" class="text-red-500" target="_blanck">ici</a>.
+            </p>
         </div>
     </div>
 </template>
