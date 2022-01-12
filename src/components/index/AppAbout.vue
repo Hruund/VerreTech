@@ -1,7 +1,7 @@
 <template>
     <div id="about" class="mx-auto container">
         <div id="home" class="text-gray-900 text-4xl font-bold mb-4 mt-24">
-            Verre Tech, entreprise familiale
+            Verre-Tech, entreprise familiale
         </div>
         <div>
             <img src="../../assets/ville.png">

@@ -1,7 +1,7 @@
 <template>
     <div class="mx-auto container lg:h-screen bg-gray-100 md:h-full p-2">
         <div class="text-gray-900 mx-auto text-4xl font-bold">
-            Charte d'utilisation des cookies chez Verre Tech
+            Charte d'utilisation des cookies chez Verre-Tech
         </div>
 
         <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto lg:block mt-2 lg:mt-0 bg-gray-100 md:bg-transparent z-20" id="nav-content">

@@ -59,15 +59,15 @@
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                La société Verre Tech exploite le site internet <a href="http://www.verretech.com/">http://www.verretech.com/</a>. Toute personne utilisant le Site s'engage à respecter les dispositions suivantes.
+                La société Verre-Tech exploite le site internet <a href="http://www.verretech.com/">http://www.verretech.com/</a>. Toute personne utilisant le Site s'engage à respecter les dispositions suivantes.
             </p>
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
                 2. ACCES AU SITE
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                Le Site est accessible par le biais du réseau Internet. L'utilisateur reconnaît que des aléas techniques indépendants de la volonté de VERRETECH peuvent affecter le réseau Internet et entraîner l’indisponibilité ou le ralentissement du fonctionnement du Site.
-                La responsabilité de VERRETECH ne saurait en aucun cas être engagée à ce titre.
+                Le Site est accessible par le biais du réseau Internet. L'utilisateur reconnaît que des aléas techniques indépendants de la volonté de Verre-Tech peuvent affecter le réseau Internet et entraîner l’indisponibilité ou le ralentissement du fonctionnement du Site.
+                La responsabilité de Verre-Tech ne saurait en aucun cas être engagée à ce titre.
             </p>
             <br>
             <p>
@@ -75,7 +75,7 @@
                 <br>
                 Il appartient à l’Internaute de s’assurer qu’il dispose d’une protection adéquate contre les virus informatiques.
                 <br>
-                L'utilisateur reconnaît que VERRETECH ne saurait être responsable de l’intrusion par des 
+                L'utilisateur reconnaît que Verre-Tech ne saurait être responsable de l’intrusion par des 
                 tiers dans son système informatique et/ou de l’interception par des tiers des transmissions de données effectuées à l’occasion de l’utilisation par l’Internaute du Site.
             </p>
         </div>

@@ -4,7 +4,7 @@
             <img src="../../assets/1.jpg">
         </div>
 		<div id="home" class="text-gray-900 lg:text-4xl font-bold mb-4 mt-24 md:text-xs">
-            VerreTech vous accompagne dans toutes vos démarches de construction et de pose !
+            Verre-Tech vous accompagne dans toutes vos démarches de construction et de pose !
         </div>
 		<div id="home" class="container mx-auto w-full">
 			<div class="my-12 px-4 md:px-12">

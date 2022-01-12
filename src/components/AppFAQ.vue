@@ -18,7 +18,7 @@
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                Lorsque vous récuperez votre commande sur le point de retrait, VerreTech vous demande le niveau de satisfaction du produit. Il est donc impossible de rendre un produit fait sur mesure une fois la commande retirée.
+                Lorsque vous récuperez votre commande sur le point de retrait, Verre-Tech vous demande le niveau de satisfaction du produit. Il est donc impossible de rendre un produit fait sur mesure une fois la commande retirée.
             </p>
 
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">

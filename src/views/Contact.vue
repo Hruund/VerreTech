@@ -26,7 +26,7 @@
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                Pour toutes vos questions ou commentaires concernant la boutique en ligne Verre Tech, veuillez utiliser une de ces options ci-dessous.
+                Pour toutes vos questions ou commentaires concernant la boutique en ligne Verre-Tech, veuillez utiliser une de ces options ci-dessous.
                 <br><br>
                 Par précaution, nous conseillons de ne pas envoyer plusieurs e-mails pour la même requête afin de laissez le temps à nos agents de vous répondre et de vous retourner la réponse la plus optimale.
             </p>

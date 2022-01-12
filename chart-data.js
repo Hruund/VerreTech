@@ -11,7 +11,7 @@ export const currentYearOrdersData = {
         borderWidth: 3
       },
       {
-        label: "Nombre de retraits en boutiques Verre Tech",
+        label: "Nombre de retraits en boutiques Verre-Tech",
         data: [1267, 1234, 1423, 2164, 1693, 1407, 2109, 2389, 2485, 2465, 2801, 2623],
         backgroundColor: "rgba(71, 183,132,.5)",
         borderColor: "#47b784",

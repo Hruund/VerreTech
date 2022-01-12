@@ -55,7 +55,7 @@
                 </div>
             </div>
             </div>
-            <div class="font-bold mt-6">Boutiques Verre Tech proposant de retirer cet article :</div>
+            <div class="font-bold mt-6">Boutiques Verre-Tech proposant de retirer cet article :</div>
 
             <div class="md:flex w-full place-content-center mt-3">
                 <label class="inline-flex items-center mr-6">
