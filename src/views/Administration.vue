@@ -5,11 +5,12 @@
 
     <div class="md:flex md:items-start md:place-content-center">
       <div class="md:w-1/6 border-2 rounded-sm">
-          <div v-for="tab in tabs" :key="tab" >
-              <button class="flex-shrink-0 text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none" :class="tab == selected ? 'bg-gray-900 hover:bg-gray-900 text-white' : 'bg-gray-100'" @click="selected = tab;">
-                  {{ tab }}
-              </button>
-          </div>
+        <!-- Affichage des boutons disponibles pour l'administrateur -->
+        <div v-for="tab in tabs" :key="tab" >
+            <button class="flex-shrink-0 text-base font-semibold py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none" :class="tab == selected ? 'bg-gray-900 hover:bg-gray-900 text-white' : 'bg-gray-100'" @click="selected = tab;">
+                {{ tab }}
+            </button>
+        </div>
       </div>
       
       <component :is="selected" class="md:ml-10 md:w-1/2"></component>

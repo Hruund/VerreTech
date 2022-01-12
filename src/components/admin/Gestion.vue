@@ -5,7 +5,7 @@
         <div>
             <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Ajouter un article</h2>
         </div>
-
+        <!-- Formulaire d'ajout d'un produit -->
         <form class="container mx-auto mb-12">
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-1/2 px-3">
@@ -91,7 +91,7 @@
                 Valider
             </button>
         </form>
-
+        <!-- Affichage du tableau des articles à modifier ou supprimer -->
         <div>
             <h2 class="mt-24 mb-4 font-semi-bold text-3xl text-gray-900">Modifier ou supprimer des articles</h2>
         </div>

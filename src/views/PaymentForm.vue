@@ -1,7 +1,10 @@
 <template>
   <div :class="isCard ? '' : 'lg:h-screen'" class="container mx-auto p-6 grid grid-cols-1 row-gap-12 lg:grid-cols-10 lg:col-gap-10 lg:pt-12">
+    <!-- Affichage du formulaire de paiement -->
     <Payment @handle-card="handleCard" @change-parent="handleAlert" :total="total"></Payment>
+    <!-- Affichage du résumé du panier -->
     <Summary :items="items"></Summary>
+    <!-- Affichage de l'alerte de fin d'achat -->
     <Alert :visible="alertVisible" position="top-right" color="success" title="Succès" description="Votre achat a été correctement effectué ! Retrouvez nous en boutique dans les 2 heures !" />
   </div>
 </template>

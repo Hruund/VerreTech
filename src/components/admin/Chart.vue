@@ -3,7 +3,6 @@
     <div>
         <canvas id="orders-chart"></canvas>
     </div>
-    <!--  Tu dupliques ces div pour autant de graphs-->
     <h1 class="mt-12">Nombre de visites du site sur le mois en cours</h1>
     <div>
         <canvas id="views-chart"></canvas>

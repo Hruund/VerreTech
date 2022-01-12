@@ -42,6 +42,7 @@
                 <i class="fas fa-shopping-cart fa-lg"></i>
               </MenuButton>
             </div>
+            <!-- Affichage du panier -->
             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
               <MenuItems class="origin-top-right absolute right-0 mt-2 w-64 py-1 ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
@@ -77,7 +78,7 @@
             </transition>
           </Menu>
 
-          <!-- Profile dropdown -->
+          <!-- Profile Utilisateur -->
           <Menu as="div" class="ml-3 relative">
             <div>
               <MenuButton class="bg-gray-900 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
@@ -85,8 +86,8 @@
                 <img class="h-8 w-8 rounded-full" :src="(userIsConnected)?'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80':'https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1606/tuktukdesign160600119/59070200-user-icon-man-profil-homme-d-affaires-avatar-personne-ic%C3%B4ne-illustration-vectorielle.jpg?ver=6'" alt="" />
               </MenuButton>
             </div>
+            <!-- L'utilisateur est connecté -->
             <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
-              <!-- L'utilisateur est connecté -->
               <MenuItems v-if="userIsConnected" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <!-- Accès à son espace personnel -->
                 <MenuItem v-slot="{ active }">
@@ -101,8 +102,10 @@
                   <a href="#" v-on:click="navTabSelected = 'Accueil';disconnectedUser()" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Déconnexion</a>
                 </MenuItem>
               </MenuItems>
-              <!-- L'utilisateur est déconnecté -->
-              <MenuItems v-else class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+            </transition>
+            <!-- L'utilisateur est déconnecté -->
+            <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+              <MenuItems v-if="!userIsConnected" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
                   <p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Vous n'êtes pas connecté</p>
                 </MenuItem>
