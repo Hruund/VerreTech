@@ -25,7 +25,7 @@
             <p style="text-align:left; font-weight: bold;">
                 Total du panier
                 <span style="float:right;">
-                    {{totalProduct}}
+                    {{totalProduct}} €
                 </span>
             </p>
             <div class="">
@@ -69,7 +69,11 @@ export default {
             return this.productsList.length === 0;
         },
         totalProduct(){
-          return "mettre la somme des prix";
+            let sum = 0;
+            for (let i = 0; i < this.productsList.length; i++) {
+                sum += (parseFloat(this.productsList[i].price) * parseFloat(this.productsList[i].quantity));
+            }
+            return sum;
         }
     },
     methods:{
