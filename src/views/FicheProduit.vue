@@ -94,6 +94,9 @@ export default {
         }
     },
     methods:{
+        /**
+        * Vérification si l'utilisateur est connecté
+        */
         checkIfuserIsConnected(){
             try{
                 if(document.cookie.length > 0){
@@ -117,6 +120,9 @@ export default {
                 return false;
             }
         },
+        /**
+        * Récupération information de l'article
+        */
         getInfosProduct(){
             let idToUse = useRouter().currentRoute._value.params.id;
             this.id = idToUse;
@@ -130,6 +136,9 @@ export default {
                     console.log(error);
                 });
         },
+        /**
+        * Ajout de l'article au panier
+        */
         addProductToCart(){
             if(this.checkIfuserIsConnected()){
                 if(this.id != null){

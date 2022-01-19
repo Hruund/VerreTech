@@ -351,6 +351,9 @@ export default {
     }
   },
   methods: {
+    /**
+    * Vérification si l'utilisateur est administrateur
+    */
     userIsAdmin() {
       return new Promise((resolve) => {
         if (document.cookie.length > 0) {
@@ -392,6 +395,9 @@ export default {
         }
       });
     },
+    /**
+    * Vérification si l'utilisateur est connecté
+    */
     checkIfuserIsConnected() {
       try {
         if (document.cookie.length > 0) {

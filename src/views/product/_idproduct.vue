@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto">
-        <div class="text-4xl font-bold">Paroi de douche</div>
+        <div class="text-4xl font-bold">Nos produits</div>
         <nav id="filter" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
                 <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
@@ -36,7 +36,7 @@
             </div>
         </nav>
         <div id="cards" class="w-full z-30 top-0 px-6 py-1">
-            <div class="w-full container mx-auto flex flex-wrap items-center justify-between px-12 py-3" v-if="readyToDisplay">
+            <div class="w-full container mx-auto flex flex-wrap items-center px-12 py-3" v-if="readyToDisplay">
                 <Product
                     v-for="product in productsList"
                     :key="product.id"
@@ -47,7 +47,6 @@
                 ></Product>
             </div>
         </div>
-        <div class="text-4xl font-bold">1   2   3</div>
     </div>
 </template>
 <style scoped>
@@ -81,6 +80,9 @@ export default {
         }
     },
     watch: {
+        /**
+        * Affichage des produits suivant le filtre
+        */
         categoriesFilter: function(oldvalue, newvalue){
             if(newvalue == ""){
                 this.getProducts();
@@ -88,6 +90,9 @@ export default {
                 this.getProductsWithCategorieFilter();
             }
         },
+        /**
+        * Filtre par nom
+        */
         nameFilter: function(oldvalue, newvalue){
             if(newvalue == ""){
                 this.getProducts();
@@ -95,6 +100,9 @@ export default {
                 this.getProductsWithNameFilter();
             }
         },
+        /**
+        * Filtre par prix
+        */
         priceFilter: function(oldvalue, newvalue){
             if(newvalue == ""){
                 this.getProducts();
@@ -107,6 +115,9 @@ export default {
         this.categoriesFilter = useRouter().currentRoute._value.params.id;
         this.getProducts();
     },
+    /**
+    * Vérification du panier vide
+    */
     computed:{
         productListIsEmpty(){
             if(typeof this.productsList != "undefined"){
@@ -116,6 +127,9 @@ export default {
         }
     },
     methods:{
+        /**
+        * Récupération produits sans filtre
+        */
         getProductsWithCategorieFilter(){
             if(typeof this.categoriesFilter != "undefined" && this.categoriesFilter != ""){
                 this.readyToDisplay = false;
@@ -129,6 +143,9 @@ export default {
                     });
             }
         },
+        /**
+        * Récupération produits avec filtre sur le nom
+        */
         getProductsWithNameFilter(){
             if(typeof this.nameFilter != "undefined" && this.nameFilter != ""){
                 this.readyToDisplay = false;
@@ -142,6 +159,9 @@ export default {
                     });
             }
         },
+        /**
+        * Récupération produits avec filtre sur le prix
+        */
         getProductsWithPriceFilter(){
             if(typeof this.priceFilter != "undefined" && this.priceFilter != ""){
                 this.readyToDisplay = false;
@@ -155,6 +175,9 @@ export default {
                     });
             }
         },
+        /**
+        * Récupération produits sans filtre par catégorie
+        */
         getProducts(){
             try{
                 let categoriesID = useRouter().currentRoute._value.params.id;

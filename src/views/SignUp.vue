@@ -141,6 +141,9 @@ export default {
             error: null,
         };
     },
+    /**
+    * Inscription de l'utilisateur
+    */
     methods: {
          async register() {
              if( this.lastname == "" || this.firstname == "" || this.email == "" || this.password == "" || this.address == "" || this.addressCP == "" || this.city == "" || this.number == ""){
@@ -176,6 +179,9 @@ export default {
                 }
              }
         },
+        /**
+        * Les entrées utilisateur sont vidées
+        */
         clearInput(){
             this.lastname = "";
             this.firstname = "";

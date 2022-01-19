@@ -77,6 +77,9 @@ export default {
             priceFilter : "",
         }
     },
+    /**
+    * Filtrage des informations à afficher
+    */
     watch: {
         categoriesFilter: function(oldvalue, newvalue){
             if(newvalue == ""){
@@ -112,6 +115,9 @@ export default {
         }
     },
     methods:{
+        /**
+        * Affichage des produits suivant la catégorie choisie
+        */
         getProductsWithCategorieFilter(){
             if(typeof this.categoriesFilter != "undefined" && this.categoriesFilter != ""){
                 this.readyToDisplay = false;
@@ -125,6 +131,9 @@ export default {
                     });
             }
         },
+        /**
+        * Affichage des produits suivant le nom entré
+        */
         getProductsWithNameFilter(){
             if(typeof this.nameFilter != "undefined" && this.nameFilter != ""){
                 this.readyToDisplay = false;
@@ -138,6 +147,9 @@ export default {
                     });
             }
         },
+        /**
+        * Affichage des produits suivant le prix entré
+        */
         getProductsWithPriceFilter(){
             if(typeof this.priceFilter != "undefined" && this.priceFilter != ""){
                 this.readyToDisplay = false;
@@ -151,6 +163,9 @@ export default {
                     });
             }
         },
+        /**
+        * Affichage des produits sans filtre
+        */
         getProducts(){
             //axios call for getting products list without filter
             axios.get('http://127.0.0.1:3000/api/products')

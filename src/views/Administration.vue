@@ -44,6 +44,9 @@ export default {
     }
   },
   methods:{
+    /**
+    * Vérification des droits Admin
+    */
     userIsAdmin() {
       return new Promise((resolve) => {
         if (document.cookie.length > 0) {
@@ -85,6 +88,9 @@ export default {
         }
       });
     },
+    /**
+    * Vérification de la connexion utilisateur
+    */
     checkIfuserIsConnected() {
       try {
         if (document.cookie.length > 0) {

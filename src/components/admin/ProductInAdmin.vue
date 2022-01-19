@@ -32,9 +32,15 @@ export default {
     mounted() {
     },
     methods:{
+        /**
+        * Redirection vers la page de modification d'article
+        */
         clickOnEditItem(){
             this.$router.push(`/admin/${this.id}`);
         },
+        /**
+        * Suppression de l'article de la BDD
+        */
         clickOnDeleteItem(){
             axios.delete(`http://127.0.0.1:3000/api/product/${this.id}`)
             .then(response => {

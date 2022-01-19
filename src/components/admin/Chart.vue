@@ -27,9 +27,6 @@ export default {
     }
   },
   mounted() {
-    // Tu crées autant de ces parties pour chaque graphique, go dans chart-data.js pour alimenter en données
-    // https://www.digitalocean.com/community/tutorials/vuejs-vue-chart-js
-    // https://www.chartjs.org/docs/latest/samples/line/stepped.html
     // Graphes de ventes
     const ctx = document.getElementById('orders-chart');
     new Chart(ctx, this.currentYearOrdersData);
@@ -38,8 +35,6 @@ export default {
     const ctx2 = document.getElementById('views-chart');
     new Chart(ctx2, this.currentMonthViewsData);
 
-    // Sinon tu peux aussi les créer comme ça en direct :
-    // https://stackoverflow.com/questions/53172262/multiple-charts-in-one-page-with-chart-js/53172498
     var ctx3 = document.getElementById("tickets-chart").getContext('2d');
     var data = {
         datasets: [{

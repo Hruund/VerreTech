@@ -35,6 +35,9 @@ export default {
     Commandes
   },
   methods: {
+    /**
+    * Check du token utilisateur pour vérifier s'il est connecté et valide
+    */
     aaa(){
       if(document.cookie.length > 0){
           const cookies = document.cookie.split(';');

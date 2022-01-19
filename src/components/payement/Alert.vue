@@ -55,6 +55,9 @@ export default {
       }
     }
   },
+  /**
+  * Affichage de l'alerte avec ces caractéristiques
+  */
   computed: {
     topRight() {
       return "top-0 right-0 mt-5 mr-5 lg:absolute animate__animated animate__fadeInRight";

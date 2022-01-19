@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto md:h-full bg-gray-100 p-2">
+    <div class="mx-auto container bg-gray-100 h-screen p-2">
         <div class="text-4xl font-bold mb-6">Panier</div>
         <!-- Cards des articles du panier -->
         <ProductCart
@@ -62,12 +62,18 @@ export default {
         this.getProducts();
     },
     computed:{
+        /**
+        * Vérification du panier, vide ou avec articles
+        */
         productListIsEmpty(){
             if(typeof this.productsList != "undefined"){
                 return true;
             }
             return this.productsList.length === 0;
         },
+        /**
+        * Calcul de la somme des articles
+        */
         totalProduct(){
             let sum = 0;
             for (let i = 0; i < this.productsList.length; i++) {
@@ -77,6 +83,9 @@ export default {
         }
     },
     methods:{
+        /**
+        * récupérations des articles du panier
+        */
         getProducts(){
             if(this.checkIfuserIsConnected()){
                 const cookies = document.cookie.split(';');
@@ -100,6 +109,9 @@ export default {
                 alert("Vous devez être connecté pour accéder à votre panier");
             }
         },
+        /**
+        * Suppression d'article du panier
+        */
         deleteProductFromCart(idOfProduct){
              if(this.checkIfuserIsConnected()){
                   const cookies = document.cookie.split(';');
@@ -122,6 +134,9 @@ export default {
              }
             console.log("deleteproductfromcart : "+idOfProduct);
         },
+        /**
+        * Vérification si l'user est connecté
+        */
         checkIfuserIsConnected(){
             try{
                 if(document.cookie.length > 0){

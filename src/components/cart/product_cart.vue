@@ -51,6 +51,9 @@ export default {
             this.$refs.image.src = this.imageLink;
         }
     },
+    /**
+    * Suppression de l'article du panier
+    */
     methods:{
         deleteProductFromCart(){
             this.$emit('deleteProductFromCart', this.id);

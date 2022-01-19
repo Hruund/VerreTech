@@ -62,15 +62,15 @@
 					<!-- <h1>{{ titre2 }}</h1> En attendant d'utiliser les props-->	
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
-						<router-link to="/ficheProduit" class="underline"> Arbor </router-link>
+						<router-link to="/products" class="underline"> Arbor </router-link>
 					</div>					
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/miroirs/miroir2.jpeg">
-						<router-link to="/ficheProduit" class="underline"> Echo </router-link>
+						<router-link to="/products" class="underline"> Echo </router-link>
 					</div>					
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class="rounded-3xl" width="300" height="200" src="../../assets/produits/verredecoratif/verredecoratif.jpg">
-						<router-link to="/ficheProduit" class="underline"> Filae </router-link>
+						<router-link to="/products" class="underline"> Filae </router-link>
 					</div>
 				</div>
 			</div>
