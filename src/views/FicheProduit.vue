@@ -94,27 +94,27 @@ export default {
     },
     methods:{
         checkIfuserIsConnected(){
-        try{
-            if(document.cookie.length > 0){
-                const cookies = document.cookie.split(';');
-                let actualCookies = {};
-                for(let i = 0; i < cookies.length; i++){
-                    let cookiename = cookies[i].split('=')[0];
-                    let cookievalue = cookies[i].split('=')[1];
-                    actualCookies[cookiename.trim()] = cookievalue;
-                }
-                //test if access_token, id and username exist and is not null
-                if(actualCookies.access_token && actualCookies.id && actualCookies.username){
-                    return true;
+            try{
+                if(document.cookie.length > 0){
+                    const cookies = document.cookie.split(';');
+                    let actualCookies = {};
+                    for(let i = 0; i < cookies.length; i++){
+                        let cookiename = cookies[i].split('=')[0];
+                        let cookievalue = cookies[i].split('=')[1];
+                        actualCookies[cookiename.trim()] = cookievalue;
+                    }
+                    //test if access_token, id and username exist and is not null
+                    if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }else{
                     return false;
                 }
-            }else{
+            }catch(err){
                 return false;
             }
-        }catch(err){
-            return false;
-        }
         },
         getInfosProduct(){
             let idToUse = useRouter().currentRoute._value.params.id;
@@ -151,7 +151,7 @@ export default {
                         quantityToUse : quantityToUse,
                         idClient : idClient
                     }
-                    axios.post('http:///127.0.0.1:3000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
+                    axios.post('http://127.0.0.1:3000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
                         .then(response => {
                             console.log(response);
                             alert("Produit ajouté au panier");

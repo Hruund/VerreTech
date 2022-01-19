@@ -96,7 +96,7 @@
                   <router-link to="/userspace"><p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Espace membre</p></router-link>
                 </MenuItem>
                 <!-- Accès à l'espace administration -->
-                <MenuItem v-slot="{ active }">
+                <MenuItem v-if="displayAdminSpace" v-slot="{ active }">
                   <router-link to="/administration"><p v-on:click="navTabSelected = '';" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Administration</p></router-link>
                 </MenuItem>
                 <!-- Déconnexion de l'utilisateur -->
@@ -176,12 +176,19 @@ export default {
       cartIsReady : false,
       navTabSelected: 'Accueil',
       userIsConnected: false,
+      displayAdminSpace : false
     }
   },
-  mounted(){
+  async mounted(){
     document.addEventListener("userLoggedIn",this.updateNavbar);
     this.updateCart();
     this.updateNavbar();
+    if (this.checkIfuserIsConnected()) {
+      let isAdmin = await this.userIsAdmin();
+      if (isAdmin) {
+        this.displayAdminSpace = true;
+      }
+    }
   },
   watch:{
     searchInput(){
@@ -189,6 +196,47 @@ export default {
     }
   },
   methods:{
+    userIsAdmin() {
+      return new Promise((resolve) => {
+        if (document.cookie.length > 0) {
+          const cookies = document.cookie.split(";");
+          let actualCookies = {};
+          for (let i = 0; i < cookies.length; i++) {
+            let cookiename = cookies[i].split("=")[0];
+            let cookievalue = cookies[i].split("=")[1];
+            actualCookies[cookiename.trim()] = cookievalue;
+          }
+          //test if access_token, id and username exist and is not null
+          if (
+            actualCookies.access_token && actualCookies.id && actualCookies.email) {
+            const paramsToUse = {
+              access_token: actualCookies.access_token,
+              id: actualCookies.id,
+              email: actualCookies.email,
+            };
+            axios
+              .post("http://127.0.0.1:3000/api/checkToken_admin/", null, {
+                params: paramsToUse,
+              })
+              .then((response) => {
+                if (response.data.isAdmin == true) {
+                  resolve(true);
+                } else {
+                  resolve(false)
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                resolve(false)
+              });
+          } else {
+            resolve(false)
+          }
+        } else {
+          resolve(false)
+        }
+      });
+    },
     searchProduct(){
       this.searchInput
     },
@@ -223,9 +271,15 @@ export default {
           document.cookie = allCookies[i] + "=;expires="
           + new Date(0).toUTCString();    
     },
-    updateNavbar(){
+    async updateNavbar(){
       if(this.checkIfuserIsConnected()){
         this.userIsConnected = true;
+        let isAdmin = await this.userIsAdmin();
+        if (isAdmin) {
+          this.displayAdminSpace = true;
+        }else{
+          this.displayAdminSpace = false;
+        }
       }else{
         this.userIsConnected = false;
       }

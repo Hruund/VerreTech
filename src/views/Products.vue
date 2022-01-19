@@ -79,7 +79,7 @@ export default {
         }
     },
     watch: {
-              categoriesFilter: function(oldvalue, newvalue){
+        categoriesFilter: function(oldvalue, newvalue){
             if(newvalue == ""){
                 this.getProducts();
             }else if(newvalue != "" && newvalue != null && newvalue != oldvalue){

@@ -3,7 +3,7 @@
         <h2 class="mt-4 mb-4 font-bold text-4xl text-gray-900">Administration</h2>
     </div>
 
-    <div class="md:flex md:items-start md:place-content-center">
+    <div class="md:flex md:items-start md:place-content-center" v-if="canBeDisplay">
       <div class="md:w-1/6 border-2 rounded-sm">
         <!-- Affichage des boutons disponibles pour l'administrateur -->
         <div v-for="tab in tabs" :key="tab" >
@@ -20,16 +20,98 @@
 <script>
 import Statistiques from '../components/admin/Statistiques.vue'
 import Gestion from '../components/admin/Gestion.vue'
+const axios = require('axios');
 export default {
   data: function() {
     return {
       tabs: ["Statistiques", "Gestion"],
-      selected: "Statistiques"
+      selected: "Statistiques",
+      canBeDisplay : false
     };
   },
   components: {
     Statistiques,
     Gestion
+  },
+  async mounted(){
+     if (this.checkIfuserIsConnected()) {
+      let isAdmin = await this.userIsAdmin();
+      if (isAdmin) {
+        this.canBeDisplay = true;
+      } else {
+        alert("Vous n'êtes pas administrateur");
+      }
+    }
+  },
+  methods:{
+    userIsAdmin() {
+      return new Promise((resolve) => {
+        if (document.cookie.length > 0) {
+          const cookies = document.cookie.split(";");
+          let actualCookies = {};
+          for (let i = 0; i < cookies.length; i++) {
+            let cookiename = cookies[i].split("=")[0];
+            let cookievalue = cookies[i].split("=")[1];
+            actualCookies[cookiename.trim()] = cookievalue;
+          }
+          //test if access_token, id and username exist and is not null
+          if (
+            actualCookies.access_token && actualCookies.id && actualCookies.email) {
+            const paramsToUse = {
+              access_token: actualCookies.access_token,
+              id: actualCookies.id,
+              email: actualCookies.email,
+            };
+            axios
+              .post("http://127.0.0.1:3000/api/checkToken_admin/", null, {
+                params: paramsToUse,
+              })
+              .then((response) => {
+                if (response.data.isAdmin == true) {
+                  resolve(true);
+                } else {
+                  resolve(false)
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                resolve(false)
+              });
+          } else {
+            resolve(false)
+          }
+        } else {
+          resolve(false)
+        }
+      });
+    },
+    checkIfuserIsConnected() {
+      try {
+        if (document.cookie.length > 0) {
+          const cookies = document.cookie.split(";");
+          let actualCookies = {};
+          for (let i = 0; i < cookies.length; i++) {
+            let cookiename = cookies[i].split("=")[0];
+            let cookievalue = cookies[i].split("=")[1];
+            actualCookies[cookiename.trim()] = cookievalue;
+          }
+          //test if access_token, id and username exist and is not null
+          if (
+            actualCookies.access_token &&
+            actualCookies.id &&
+            actualCookies.username
+          ) {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return false;
+        }
+      } catch (err) {
+        return false;
+      }
+    },
   }
 };
 </script>
