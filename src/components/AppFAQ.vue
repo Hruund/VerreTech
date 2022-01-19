@@ -10,7 +10,7 @@
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                Oui, vous avez 12h à partir du moment où votre commande a été passée. Envoyez-nous un e-mail et nous annulerons votre commande et effectuerons le remboursement de total de la somme.
+                Oui, vous avez 12h à partir du moment où votre commande a été passée. Envoyez-nous un e-mail et nous annulerons votre commande et effectuerons le remboursement de la somme totale.
             </p>
 
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
@@ -18,7 +18,7 @@
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                Lorsque vous récuperez votre commande sur le point de retrait, Verre-Tech vous demande le niveau de satisfaction du produit. Il est donc impossible de rendre un produit fait sur mesure une fois la commande retirée.
+                Lorsque vous récuperez votre commande en boutique, Verre-Tech vous demande le niveau de satisfaction du produit. Il est donc impossible de rendre un produit fait sur mesure une fois la commande retirée.
             </p>
 
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
@@ -30,11 +30,11 @@
             </p>
 
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
-                4. Comment le réception de la commande se passe t-elle ?
+                4. Comment la réception de la commande se passe t-elle ?
                 <hr style="height: 2px; width: 50%;">
             </div>
             <p>
-                Lorsque vous commandez votre produit sur notre boutique, il vous ai proposé à la fin de la commande, un lieu de retrait, la livraison à domicile n'est pas disponible, une fois votre commande passé et le point de retrait choisis, il vous ait donné une date et une heure à laquelle récupérer la commande passée précédemment. Il ne vous reste plus qu'à venir et repartir avec votre produit.
+                Lorsque vous commandez votre produit sur notre boutique, il vous est proposé de sélectionner une boutique de retrait. La livraison à domicile n'est pas disponible. Une fois votre commande passée et le point de retrait choisi, il vous est donné une date et une heure à laquelle récupérer votre commande.
             </p>
             
             <div class="text-left text-gray-900 text-2xl font-bold mt-6">
