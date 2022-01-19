@@ -1,6 +1,6 @@
 <template>
-    <div class="mx-auto container lg:h-screen bg-gray-100 md:h-full p-2">
-        <div class="text-gray-900 mx-auto text-4xl font-bold">
+    <div id="cookies" class="mx-auto container bg-gray-100 md:h-full p-2">
+        <div class="text-gray-900 text-4xl font-bold">
             Charte d'utilisation des cookies chez Verre-Tech
         </div>
 

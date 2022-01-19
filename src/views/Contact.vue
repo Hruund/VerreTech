@@ -1,5 +1,5 @@
 <template>
-    <div id="contact" class="mx-auto container lg:h-screen bg-gray-100 md:h-full p-2">
+    <div id="contact" class="mx-auto container bg-gray-100 md:h-full p-2">
         <div class="text-gray-900 text-4xl font-bold">
             Contactez-nous !
         </div>
