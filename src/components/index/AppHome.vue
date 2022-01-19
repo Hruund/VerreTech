@@ -15,42 +15,42 @@
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/paroi_douche/paroidouche8.jpeg">
 						<div class="items-center justify-between leading-tight p-2 md:p-4">
-							<router-link to="/products" class="underline"> Paroi de douche </router-link>	
+							<router-link to="/products/1" class="underline"> Paroi de douche </router-link>	
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/cloison/cloison2.jpeg">
 						<div class="items-center justify-between leading-tight p-2 md:p-4">
-							<router-link to="/products" class="underline"> Cloison </router-link>
+							<router-link to="/products/2" class="underline"> Cloison </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/insert_cheminée/insert2.jpg">
 						<div class="items-center justify-between leading-tight p-2 md:p-4">
-							<router-link to="/products" class="underline"> Insert Cheminée </router-link>
+							<router-link to="/products/3" class="underline"> Insert Cheminée </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/miroirs/miroir2.jpeg">
 						<div class=" items-center justify-between leading-tight p-2 md:p-4">
-							<router-link to="/products" class="underline"> Miroirs </router-link>
+							<router-link to="/products/4" class="underline"> Miroirs </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/crédence/crédence6.jpg">
 						<div class=" items-center justify-between leading-tight p-2 md:p-4">
-							<router-link to="/products" class="underline"> Crédence de cuisine </router-link>
+							<router-link to="/products/5" class="underline"> Crédence de cuisine </router-link>
 						</div>
 					</div>
 
 					<div class="my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
 						<img class= "rounded-3xl" width="300" height="200" src="../../assets/produits/verredecoratif/verredecoratif.jpg">
 						<div class=" items-center justify-between leading-tight p-2 md:p-4">
-							<router-link to="/products" class="underline"> Verre décoratif </router-link>
+							<router-link to="/products/6" class="underline"> Verre décoratif </router-link>
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@
         <div class="text-4xl font-bold">Paroi de douche</div>
         <nav id="filter" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
-                                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-nom">
                         Nom
                     </label>
@@ -13,7 +13,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-budget">
                         Budget
                     </label>
-                    <input  v-model="priceFilter" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-budget" type="text" placeholder="250">
+                    <input v-model="priceFilter" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-budget" type="text" placeholder="250">
                 </div>
                 <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-typeVerre">
@@ -61,10 +61,12 @@
 </style>
 <script>
 
-import Product from "./Product.vue";
+import { useRouter } from 'vue-router';
+import Product from "../Product.vue";
 const axios = require('axios');
 
 export default {
+    name: "ProductFromCategories",
      components: {
         Product
      },
@@ -79,7 +81,7 @@ export default {
         }
     },
     watch: {
-              categoriesFilter: function(oldvalue, newvalue){
+        categoriesFilter: function(oldvalue, newvalue){
             if(newvalue == ""){
                 this.getProducts();
             }else if(newvalue != "" && newvalue != null && newvalue != oldvalue){
@@ -102,6 +104,7 @@ export default {
         }
     },
     mounted() {
+        this.categoriesFilter = useRouter().currentRoute._value.params.id;
         this.getProducts();
     },
     computed:{
@@ -153,15 +156,19 @@ export default {
             }
         },
         getProducts(){
-            //axios call for getting products list without filter
-            axios.get('http://127.0.0.1:3000/api/products')
-                .then(response => {
-                    this.productsList = response.data;
-                    this.readyToDisplay = true;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
+            try{
+                let categoriesID = useRouter().currentRoute._value.params.id;
+                axios.get('http://127.0.0.1:3000/api/products/filterCategories/'+categoriesID)
+                    .then(response => {
+                        this.productsList = response.data;
+                        this.readyToDisplay = true;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }catch(err){
+                console.log(err);
+            }
         }
     }
 }

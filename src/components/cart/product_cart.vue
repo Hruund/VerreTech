@@ -47,7 +47,6 @@ export default {
         }
     },
     mounted(){
-        console.log("toto")
         if(this.imageLink != this.imageLink.default){
             this.$refs.image.src = this.imageLink;
         }

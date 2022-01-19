@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import AppIndex from '../views/Index.vue'
 import AppContact from '../views/Contact.vue'
 import AppProduct from '../views/Products.vue'
+import AppProductCategories from '../views/product/_idproduct.vue'
 import AppUserSpace from '../views/UserSpace.vue'
 import AppUnitProduct from '../views/FicheProduit.vue'
 import AppLogin from '../views/Login.vue'
@@ -30,6 +31,11 @@ const routes = [
     path: '/products',
     name: 'Produits',
     component: AppProduct 
+  },
+  {
+    path:'/products/:id',
+    name: 'Produits from categories',
+    component: AppProductCategories
   },
   {
     path: '/ficheProduit/:id',

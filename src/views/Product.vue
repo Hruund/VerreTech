@@ -33,7 +33,6 @@ export default {
         price : {default :'250€'}
     },
     mounted(){
-        console.log("toto")
         if(this.imageLink != this.imageLink.default){
             this.$refs.image.src = this.imageLink;
         }
