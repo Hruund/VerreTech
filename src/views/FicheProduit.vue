@@ -7,11 +7,12 @@
                     <span class="text-xl font-semibold">Catégories</span>
                     <div class="border-2 rounded-sm w-full mt-3 bg-gray-200 text-gray-900 rounded-lg shadow">
                         <ul id="category_but" class="divide-y-2 divide-gray-100">
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Paroi de douche </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Crédence de cuisine </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Cloison </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Insert de cheminée </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Verre décoratif </router-link></button></li>
+                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/1"> Paroi de douche </router-link></button></li>
+                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/5"> Crédence de cuisine </router-link></button></li>
+                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/2"> Cloison </router-link></button></li>
+                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/3"> Insert de cheminée </router-link></button></li>
+                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/6"> Verre décoratif </router-link></button></li>
+                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/4"> Miroirs </router-link></button></li>
                             <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Tous les produits </router-link></button></li>
                         </ul>
                     </div>
@@ -35,7 +36,7 @@
                             <p>
                                 <span class="mt-4 font-semibold"> Description : </span>
                                 <br>
-                                {{ productInfo.description }}
+                                {{ productInfo.feature }}
                             </p>
                             <div class="mt-4">
                                 <span class="text-xl">Quantité : </span>

@@ -61,6 +61,9 @@
             };
         },
         methods:{
+            /**
+            * Connexion de l'utilisateur
+            */
             tryToLogin(){
                 const request = {
                     email: this.email,
