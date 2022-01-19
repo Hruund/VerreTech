@@ -73,7 +73,7 @@ export default {
             for (let i = 0; i < this.productsList.length; i++) {
                 sum += (parseFloat(this.productsList[i].price) * parseFloat(this.productsList[i].quantity));
             }
-            return sum;
+            return sum + 4;
         }
     },
     methods:{
