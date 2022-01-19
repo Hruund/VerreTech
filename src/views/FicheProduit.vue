@@ -25,17 +25,17 @@
                 <div class="mx-auto flex mb-10 my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-2/3">
                     <div class="px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl flex flex-col sm:flex-row md:w-96 place-content-center" v-if="readyToDisplay">
                         <div class="lg:w-1/4 mr-6 lg:my-auto">
-                            <img class="rounded-3xl lg:h-auto lg:w-64" :src="image" alt="image"/>
+                            <img class="rounded-3xl lg:h-auto lg:w-64" :src="productInfo.image" alt="image"/>
                         </div>
                         <div class="w-3/4 text-left">
                             <h1 class="text-gray-900 font-bold text-xl mb-3 mt-3">
-                                {{ name }}
+                                {{ productInfo.name }}
                             </h1>
-                            <span class="text-gray-900 text-2xl leading-none mr-2">{{ price }} €</span><span class="text-gray-600">Taxes incluses</span>
+                            <span class="text-gray-900 text-2xl leading-none mr-2">{{ productInfo.price }} €</span><span class="text-gray-600">Taxes incluses</span>
                             <p>
                                 <span class="mt-4 font-semibold"> Description : </span>
                                 <br>
-                                {{ description }}
+                                {{ productInfo.description }}
                             </p>
                             <div class="mt-4">
                                 <span class="text-xl">Quantité : </span>
@@ -48,7 +48,7 @@
                                 </select>
                             </div>
                             <div class="mx-auto mt-4">
-                                <button id="buttonAdd" class="px-6 py-3 text-lg mr-2 mb-2 text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-gray-900 hover:bg-gray-800 hover:shadow-lg focus:outline-none">
+                                <button id="buttonAdd" @click="addProductToCart" class="px-6 py-3 text-lg mr-2 mb-2 text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-gray-900 hover:bg-gray-800 hover:shadow-lg focus:outline-none">
                                     Ajouter au panier
                                 </button>
 
@@ -67,15 +67,18 @@
 
 <script>
 const axios = require('axios');
+import { useRouter } from 'vue-router';
+
 
 export default {
     data(){
         return{
+            id : null,
             name : "Paroi de douche Arbor",
             image : 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
             price : 250,
             description : "La paroi de douche Arbor sera parfaitement étanche pour éviter les projections d'eau tout en sublimant votre salle de bain. Facile à nettoyer, laissant passer la lumière en apportant confort et modernité à la pièce.",
-            readyToDisplay : true
+            readyToDisplay : false
         }
     },
     mounted() {
@@ -83,23 +86,83 @@ export default {
     },
     computed:{
         productListIsEmpty(){
-            if(typeof this.productsList != "undefined"){
+            if(typeof this.productInfo != "undefined"){
                 return true;
             }
-            return this.productsList.length === 0;
+            return this.productInfo.length === 0;
         }
     },
     methods:{
+        checkIfuserIsConnected(){
+        try{
+            if(document.cookie.length > 0){
+                const cookies = document.cookie.split(';');
+                let actualCookies = {};
+                for(let i = 0; i < cookies.length; i++){
+                    let cookiename = cookies[i].split('=')[0];
+                    let cookievalue = cookies[i].split('=')[1];
+                    actualCookies[cookiename.trim()] = cookievalue;
+                }
+                //test if access_token, id and username exist and is not null
+                if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+                    return true;
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+        }catch(err){
+            return false;
+        }
+        },
         getInfosProduct(){
+            let idToUse = useRouter().currentRoute._value.params.id;
+            this.id = idToUse;
             //axios call for getting products list without filter
-            axios.get('http://127.0.0.1:3000/api/products')
+            axios.get('http://127.0.0.1:3000/api/product/'+idToUse)
                 .then(response => {
-                    this.productsList = response.data;
+                    this.productInfo = response.data;
                     this.readyToDisplay = true;
                 })
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        addProductToCart(){
+            if(this.checkIfuserIsConnected()){
+                if(this.id != null){
+                    let idProduct = this.id;
+                    let quantityToUse = document.querySelector("#quantite").value
+
+                    const cookies = document.cookie.split(';');
+                    let actualCookies = {};
+                    for(let i = 0; i < cookies.length; i++){
+                        let cookiename = cookies[i].split('=')[0];
+                        let cookievalue = cookies[i].split('=')[1];
+                        actualCookies[cookiename.trim()] = cookievalue;
+                    }
+                    let idClient = actualCookies.id;
+                    if(idClient == null || idClient == ""){
+                        return;
+                    }
+                    const paramsToSend = {
+                        idProduct : idProduct,
+                        quantityToUse : quantityToUse,
+                        idClient : idClient
+                    }
+                    axios.post('http:///127.0.0.1:3000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
+                        .then(response => {
+                            console.log(response);
+                            alert("Produit ajouté au panier");
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                }
+            }else{
+                alert("Vous devez être connecté pour ajouter un produit au panier");
+            }
         }
     }
 }

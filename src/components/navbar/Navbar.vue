@@ -59,6 +59,8 @@
                           <ProductCartMini
                               v-for="productcart in productsList"
                               :key="productcart.id"
+                              :id="productcart.id"
+                              :quantity="productcart.quantity"
                               :name="productcart.name"
                               :imageLink="productcart.image"
                               :categorie="productcart.categorie"
@@ -129,7 +131,7 @@
 
 
 <script>
-// const axios = require('axios');
+const axios = require('axios');
 import { ref } from 'vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
@@ -178,10 +180,32 @@ export default {
   },
   mounted(){
     document.addEventListener("userLoggedIn",this.updateNavbar);
-    this.cartIsReady = true;
+    this.updateCart();
     this.updateNavbar();
   },
   methods:{
+    updateCart(){
+      if(this.checkIfuserIsConnected()){
+        const cookies = document.cookie.split(';');
+        let actualCookies = {};
+        for(let i = 0; i < cookies.length; i++){
+          let cookiename = cookies[i].split('=')[0];
+          let cookievalue = cookies[i].split('=')[1];
+          actualCookies[cookiename.trim()] = cookievalue;
+        }
+        let idOfClient = actualCookies.id;
+        if(typeof idOfClient != "undefined" && idOfClient != "" && idOfClient != null ){
+          axios.get('http://127.0.0.1:3000/api/cart/'+idOfClient)
+             .then(response => {
+                        console.log(response);
+                        this.productsList = response.data.products;
+                        this.cartIsReady = true;
+                    })
+        } 
+      }else{
+        this.cartIsReady = false;
+      }
+    },
     disconnectedUser(){
       this.userIsConnected = false;
       var allCookies = document.cookie.split(';');

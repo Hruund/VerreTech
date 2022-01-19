@@ -14,12 +14,13 @@
 export default {
     name: "ProductCartMini",
     props:{
+        id : {default :'1'},
+        quantity : {default :'1'},
         imageLink : {default :'../../assets/produits/miroirs/miroir2.jpeg'},
         name : {default :'Paroi de douche Arbor'},
         categorie : {default :'Paroi de douche'}
     },
     mounted(){
-        console.log("toto")
         if(this.imageLink != this.imageLink.default){
             this.$refs.image.src = this.imageLink;
         }

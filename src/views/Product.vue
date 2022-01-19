@@ -8,7 +8,7 @@
             <div class="px-6 pt-4 pb-2">
                 <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2">{{price}}€</span>
                 <button class="bg-gray-400 hover:bg-gray-600 text-xs text-white font-bold py-2 px-4 rounded">
-                    <router-link to="/ficheProduit"> Consulter l'article </router-link>
+                    <router-link :to="'/ficheProduit/'+id"> Consulter l'article </router-link>
                 </button>
             </div>
         </div>
@@ -27,6 +27,7 @@
 export default {
     name: "Product",
     props:{
+        id : {default :'1'},
         imageLink : {default :'../assets/produits/miroirs/miroir2.jpeg'},
         name : {default :'Paroi de douche Arbor'},
         price : {default :'250€'}

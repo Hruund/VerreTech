@@ -45,6 +45,7 @@
                 <Product
                     v-for="product in productsList"
                     :key="product.id"
+                    :id="product.id"
                     :name="product.name"
                     :imageLink="product.image"
                     :price="product.price"
@@ -75,60 +76,6 @@ export default {
     data(){
         return{
             productsList: [
-                {
-                    id : 1,
-                    name : "Paroi de douche Arbor",
-                    image : 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-                    price : 250,
-                },
-                {
-                    id : 2,
-                    name : "Paroi de douche Lima",
-                    image : 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-                    price : 280,
-                },
-                {
-                    id : 3,
-                    name : "Paroi de douche Lima",
-                    image : 'https://images.unsplash.com/photo-1629079447777-1e605162dc8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80',
-                    price : 280,
-                },
-                {
-                    id : 4,
-                    name : "Paroi de douche Venuse",
-                    image : 'https://images.unsplash.com/photo-1631067128367-12993e709b3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1229&q=80',
-                    price : 280,
-                },
-                {
-                    id : 5,
-                    name : "Paroi de douche Mila",
-                    image : 'https://images.unsplash.com/photo-1631067128367-12993e709b3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1229&q=80',
-                    price : 280,
-                },
-                {
-                    id : 6,
-                    name : "Paroi de douche Pero",
-                    image : 'https://images.unsplash.com/photo-1633425814624-7ae53db7de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-                    price : 220,
-                },
-                {
-                    id : 7,
-                    name : "Paroi de douche Lida",
-                    image : 'https://images.unsplash.com/photo-1633425814624-7ae53db7de88?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-                    price : 180,
-                },
-                {
-                    id : 8,
-                    name : "Paroi de douche Maya",
-                    image : 'https://images.unsplash.com/photo-1629079447777-1e605162dc8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80',
-                    price : 505,
-                },
-                {
-                    id : 9,
-                    name : "Paroi de douche Arturo",
-                    image : 'https://images.unsplash.com/photo-1631067128367-12993e709b3d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1229&q=80',
-                    price : 380,
-                }
             ],
             readyToDisplay : false
         }

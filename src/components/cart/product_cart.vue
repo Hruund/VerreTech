@@ -9,13 +9,13 @@
                     <h1 class="text-lg font-normal text-gray-600 font-sans">
                         {{name}}
                     </h1>
-                    <h1 class="font-bold text-gray-900 mr-8">{{price}} €</h1>
+                    <h1 class="font-bold text-gray-900 mr-8 price">{{price}} €</h1>
                 </div>
                 <p class="text-gray-600">{{categorie}}</p>
                 <div class="w-full flex justify-between items-center">
                     <div class="text-left mt-4">
                         <span>Quantité : </span>
-                        <select class="bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 w-36 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="quantite">
+                        <select v-model="dataquantity" class="quantity bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 w-36 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="quantite">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -23,7 +23,7 @@
                             <option>5</option>
                         </select>
                     </div>
-                    <button class="mr-8"><i class="fa fa-times text-red-600 fa-2x"></i></button>
+                    <button class="mr-8" @click="deleteProductFromCart"><i class="fa fa-times text-red-600 fa-2x"></i></button>
                 </div>
             </div>
         </div>
@@ -34,15 +34,27 @@
 export default {
     name: "ProductCart",
     props:{
+        id : {default :'1'},
         imageLink : {default :'../../assets/produits/miroirs/miroir2.jpeg'},
         name : {default :'Paroi de douche Arbor'},
         categorie : {default :'Paroi de douche'},
-        price : {default :'250€'}
+        price : {default :'250€'},
+        quantity : {default :'1'}
+    },
+    data(){
+        return {
+            dataquantity : this.quantity
+        }
     },
     mounted(){
         console.log("toto")
         if(this.imageLink != this.imageLink.default){
             this.$refs.image.src = this.imageLink;
+        }
+    },
+    methods:{
+        deleteProductFromCart(){
+            this.$emit('deleteProductFromCart', this.id);
         }
     }
 }

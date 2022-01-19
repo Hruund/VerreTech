@@ -5,10 +5,13 @@
         <ProductCart
             v-for="productcart in productsList"
             :key="productcart.id"
+            :id="productcart.id"
             :name="productcart.name"
             :imageLink="productcart.image"
             :price="productcart.price"
             :categorie="productcart.categorie"
+            :quantity="productcart.quantity"
+            @deleteProductFromCart="deleteProductFromCart"
         ></ProductCart>
         <!-- Résumé du montant à payer -->
         <hr style="height: 2px; width: 50%; background-color: black;" class="border-solid mx-auto mt-8">
@@ -50,20 +53,6 @@ export default {
     data(){
         return{
             productsList: [
-                {
-                    id : 1,
-                    name : "toto",
-                    image : 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-                    price : 250,
-                    categorie : "Paroi de douche"
-                },
-                {
-                    id : 2,
-                    name : "toto",
-                    image : 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-                    price : 250,
-                    categorie : "Paroi de douche"
-                }
             ],
             readyToDisplay : false
         }
@@ -85,17 +74,73 @@ export default {
     },
     methods:{
         getProducts(){
-            //axios call for getting products list without filter
-            axios.get('http://127.0.0.1:3000/api/cart_product')
-                .then(response => {
-                    console.log("aa");
-                    this.productsList = response.data;
-                    this.readyToDisplay = true;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        }
-    }
+            if(this.checkIfuserIsConnected()){
+                const cookies = document.cookie.split(';');
+                let actualCookies = {};
+                for(let i = 0; i < cookies.length; i++){
+                    let cookiename = cookies[i].split('=')[0];
+                    let cookievalue = cookies[i].split('=')[1];
+                    actualCookies[cookiename.trim()] = cookievalue;
+                }
+                let idClient = actualCookies.id;
+                axios.get('http://127.0.0.1:3000/api/cart/'+idClient)
+                    .then(response => {
+                        console.log(response);
+                        this.productsList = response.data.products;
+                        this.readyToDisplay = true;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }else{
+                alert("Vous devez être connecté pour accéder à votre panier");
+            }
+        },
+        deleteProductFromCart(idOfProduct){
+             if(this.checkIfuserIsConnected()){
+                  const cookies = document.cookie.split(';');
+                let actualCookies = {};
+                for(let i = 0; i < cookies.length; i++){
+                    let cookiename = cookies[i].split('=')[0];
+                    let cookievalue = cookies[i].split('=')[1];
+                    actualCookies[cookiename.trim()] = cookievalue;
+                }
+                let idClient = actualCookies.id;
+                let idProduct = idOfProduct;
+                axios.delete(`http://127.0.0.1:3000/api/cart/${idClient}/${idProduct}`)
+                    .then(response => {
+                        console.log(response);
+                        this.getProducts();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+             }
+            console.log("deleteproductfromcart : "+idOfProduct);
+        },
+        checkIfuserIsConnected(){
+            try{
+                if(document.cookie.length > 0){
+                    const cookies = document.cookie.split(';');
+                    let actualCookies = {};
+                    for(let i = 0; i < cookies.length; i++){
+                        let cookiename = cookies[i].split('=')[0];
+                        let cookievalue = cookies[i].split('=')[1];
+                        actualCookies[cookiename.trim()] = cookievalue;
+                    }
+                    //test if access_token, id and username exist and is not null
+                    if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }else{
+                    return false;
+                }
+            }catch(err){
+                return false;
+            }
+        },
+  }
 }
 </script>
