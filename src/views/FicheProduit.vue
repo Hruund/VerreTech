@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto bg-gray-100 p-6 lg:h-screen md:h-full">
+    <div class="container mx-auto bg-gray-100 p-6 md:h-full">
         <div class="text-4xl font-bold mb-6">Fiche produit</div>
         <div class="my-12 px-4 md:px-12">
             <div class="flex items-start place-content-center flex-wrap -mx-1 lg:-mx-4">
