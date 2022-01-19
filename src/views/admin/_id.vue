@@ -127,13 +127,20 @@ export default {
             })
          },
          updateArticle(){
-            axios.put('http://127.0.0.1:3000/api/product/' + this.id, {
+            console.log("updateArticle");
+            console.log(this.article_name);
+            console.log(this.article_imageLink);
+            console.log(this.article_price);
+            console.log(this.article_desc);
+            console.log(this.article_categorie);
+            const paramsToUse = {
                 name: this.article_name,
                 image: this.article_imageLink,
                 price: this.article_price,
                 feature: this.article_desc,
                 id_categorie: this.article_categorie
-            })
+            }
+            axios.put('http://127.0.0.1:3000/api/product/' + this.id, null, { params : paramsToUse})
             .then(response => {
                 console.log(response);
                 this.$router.push('/administration');
