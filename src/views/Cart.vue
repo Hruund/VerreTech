@@ -17,7 +17,7 @@
         <hr style="height: 2px; width: 50%; background-color: black;" class="border-solid mx-auto mt-8">
         <div class="m-10">
             <p style="text-align:left;">
-                Taxes
+                Frais de service
                 <span class="float-right">
                     4€
                 </span>
