@@ -96,7 +96,7 @@ export default {
                     actualCookies[cookiename.trim()] = cookievalue;
                 }
                 let idClient = actualCookies.id;
-                axios.get('http://127.0.0.1:3000/api/cart/'+idClient)
+                axios.get('http://195.110.58.84:7000/api/cart/'+idClient)
                     .then(response => {
                         console.log(response);
                         this.productsList = response.data.products;
@@ -123,7 +123,7 @@ export default {
                 }
                 let idClient = actualCookies.id;
                 let idProduct = idOfProduct;
-                axios.delete(`http://127.0.0.1:3000/api/cart/${idClient}/${idProduct}`)
+                axios.delete(`http://195.110.58.84:7000/api/cart/${idClient}/${idProduct}`)
                     .then(response => {
                         console.log(response);
                         this.getProducts();

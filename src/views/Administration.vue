@@ -66,7 +66,7 @@ export default {
               email: actualCookies.email,
             };
             axios
-              .post("http://127.0.0.1:3000/api/checkToken_admin/", null, {
+              .post("http://195.110.58.84:4000/api/checkToken_admin/", null, {
                 params: paramsToUse,
               })
               .then((response) => {

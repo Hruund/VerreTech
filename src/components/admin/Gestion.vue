@@ -373,7 +373,7 @@ export default {
               email: actualCookies.email,
             };
             axios
-              .post("http://127.0.0.1:3000/api/checkToken_admin/", null, {
+              .post("http://195.110.58.84:4000/api/checkToken_admin/", null, {
                 params: paramsToUse,
               })
               .then((response) => {
@@ -428,7 +428,7 @@ export default {
     getProducts() {
       //axios call for getting products list without filter
       axios
-        .get("http://127.0.0.1:3000/api/products")
+        .get("http://195.110.58.84:5000/api/products")
         .then((response) => {
           this.products = response.data;
         })
@@ -455,7 +455,7 @@ export default {
           image: this.article_imageLink,
         };
         axios
-          .post("http://127.0.0.1:3000/api/addProduct", null, {
+          .post("http://195.110.58.84:5000/api/addProduct", null, {
             params: objectToSend,
           })
           .then((response) => {

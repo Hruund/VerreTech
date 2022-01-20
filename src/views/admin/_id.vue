@@ -114,7 +114,7 @@ export default {
     },
      methods: {
          getArticle(){
-            axios.get('http://127.0.0.1:3000/api/product/' + this.id)
+            axios.get('http://195.110.58.84:5000/api/product/' + this.id)
             .then(response => {
                 this.article_name = response.data.name;
                 this.article_imageLink = response.data.image;
@@ -140,7 +140,7 @@ export default {
                 feature: this.article_desc,
                 id_categorie: this.article_categorie
             }
-            axios.put('http://127.0.0.1:3000/api/product/' + this.id, null, { params : paramsToUse})
+            axios.put('http://195.110.58.84:5000/api/product/' + this.id, null, { params : paramsToUse})
             .then(response => {
                 console.log(response);
                 this.$router.push('/administration');
