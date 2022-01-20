@@ -215,7 +215,7 @@ export default {
               email: actualCookies.email,
             };
             axios
-              .post("http://127.0.0.1:3000/api/checkToken_admin/", null, {
+              .post("http://195.110.58.84:4000/api/checkToken_admin/", null, {
                 params: paramsToUse,
               })
               .then((response) => {
@@ -251,7 +251,7 @@ export default {
         }
         let idOfClient = actualCookies.id;
         if(typeof idOfClient != "undefined" && idOfClient != "" && idOfClient != null ){
-          axios.get('http://127.0.0.1:3000/api/cart/'+idOfClient)
+          axios.get('http://195.110.58.84:7000/api/cart/'+idOfClient)
              .then(response => {
                         console.log(response);
                         this.productsList = response.data.products;

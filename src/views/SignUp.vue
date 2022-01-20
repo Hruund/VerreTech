@@ -161,7 +161,7 @@ export default {
                         city: this.city,
                         number: this.number,
                     }
-                    const response = await axios.post('http://127.0.0.1:3000/api/register', null, { params : objectToSend });
+                    const response = await axios.post('http://195.110.58.84:6000/api/register', null, { params : objectToSend });
                     if(response.data.message != "success"){
                         this.success = null;
                         this.error = response.data.message;

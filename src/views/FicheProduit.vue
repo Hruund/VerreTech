@@ -127,7 +127,7 @@ export default {
             let idToUse = useRouter().currentRoute._value.params.id;
             this.id = idToUse;
             //axios call for getting products list without filter
-            axios.get('http://127.0.0.1:3000/api/product/'+idToUse)
+            axios.get('http://195.110.58.84:5000/api/product/'+idToUse)
                 .then(response => {
                     this.productInfo = response.data;
                     this.readyToDisplay = true;
@@ -161,7 +161,7 @@ export default {
                         quantityToUse : quantityToUse,
                         idClient : idClient
                     }
-                    axios.post('http://127.0.0.1:3000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
+                    axios.post('http://195.110.58.84:7000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
                         .then(response => {
                             console.log(response);
                             alert("Produit ajouté au panier");

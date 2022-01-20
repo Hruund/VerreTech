@@ -48,7 +48,7 @@ export default {
             actualCookies[cookiename.trim()] = cookievalue;
           }
           if(actualCookies.access_token && actualCookies.id && actualCookies.email){
-            axios.post("http://127.0.0.1:3000/api/checkToken", null, {
+            axios.post("http://195.110.58.84:4000/api/checkToken", null, {
               params: {
                 access_token: actualCookies.access_token,
                 id: actualCookies.id,
