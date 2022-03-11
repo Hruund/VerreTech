@@ -107,20 +107,63 @@
 </template>
 
 <script>
-  export default {
-    data() {
-    return{
-        /**
-        * Liste d'adresses Google Maps
-        */
-        listShop: [
-            { address: '23 Rue Bouffard, 33000 Bordeaux', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.1103618453076!2d-0.5821868486748426!3d44.83968578281391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527c32b2508d3%3A0xac7c05a3e443d4e5!2s23%20Rue%20Bouffard%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1634037329491!5m2!1sfr!2sfr'},
-            { address: '23 Rue Bouffard, 54000 Nancy', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.8183355130536!2d6.17225065142327!3d48.689837820411654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47949873fb4e9999%3A0x454ee20d6d28cdb!2sGare%20de%20Nancy-Ville!5e0!3m2!1sfr!2sfr!4v1634046584457!5m2!1sfr!2sfr'},
-            { address: '22 Rue Littré, 59000 Lille', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2531.059618456679!2d3.053687451475348!3d50.626009282479444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d59c79716a15%3A0x22fc6e37f85a5cfd!2s22%20Rue%20Littr%C3%A9%2C%2059000%20Lille!5e0!3m2!1sfr!2sfr!4v1641835655302!5m2!1sfr!2sfr'},
-            { address: '8 Rue Gasparin, 69002 Lyon', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.5715920604207!2d4.831118051347967!3d45.75973392159294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea540de77337%3A0x777286b1d4c697da!2s8%20Rue%20Gasparin%2C%2069002%20Lyon!5e0!3m2!1sfr!2sfr!4v1641835907008!5m2!1sfr!2sfr'},
-        ],
-        maps: null
+    // const axios = require('axios').default;
+    export default {
+        data() {
+            return{
+                /**
+                * Liste d'adresses Google Maps
+                */
+                listShop: [
+                    { address: '23 Rue Bouffard, 33000 Bordeaux', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2829.1103618453076!2d-0.5821868486748426!3d44.83968578281391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527c32b2508d3%3A0xac7c05a3e443d4e5!2s23%20Rue%20Bouffard%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1634037329491!5m2!1sfr!2sfr'},
+                    { address: '23 Rue Bouffard, 54000 Nancy', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2633.8183355130536!2d6.17225065142327!3d48.689837820411654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47949873fb4e9999%3A0x454ee20d6d28cdb!2sGare%20de%20Nancy-Ville!5e0!3m2!1sfr!2sfr!4v1634046584457!5m2!1sfr!2sfr'},
+                    { address: '22 Rue Littré, 59000 Lille', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2531.059618456679!2d3.053687451475348!3d50.626009282479444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d59c79716a15%3A0x22fc6e37f85a5cfd!2s22%20Rue%20Littr%C3%A9%2C%2059000%20Lille!5e0!3m2!1sfr!2sfr!4v1641835655302!5m2!1sfr!2sfr'},
+                    { address: '8 Rue Gasparin, 69002 Lyon', localisation: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.5715920604207!2d4.831118051347967!3d45.75973392159294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea540de77337%3A0x777286b1d4c697da!2s8%20Rue%20Gasparin%2C%2069002%20Lyon!5e0!3m2!1sfr!2sfr!4v1641835907008!5m2!1sfr!2sfr'},
+                ],
+                maps: null
+            }
+        },
+        mounted() {
+            this.goCheckout();
+        },
+        methods:{
+            /**
+            * récupérations des articles du panier
+            */
+            goCheckout(){
+                if (this.checkIfuserIsConnected()) {
+                    this.$router.push({ path: '/checkout'});
+                }
+                else {
+                    alert("Vous devez être connecté pour accéder au formulaire de paiement");
+                }
+            },
+            /**
+            * Vérification si l'user est connecté
+            */
+            checkIfuserIsConnected(){
+                try{
+                    if(document.cookie.length > 0){
+                        const cookies = document.cookie.split(';');
+                        let actualCookies = {};
+                        for(let i = 0; i < cookies.length; i++){
+                            let cookiename = cookies[i].split('=')[0];
+                            let cookievalue = cookies[i].split('=')[1];
+                            actualCookies[cookiename.trim()] = cookievalue;
+                        }
+                        //test if access_token, id and username exist and is not null
+                        if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }else{
+                        return false;
+                    }
+                }catch(err){
+                    return false;
+                }
+            },
+        }
     }
-}
-  }
 </script>
