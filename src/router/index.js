@@ -16,6 +16,8 @@ import AppCards from '../views/PaymentForm.vue'
 import AppMentions from '../views/footer_infos/MentionsLegales.vue'
 import AppCookies from '../views/footer_infos/cookies.vue'
 
+import AppTestPDF from '../components/makePdf/makePdf.vue'
+
 const routes = [
   {
     path: '/',
@@ -96,6 +98,11 @@ const routes = [
     path: '/fr-fr/charte-d-utilisation-des-cookies',
     name: 'Cookies',
     component: AppCookies 
+  },
+  {
+    path: '/pdfGenerator',
+    name: 'PDF',
+    component: AppTestPDF 
   }
 ]
 
