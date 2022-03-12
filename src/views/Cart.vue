@@ -16,12 +16,6 @@
         <!-- Résumé du montant à payer -->
         <hr style="height: 2px; width: 50%; background-color: black;" class="border-solid mx-auto mt-8">
         <div class="m-10">
-            <p style="text-align:left;">
-                Frais de service
-                <span class="float-right">
-                    4€
-                </span>
-            </p>
             <p style="text-align:left; font-weight: bold;">
                 Total du panier
                 <span style="float:right;">
@@ -79,7 +73,7 @@ export default {
             for (let i = 0; i < this.productsList.length; i++) {
                 sum += (parseFloat(this.productsList[i].price) * parseFloat(this.productsList[i].quantity));
             }
-            return sum + 4;
+            return sum;
         }
     },
     methods:{
