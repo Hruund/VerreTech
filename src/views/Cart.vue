@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto container bg-gray-100 p-2">
+    <div class="mx-auto container bg-gray-100 p-2 h-screen">
         <div class="text-4xl font-bold mb-6">Panier</div>
         <!-- Cards des articles du panier -->
         <ProductCart
@@ -23,7 +23,7 @@
                 </span>
             </p>
             <div class="">
-                <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mr-6" type="button">
                     <router-link to="/products"> Continuer mes achats </router-link>
                 </button>
                 <button class="shadow bg-blue-400 hover:bg-blue-200 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
@@ -60,7 +60,7 @@ export default {
         * Vérification du panier, vide ou avec articles
         */
         productListIsEmpty(){
-            if(typeof this.productsList != "undefined"){
+            if (typeof this.productsList != "undefined") {
                 return true;
             }
             return this.productsList.length === 0;
@@ -81,78 +81,46 @@ export default {
         * récupérations des articles du panier
         */
         getProducts(){
-            if(this.checkIfuserIsConnected()){
-                const cookies = document.cookie.split(';');
-                let actualCookies = {};
-                for(let i = 0; i < cookies.length; i++){
-                    let cookiename = cookies[i].split('=')[0];
-                    let cookievalue = cookies[i].split('=')[1];
-                    actualCookies[cookiename.trim()] = cookievalue;
-                }
-                let idClient = actualCookies.id;
-                axios.get('http://195.110.58.84:7000/api/cart/'+idClient)
-                    .then(response => {
-                        console.log(response);
-                        this.productsList = response.data.products;
-                        this.readyToDisplay = true;
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            }else{
-                alert("Vous devez être connecté pour accéder à votre panier");
+            const cookies = document.cookie.split(';');
+            let actualCookies = {};
+            for(let i = 0; i < cookies.length; i++){
+                let cookiename = cookies[i].split('=')[0];
+                let cookievalue = cookies[i].split('=')[1];
+                actualCookies[cookiename.trim()] = cookievalue;
             }
+            let idClient = actualCookies.id;
+            axios.get('http://195.110.58.84:7000/api/cart/'+idClient)
+                .then(response => {
+                    console.log(response);
+                    this.productsList = response.data.products;
+                    this.readyToDisplay = true;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         },
         /**
         * Suppression d'article du panier
         */
         deleteProductFromCart(idOfProduct){
-             if(this.checkIfuserIsConnected()){
-                  const cookies = document.cookie.split(';');
-                let actualCookies = {};
-                for(let i = 0; i < cookies.length; i++){
-                    let cookiename = cookies[i].split('=')[0];
-                    let cookievalue = cookies[i].split('=')[1];
-                    actualCookies[cookiename.trim()] = cookievalue;
-                }
-                let idClient = actualCookies.id;
-                let idProduct = idOfProduct;
-                axios.delete(`http://195.110.58.84:7000/api/cart/${idClient}/${idProduct}`)
-                    .then(response => {
-                        console.log(response);
-                        this.getProducts();
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-             }
-            console.log("deleteproductfromcart : "+idOfProduct);
-        },
-        /**
-        * Vérification si l'user est connecté
-        */
-        checkIfuserIsConnected(){
-            try{
-                if(document.cookie.length > 0){
-                    const cookies = document.cookie.split(';');
-                    let actualCookies = {};
-                    for(let i = 0; i < cookies.length; i++){
-                        let cookiename = cookies[i].split('=')[0];
-                        let cookievalue = cookies[i].split('=')[1];
-                        actualCookies[cookiename.trim()] = cookievalue;
-                    }
-                    //test if access_token, id and username exist and is not null
-                    if(actualCookies.access_token && actualCookies.id && actualCookies.username){
-                        return true;
-                    }else{
-                        return false;
-                    }
-                }else{
-                    return false;
-                }
-            }catch(err){
-                return false;
+            const cookies = document.cookie.split(';');
+            let actualCookies = {};
+            for(let i = 0; i < cookies.length; i++){
+                let cookiename = cookies[i].split('=')[0];
+                let cookievalue = cookies[i].split('=')[1];
+                actualCookies[cookiename.trim()] = cookievalue;
             }
+            let idClient = actualCookies.id;
+            let idProduct = idOfProduct;
+            axios.delete(`http://195.110.58.84:7000/api/cart/${idClient}/${idProduct}`)
+                .then(response => {
+                    console.log(response);
+                    this.getProducts();
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            console.log("deleteproductfromcart : "+idOfProduct);
         },
   }
 }

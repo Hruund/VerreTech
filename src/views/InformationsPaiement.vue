@@ -128,7 +128,7 @@
         },
         methods:{
             /**
-            * récupérations des articles du panier
+            * Récupération des articles du panier
             */
             goCheckout(){
                 if (this.checkIfuserIsConnected()) {
@@ -142,8 +142,8 @@
             * Vérification si l'user est connecté
             */
             checkIfuserIsConnected(){
-                try{
-                    if(document.cookie.length > 0){
+                try {
+                    if (document.cookie.length > 0) {
                         const cookies = document.cookie.split(';');
                         let actualCookies = {};
                         for(let i = 0; i < cookies.length; i++){
@@ -151,16 +151,18 @@
                             let cookievalue = cookies[i].split('=')[1];
                             actualCookies[cookiename.trim()] = cookievalue;
                         }
-                        //test if access_token, id and username exist and is not null
-                        if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+                        // test if access_token, id and username exist and is not null
+                        if (actualCookies.access_token && actualCookies.id && actualCookies.username) {
                             return true;
-                        }else{
+                        }
+                        else {
                             return false;
                         }
-                    }else{
+                    }
+                    else {
                         return false;
                     }
-                }catch(err){
+                } catch(err) {
                     return false;
                 }
             },

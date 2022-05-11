@@ -67,13 +67,16 @@
                           ></ProductCartMini>
                           <hr>
                         </div>
+                        <div class="flex flex-col justify-center p-3" v-else>
+                          Panier vide
+                        </div>
                       </div>
                     </div>
                   </div>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
                 <div :class="[active ? '' : '', 'block px-4 py-2 text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-600']">
-                  <router-link to="/panier"> Visualiser mon panier </router-link>
+                  <router-link to="/panier" v-if="cartIsReady"> Visualiser mon panier </router-link>
                 </div>
                 </MenuItem>
               </MenuItems>
@@ -250,19 +253,19 @@ export default {
           actualCookies[cookiename.trim()] = cookievalue;
         }
         let idOfClient = actualCookies.id;
-        if(typeof idOfClient != "undefined" && idOfClient != "" && idOfClient != null ){
+        if (typeof idOfClient != "undefined" && idOfClient != "" && idOfClient != null ) {
           axios.get('http://195.110.58.84:7000/api/cart/'+idOfClient)
              .then(response => {
-                        console.log(response);
-                        this.productsList = response.data.products;
-                        this.cartIsReady = true;
-                    })
+                  console.log(response);
+                  this.productsList = response.data.products;
+                  this.cartIsReady = true;
+              })
         } 
-      }else{
+      } else {
         this.cartIsReady = false;
       }
     },
-    disconnectedUser(){
+    disconnectedUser() {
       this.userIsConnected = false;
       var allCookies = document.cookie.split(';');
       // The "expire" attribute of every cookie is 
@@ -272,38 +275,38 @@ export default {
           + new Date(0).toUTCString();    
     },
     async updateNavbar(){
-      if(this.checkIfuserIsConnected()){
+      if (this.checkIfuserIsConnected()) {
         this.userIsConnected = true;
         let isAdmin = await this.userIsAdmin();
         if (isAdmin) {
           this.displayAdminSpace = true;
-        }else{
+        } else {
           this.displayAdminSpace = false;
         }
-      }else{
+      } else {
         this.userIsConnected = false;
       }
     },
     checkIfuserIsConnected(){
-      try{
-        if(document.cookie.length > 0){
+      try {
+        if (document.cookie.length > 0) {
           const cookies = document.cookie.split(';');
           let actualCookies = {};
-          for(let i = 0; i < cookies.length; i++){
+          for (let i = 0; i < cookies.length; i++) {
             let cookiename = cookies[i].split('=')[0];
             let cookievalue = cookies[i].split('=')[1];
             actualCookies[cookiename.trim()] = cookievalue;
           }
           //test if access_token, id and username exist and is not null
-          if(actualCookies.access_token && actualCookies.id && actualCookies.username){
+          if (actualCookies.access_token && actualCookies.id && actualCookies.username) {
             return true;
-          }else{
+          } else {
             return false;
           }
-        }else{
+        } else {
           return false;
         }
-      }catch(err){
+      } catch(err) {
         return false;
       }
     },

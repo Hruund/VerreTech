@@ -95,32 +95,6 @@ export default {
     },
     methods:{
         /**
-        * Vérification si l'utilisateur est connecté
-        */
-        checkIfuserIsConnected(){
-            try{
-                if(document.cookie.length > 0){
-                    const cookies = document.cookie.split(';');
-                    let actualCookies = {};
-                    for(let i = 0; i < cookies.length; i++){
-                        let cookiename = cookies[i].split('=')[0];
-                        let cookievalue = cookies[i].split('=')[1];
-                        actualCookies[cookiename.trim()] = cookievalue;
-                    }
-                    //test if access_token, id and username exist and is not null
-                    if(actualCookies.access_token && actualCookies.id && actualCookies.username){
-                        return true;
-                    }else{
-                        return false;
-                    }
-                }else{
-                    return false;
-                }
-            }catch(err){
-                return false;
-            }
-        },
-        /**
         * Récupération information de l'article
         */
         getInfosProduct(){
@@ -140,39 +114,36 @@ export default {
         * Ajout de l'article au panier
         */
         addProductToCart(){
-            if(this.checkIfuserIsConnected()){
-                if(this.id != null){
-                    let idProduct = this.id;
-                    let quantityToUse = document.querySelector("#quantite").value
+            if (this.id != null) {
+                let idProduct = this.id;
+                let quantityToUse = document.querySelector("#quantite").value
 
-                    const cookies = document.cookie.split(';');
-                    let actualCookies = {};
-                    for(let i = 0; i < cookies.length; i++){
-                        let cookiename = cookies[i].split('=')[0];
-                        let cookievalue = cookies[i].split('=')[1];
-                        actualCookies[cookiename.trim()] = cookievalue;
-                    }
-                    let idClient = actualCookies.id;
-                    if(idClient == null || idClient == ""){
-                        return;
-                    }
-                    const paramsToSend = {
-                        idProduct : idProduct,
-                        quantityToUse : quantityToUse,
-                        idClient : idClient
-                    }
-                    axios.post('http://195.110.58.84:7000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
-                        .then(response => {
-                            console.log(response);
-                            alert("Produit ajouté au panier");
-                        })
-                        .catch(error => {
-                            console.log(error);
-                        });
+                const cookies = document.cookie.split(';');
+                let actualCookies = {};
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookiename = cookies[i].split('=')[0];
+                    let cookievalue = cookies[i].split('=')[1];
+                    actualCookies[cookiename.trim()] = cookievalue;
                 }
-            }else{
-                alert("Vous devez être connecté pour ajouter un produit au panier");
+                let idClient = actualCookies.id;
+                if (idClient == null || idClient == "") {
+                    return;
+                }
+                const paramsToSend = {
+                    idProduct : idProduct,
+                    quantityToUse : quantityToUse,
+                    idClient : idClient
+                }
+                axios.post('http://195.110.58.84:7000/api/cart/'+actualCookies.id, null, {params : paramsToSend})
+                    .then(response => {
+                        console.log(response);
+                        alert("Produit ajouté au panier");
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
             }
+
         }
     }
 }
