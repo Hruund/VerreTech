@@ -38,8 +38,11 @@
           <Menu as="div" class="ml-3 relative">
             <div>
               <MenuButton class="p-1 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                <span class="sr-only">Open cart</span>
-                <i class="fas fa-shopping-cart fa-lg"></i>
+                <i class="fas fa-shopping-cart fa-2x">
+                  <span v-if="productsList.length != 0" class="absolute right-0 top-0 rounded-full bg-red-600 w-5 h-5 p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
+                    {{ productsList.length }}
+                  </span>
+                </i>
               </MenuButton>
             </div>
             <!-- Affichage du panier -->
@@ -47,11 +50,11 @@
               <MenuItems class="origin-top-right absolute right-0 mt-2 w-64 py-1 ring-1 ring-black ring-opacity-5 focus:outline-none">
                 <MenuItem v-slot="{ active }">
                   <div :class="[active ? '' : '', '']">
-                    <div class="flex border rounded-md">
+                    <div class="flex border rounded-md relative">
 
-                      <div class="bg-white w-full ">
+                      <div class="bg-white w-full">
 
-                        <header class="bg-gray-300 py-5 py-3 font-extrabold px-8">
+                        <header class="bg-gray-300 font-extrabold py-2">
                           Mon panier
                         </header>
 
@@ -64,19 +67,21 @@
                               :name="productcart.name"
                               :imageLink="productcart.image"
                               :categorie="productcart.categorie"
-                          ></ProductCartMini>
-                          <hr>
-                        </div>
-                        <div class="flex flex-col justify-center p-3" v-else>
-                          Panier vide
+                          ><hr>
+                          </ProductCartMini>
                         </div>
                       </div>
                     </div>
                   </div>
                 </MenuItem>
                 <MenuItem v-slot="{ active }">
-                <div :class="[active ? '' : '', 'block px-4 py-2 text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-600']">
-                  <router-link to="/panier" v-if="cartIsReady"> Visualiser mon panier </router-link>
+                <div :class="[active ? '' : '']">
+                  <router-link to="/panier" v-if="productsList.length != 0" class="block px-4 py-2 text-sm font-extrabold text-white bg-gray-800 hover:bg-gray-600">
+                    Visualiser mon panier
+                  </router-link>
+                  <div v-else class="block px-4 py-2 text-sm font-extrabold text-white bg-gray-800">
+                    Panier vide
+                  </div>
                 </div>
                 </MenuItem>
               </MenuItems>
@@ -258,11 +263,11 @@ export default {
              .then(response => {
                   console.log(response);
                   this.productsList = response.data.products;
-                  this.cartIsReady = true;
+                  this.cartIsReady = false;
               })
         } 
       } else {
-        this.cartIsReady = false;
+        this.cartIsReady = true;
       }
     },
     disconnectedUser() {

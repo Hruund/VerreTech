@@ -19,7 +19,7 @@
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-typeVerre">
                         Catégories
                     </label>
-                    <div class="relative">
+                    <div>
                         <select v-model="categoriesFilter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-4 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-typeVerre">
                             <option value="1">Parois de douches</option>
                             <option value="2">Cloison</option>
