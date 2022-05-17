@@ -62,7 +62,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
 const axios = require('axios');
 export default {
  name: "Payment",
@@ -102,17 +101,4 @@ export default {
   }
  }
 };
-=======
-	export default {
-		name: "Payment",
-		props:{
-			total:Number
-		},
-		methods:{
-			finishPayment(){
-				this.$emit('change-parent');
-			}
-		}
-	};
->>>>>>> 2a328d77c8a226c19058e64be2ee32ba2bcbbc6e
 </script>
