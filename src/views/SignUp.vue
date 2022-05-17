@@ -110,9 +110,11 @@
             </div>
             <div class="md:flex md:items-center md:p-4">
                 <div class="md:w-2/3">
-                    <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                        <router-link to="/login"> J'ai déjà un compte </router-link>
-                    </button>
+                    <router-link to="/login"> 
+                        <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                            J'ai déjà un compte
+                        </button>
+                    </router-link>
                 </div>
                 <div class="md:w-2/3">
                     <button class="mt-2 shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">

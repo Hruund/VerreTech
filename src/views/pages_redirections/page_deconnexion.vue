@@ -4,9 +4,11 @@
         <div class="text-4xl font-bold mb-6">Déconnexion réussie </div>
         <div class="lg:w-3/5 lg:mx-auto p-8 border-gray-900 rounded-lg border border-4">
             {{ information }}
-            <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold mt-6 py-2 px-4 rounded" @click="tryToLogin" type="submit">
-                <router-link to="/"> Retour à l'accueil </router-link>
-            </button>
+            <router-link to="/"> 
+                <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold mt-6 py-2 px-4 rounded" @click="tryToLogin" type="submit">
+                    Retour à l'accueil
+                </button>
+            </router-link>
         </div>
     </div>
 </template>

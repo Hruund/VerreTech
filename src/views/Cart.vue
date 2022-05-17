@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto container bg-gray-100 p-2 h-screen">
+    <div class="mx-auto container bg-gray-100 p-6 h-screen">
         <div class="text-4xl font-bold mb-6">Panier</div>
         <!-- Cards des articles du panier -->
         <ProductCart
@@ -23,12 +23,16 @@
                 </span>
             </p>
             <div class="">
-                <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mr-6" type="button">
-                    <router-link to="/products"> Continuer mes achats </router-link>
-                </button>
-                <button class="shadow bg-blue-400 hover:bg-blue-200 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                    <router-link to="/checkout"> Valider mon panier </router-link>
-                </button>
+                <router-link to="/products">
+                    <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mr-6" type="button">
+                        Continuer mes achats
+                    </button>
+                </router-link>
+                <router-link to="/checkout">
+                    <button class="shadow bg-blue-400 hover:bg-blue-200 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                        Valider mon panier
+                    </button>
+                </router-link>
             </div>
         </div>
     </div>
