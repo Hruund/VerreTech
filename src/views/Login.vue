@@ -69,7 +69,7 @@
                     email: this.email,
                     password: this.password
                 };
-                axios.post('http://195.110.58.84:6000/api/login', null,  { params : request})
+                axios.post('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_USER_PORT+'/api/login', null,  { params : request})
                 .then(response => {
                     this.responseMessage = response.data;
                     if(this.responseMessage.message == "success"){

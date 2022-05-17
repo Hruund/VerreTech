@@ -161,8 +161,9 @@ export default {
                         city: this.city,
                         number: this.number,
                     }
-                    const response = await axios.post('http://195.110.58.84:6000/api/register', null, { params : objectToSend });
+                    const response = await axios.post('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_USER_PORT+'/api/register', null, { params : objectToSend });
                     if(response.data.message != "success"){
+                        console.log("response : ",response);
                         this.success = null;
                         this.error = response.data.message;
                         this.clearInput();

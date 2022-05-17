@@ -42,7 +42,7 @@ export default {
         * Suppression de l'article de la BDD
         */
         clickOnDeleteItem(){
-            axios.delete(`http://195.110.58.84:5000/api/product/${this.id}`)
+            axios.delete(`http://${process.env.VUE_APP_SERVER_IP}:${process.env.VUE_APP_PRODUCT_PORT}/api/product/${this.id}`)
             .then(response => {
                 console.log(response);
                 this.$emit('deleteItem',this.id);

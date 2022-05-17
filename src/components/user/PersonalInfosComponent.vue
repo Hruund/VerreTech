@@ -9,7 +9,6 @@
                         <div class="mb-5 text-left"><label>Nom</label></div>
                         <div class="mb-5 text-left"><label>E-mail</label></div>
                         <div class="mb-5 text-left"><label>Adresse complète</label></div>
-                        <div class="mb-5 text-left"><label>Date de naissance</label></div>
                     </div>
 
                     <div class="w-9/12">
@@ -44,14 +43,6 @@
                         placeholder="Adresse complète"
                         class="w-4/5 mb-5 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                         />
-
-                        <input
-                        v-model="birthdate"
-                        type="text"
-                        name="birthdate"
-                        placeholder="Date de naissance"
-                        class="w-4/5 mb-5 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-                        />
                     </div>
                 </div>
 
@@ -67,6 +58,7 @@
 </template>
 
 <script>
+const axios = require('axios');
 export default {
     data() {
         return {
@@ -93,5 +85,37 @@ export default {
             }
         },
     },
+    async mounted(){
+        if (document.cookie.length > 0) {
+            const cookies = document.cookie.split(";");
+            let actualCookies = {};
+            for (let i = 0; i < cookies.length; i++) {
+                let cookiename = cookies[i].split("=")[0];
+                let cookievalue = cookies[i].split("=")[1];
+                actualCookies[cookiename.trim()] = cookievalue;
+            }
+            const idOfUser = actualCookies.id;
+            const access_token = actualCookies.access_token; 
+            axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_USER_PORT+'/api/user/'+idOfUser, {
+                    params : {
+                        access_token: access_token
+                    }
+                })
+                .then(response => {
+                    console.log(response.data);
+                    this.adress = response.data.user.user_adress + " " + response.data.user.user_postal_code + " " + response.data.user.user_city;
+                    this.email = response.data.user.email;
+                    this.lastname = response.data.user.nom;
+                    this.firstname = response.data.user.prenom;
+                })
+                .catch(error => {
+                    console.log(error); //Error todo?
+                    this.$router.push("/login");
+                });
+        }else{
+            this.$router.push("/login");
+        }
+        
+    }
 };
 </script>

@@ -133,7 +133,7 @@ export default {
         getProductsWithCategorieFilter(){
             if(typeof this.categoriesFilter != "undefined" && this.categoriesFilter != ""){
                 this.readyToDisplay = false;
-                axios.get('http://195.110.58.84:5000/api/products/filterCategories/'+this.categoriesFilter)
+                axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+'/api/products/filterCategories/'+this.categoriesFilter)
                     .then(response => {
                         this.productsList = response.data;
                         this.readyToDisplay = true;
@@ -149,7 +149,7 @@ export default {
         getProductsWithNameFilter(){
             if(typeof this.nameFilter != "undefined" && this.nameFilter != ""){
                 this.readyToDisplay = false;
-                axios.get('http://195.110.58.84:5000/api/products/filterName/'+this.nameFilter)
+                axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+'/api/products/filterName/'+this.nameFilter)
                     .then(response => {
                         this.productsList = response.data;
                         this.readyToDisplay = true;
@@ -165,7 +165,7 @@ export default {
         getProductsWithPriceFilter(){
             if(typeof this.priceFilter != "undefined" && this.priceFilter != ""){
                 this.readyToDisplay = false;
-                axios.get('http://195.110.58.84:5000/api/products/filterPrice/'+this.priceFilter)
+                axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+'/api/products/filterPrice/'+this.priceFilter)
                     .then(response => {
                         this.productsList = response.data;
                         this.readyToDisplay = true;
@@ -181,7 +181,7 @@ export default {
         getProducts(){
             try{
                 let categoriesID = useRouter().currentRoute._value.params.id;
-                axios.get('http://195.110.58.84:5000/api/products/filterCategories/'+categoriesID)
+                axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+'/api/products/filterCategories/'+categoriesID)
                     .then(response => {
                         this.productsList = response.data;
                         this.readyToDisplay = true;

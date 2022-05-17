@@ -15,6 +15,9 @@ export default {
         AppHome,
         AppAbout,
         AppFaq
+    },
+    mounted(){
+        console.log("process.env.SERVER_IP : ",process.env.VUE_APP_SERVER_IP);
     }
 }
 </script>

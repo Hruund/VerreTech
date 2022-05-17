@@ -66,7 +66,7 @@ export default {
               email: actualCookies.email,
             };
             axios
-              .post("http://195.110.58.84:4000/api/checkToken_admin/", null, {
+              .post("http://"+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_TOKEN_PORT+"/api/checkToken_admin/", null, {
                 params: paramsToUse,
               })
               .then((response) => {

@@ -89,7 +89,7 @@ export default {
                 actualCookies[cookiename.trim()] = cookievalue;
             }
             let idClient = actualCookies.id;
-            axios.get('http://195.110.58.84:7000/api/cart/'+idClient)
+            axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/cart/'+idClient)
                 .then(response => {
                     console.log(response);
                     this.productsList = response.data.products;
@@ -112,7 +112,7 @@ export default {
             }
             let idClient = actualCookies.id;
             let idProduct = idOfProduct;
-            axios.delete(`http://195.110.58.84:7000/api/cart/${idClient}/${idProduct}`)
+            axios.delete(`http://${process.env.VUE_APP_SERVER_IP}:${process.env.VUE_APP_CART_PORT}/api/cart/${idClient}/${idProduct}`)
                 .then(response => {
                     console.log(response);
                     this.getProducts();
