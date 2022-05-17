@@ -40,7 +40,7 @@
               <MenuButton class="p-1 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                 <i class="fas fa-shopping-cart fa-2x">
                   <span v-if="productsList.length != 0" class="absolute right-0 top-0 rounded-full bg-red-600 w-5 h-5 p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
-                    {{ productsList.length }}
+                    {{ this.getNumberProduct() }}
                   </span>
                 </i>
               </MenuButton>
@@ -168,18 +168,18 @@ export default {
   data(){
     return{
       productsList: [
-        {
-          id: 1,
-          name: 'Crédence cuisine',
-          image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-          categorie: 'Crédence',
-        },
-        {
-          id: 2,
-          name: 'Crédence cuisine',
-          image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-          categorie: 'Crédence',
-        }
+        // {
+        //   id: 1,
+        //   name: 'Crédence cuisine',
+        //   image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        //   categorie: 'Crédence',
+        // },
+        // {
+        //   id: 2,
+        //   name: 'Crédence cuisine',
+        //   image: 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
+        //   categorie: 'Crédence',
+        // }
       ],
       cartIsReady : false,
       navTabSelected: 'Accueil',
@@ -204,6 +204,13 @@ export default {
     }
   },
   methods:{
+    getNumberProduct(){
+      let numberProduct = 0;
+      this.productsList.forEach(product => {
+        numberProduct += product.quantity;
+      });
+      return numberProduct;
+    },
     userIsAdmin() {
       return new Promise((resolve) => {
         if (document.cookie.length > 0) {
