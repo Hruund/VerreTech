@@ -39,9 +39,11 @@
                     </button>
                 </div>
                 <div class="md:w-2/3">
-                    <button class="mt-2 shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                        <router-link to="/signup"> Inscription </router-link>
-                    </button>
+                    <router-link to="/signup"> 
+                        <button class="mt-2 shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                            Inscription 
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </form>

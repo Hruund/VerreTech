@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto bg-gray-100 p-6 md:h-full">
+    <div class="container mx-auto bg-gray-100 p-6 md:h-screen">
         <div class="text-4xl font-bold mb-6">Fiche produit</div>
         <div class="my-12 px-4 md:px-12">
             <div class="flex items-start place-content-center flex-wrap -mx-1 lg:-mx-4">
@@ -7,13 +7,41 @@
                     <span class="text-xl font-semibold">Catégories</span>
                     <div class="border-2 rounded-sm w-full mt-3 bg-gray-200 text-gray-900 rounded-lg shadow">
                         <ul id="category_but" class="divide-y-2 divide-gray-100">
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/1"> Paroi de douche </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/5"> Crédence de cuisine </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/2"> Cloison </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/3"> Insert de cheminée </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/6"> Verre décoratif </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products/4"> Miroirs </router-link></button></li>
-                            <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none"><button><router-link to="/products"> Tous les produits </router-link></button></li>
+                            <router-link to="/products/1">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Paroi de douche
+                                </li>
+                            </router-link>
+                            <router-link to="/products/5">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Crédence de cuisine
+                                </li>
+                            </router-link>
+                            <router-link to="/products/2">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Cloison
+                                </li>
+                            </router-link>
+                            <router-link to="/products/3">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Insert de cheminée
+                                </li>
+                            </router-link>
+                            <router-link to="/products/6">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Verre décoratif
+                                </li>
+                            </router-link>
+                            <router-link to="/products/4">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Miroirs
+                                </li>
+                            </router-link>
+                            <router-link to="/products">
+                                <li class="flex-shrink-0 py-2 px-4 shadow-md w-full hover:bg-gray-700 hover:text-white focus:outline-none">
+                                    Tous les produits
+                                </li>
+                            </router-link>
                         </ul>
                     </div>
                     <router-link to="/products">

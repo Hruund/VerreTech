@@ -92,14 +92,18 @@
             </div>
             <div class="md:flex md:items-center">
                 <div class="md:w-2/3">
-                    <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
-                        <router-link to="/panier"> Retour </router-link>
-                    </button>
+                    <router-link to="/panier">
+                        <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                            Retour
+                        </button>
+                    </router-link>
                 </div>
                 <div class="md:w-2/3">
-                    <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-                        <router-link to="/cards"> Passer au paiement </router-link>
-                    </button>
+                    <router-link to="/cards">
+                        <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+                            Passer au paiement
+                        </button>
+                    </router-link>
                 </div>
             </div>
         </form>
