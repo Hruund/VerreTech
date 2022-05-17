@@ -129,7 +129,6 @@ export default {
                 .then(() => {
                   axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/cart/orders/'+idOfUser)
                   .then(response => {
-                    console.log(response);
                     response.data.order_table.forEach(order => {
                       let stateToSend = "";
                       switch(order.state){

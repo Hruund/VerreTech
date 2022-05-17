@@ -94,6 +94,7 @@ export default {
          });
        }
       }
+      this.getTotal(this.items);
     },
     getTotal(items) {
       items.forEach(item => {

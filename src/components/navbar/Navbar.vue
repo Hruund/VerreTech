@@ -274,7 +274,6 @@ export default {
         if (typeof idOfClient != "undefined" && idOfClient != "" && idOfClient != null ) {
           axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/cart/'+idOfClient)
              .then(response => {
-                  console.log(response);
                   this.productsList = response.data.products;
                   this.cartIsReady = false;
               })

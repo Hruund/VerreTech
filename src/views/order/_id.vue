@@ -12,9 +12,9 @@
     </div>
     <div class="flex-grow grid grid-flow-col justify-items-center mx-12 md:w-1/2 container mx-auto">
         <div v-for="product in products" :key="product" class="text-gray-900 justify-items-center">
-            <router-link :to="`/ficheProduit`">
-                <!--<img v-if="product.img" :src="product.img" class="w-full">-->
-                <img v-if="product.img" src="../../assets/produits/miroirs/miroir2.jpeg" class="h-32 w-32">
+            <router-link :to="`/ficheProduit/${product.id}`">
+                <img v-if="product.img" :src="product.img" class="h-32 w-32">
+                <!-- <img v-if="product.img" src="../../assets/produits/miroirs/miroir2.jpeg" class="h-32 w-32"> -->
             </router-link>
             <h1 class="mt-6 font-bold">{{ product.name }}</h1>
             <h2 class="mt-4 mb-4 font-semi-bold">{{ product.price }}€</h2>
@@ -33,9 +33,9 @@ export default {
             cost:137, 
             products:
             [
-                {name:"Parroi de douche", img:"../../assets/produits/miroirs/miroir2.jpeg", price:59},
-                {name:"Cloison", img:"../../assets/produits/miroirs/miroir2.jpeg", price:49},
-                {name:"Miroir", img:"../../assets/produits/miroirs/miroir2.jpeg", price:29}
+                // {name:"Parroi de douche", img:"../../assets/produits/miroirs/miroir2.jpeg", price:59},
+                // {name:"Cloison", img:"../../assets/produits/miroirs/miroir2.jpeg", price:49},
+                // {name:"Miroir", img:"../../assets/produits/miroirs/miroir2.jpeg", price:29}
             ], 
             state:'Validation du paiement',
             shop:'Verre-Tech Paris'
@@ -45,6 +45,7 @@ export default {
         this.number = this.$route.params.id;
         axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/cart/order/'+this.number)
         .then(response => {
+            console.log(response.data);
             this.number = response.data.order.id;
             this.date = response.data.order.date;
             this.date_maj = response.data.order.date_maj;
@@ -95,6 +96,7 @@ export default {
             let productList = [];
             products.forEach(product => {
                 let toPush = {
+                    id : product[0].id,
                     name : product[0].name,
                     img : product[0].image,
                     price : product[0].price

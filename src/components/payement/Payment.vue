@@ -59,6 +59,7 @@
  </div>
 </template>
 <script>
+const axios = require('axios');
 export default {
  name: "Payment",
  props:{
@@ -66,7 +67,34 @@ export default {
  },
  methods:{
  finishPayment(){
-  this.$emit('change-parent');
+    const cookies = document.cookie.split(';');
+    let actualCookies = {};
+    for(let i = 0; i < cookies.length; i++){
+        let cookiename = cookies[i].split('=')[0];
+        let cookievalue = cookies[i].split('=')[1];
+        actualCookies[cookiename.trim()] = cookievalue;
+    }
+    console.log(actualCookies);
+    let idClient = actualCookies.id;
+    axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/carts/validate/'+idClient,
+    {
+      params : {
+        access_token : actualCookies.access_token
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+      if(response.data.message == "success"){
+        // alert("Votre commande a bien été validée");
+            let updateFrontEvent = new CustomEvent('updateFront');
+            document.dispatchEvent(updateFrontEvent);
+      }
+      else{
+        alert("Une erreur est survenue");
+        console.log(response);
+      }
+    })
+    this.$emit('change-parent');
   }
  }
 };
