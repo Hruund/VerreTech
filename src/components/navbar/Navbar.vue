@@ -188,7 +188,9 @@ export default {
     }
   },
   async mounted(){
-    document.addEventListener("userLoggedIn",this.updateNavbar);
+    document.addEventListener("userLoggedIn",this.updateFront);
+    document.addEventListener("userAddProductCart",this.updateFront);
+    document.addEventListener("updateFront",this.updateFront);
     this.updateCart();
     this.updateNavbar();
     if (this.checkIfuserIsConnected()) {
@@ -204,6 +206,10 @@ export default {
     }
   },
   methods:{
+    updateFront(){
+      this.updateCart();
+      this.updateNavbar();
+    },
     getNumberProduct(){
       let numberProduct = 0;
       this.productsList.forEach(product => {

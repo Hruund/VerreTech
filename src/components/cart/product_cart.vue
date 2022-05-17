@@ -57,6 +57,8 @@ export default {
     methods:{
         deleteProductFromCart(){
             this.$emit('deleteProductFromCart', this.id);
+            let updateFrontEvent = new CustomEvent('updateFront');
+            document.dispatchEvent(updateFrontEvent);
         }
     }
 }

@@ -107,7 +107,7 @@
 </template>
 
 <script>
-    // const axios = require('axios').default;
+    const axios = require('axios').default;
     export default {
         data() {
             return{
@@ -132,7 +132,46 @@
             */
             goCheckout(){
                 if (this.checkIfuserIsConnected()) {
-                    this.$router.push({ path: '/checkout'});
+                    // this.$router.push({ path: '/checkout'});
+                    if (document.cookie.length > 0) {
+                    const cookies = document.cookie.split(";");
+                    let actualCookies = {};
+                    for (let i = 0; i < cookies.length; i++) {
+                        let cookiename = cookies[i].split("=")[0];
+                        let cookievalue = cookies[i].split("=")[1];
+                        actualCookies[cookiename.trim()] = cookievalue;
+                    }
+                    const idOfUser = actualCookies.id;
+                    const access_token = actualCookies.access_token; 
+                    axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_USER_PORT+'/api/user/'+idOfUser, {
+                            params : {
+                                access_token: access_token
+                            }
+                        })
+                        .then(response => {
+                            console.log("c bon? ",response.data);
+                            this.number = response.data.user.user_phone;
+                            document.querySelector("#number").value = this.number;
+                            this.city = response.data.user.user_city;
+                            document.querySelector("#city").value = this.city;
+                            this.addressCP = response.data.user.user_postal_code;
+                            document.querySelector("#addressCP").value = this.addressCP;
+                            this.address = response.data.user.user_adress;
+                            document.querySelector("#address").value = this.address;
+                            this.email = response.data.user.email
+                            document.querySelector("#email").value = this.email;
+                            this.firstname = response.data.user.prenom;
+                            document.querySelector("#firstname").value = this.firstname;
+                            this.lastname = response.data.user.nom;
+                            document.querySelector("#lastname").value = this.lastname;
+                        })
+                        .catch(error => {
+                            console.log(error); //Error todo?
+                            this.$router.push("/login");
+                        });
+                    }else{
+                        this.$router.push("/login");
+                    }
                 }
                 else {
                     alert("Vous devez être connecté pour accéder au formulaire de paiement");

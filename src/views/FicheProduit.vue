@@ -138,6 +138,8 @@ export default {
                     .then(response => {
                         console.log(response);
                         alert("Produit ajouté au panier");
+                        let updateFrontEvent = new CustomEvent('userAddProductCart');
+                        document.dispatchEvent(updateFrontEvent);
                     })
                     .catch(error => {
                         console.log(error);
