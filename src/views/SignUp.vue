@@ -4,9 +4,9 @@
         <div class="text-4xl font-bold mb-6">Inscription</div>
         <form v-if="!success" method="post" @submit.prevent="register" class="p-8 border-gray-900 rounded-lg border border-4">
             <div class="md:grid md:grid-cols-2">
-                <div class="md:mr-8 md:border-r-4 md:border-gray-600 md:text-left">
+                <div class="md:mr-8 md:border-r-4 md:border-gray-600 text-left">
                     <h2 class="font-bold text-xl pb-4">Je m'identifie</h2>
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="md:flex md:items-center mb-6 md:mr-4">
                         <div class="md:w-1/3">
                             <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="lastname">
                                 Nom
@@ -16,7 +16,7 @@
                             <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required v-model="lastname" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="lastname" type="text">
                         </div>
                     </div>
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="md:flex md:items-center mb-6 md:mr-4">
                         <div class="md:w-1/3">
                             <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="firstname">
                                 Prénom
@@ -26,7 +26,7 @@
                             <input onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required v-model="firstname" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="firstname" type="text">
                         </div>
                     </div>
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="md:flex md:items-center mb-6 md:mr-4">
                         <div class="md:w-1/3">
                             <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="email">
                                 Email utilisateur
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <h2 class="font-bold text-xl pb-4">Sécuriser mon compte</h2>
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="md:flex md:items-center mb-6 md:mr-4">
                         <div class="md:w-1/3">
                             <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="password">
                                 Mot de passe
@@ -47,7 +47,7 @@
                             <input required v-model="password" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="password" type="password" placeholder="******************">
                         </div>
                     </div>
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="md:flex md:items-center mb-6 md:mr-4">
                         <div class="md:w-1/3">
                             <label class="block font-bold md:text-right mb-1 md:mb-0 pr-8" for="repassword">
                                 Confirmer
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:mr-8 md:text-left">
+                <div class="md:mr-8 text-left">
                     <h2 class="font-bold text-xl pb-4">Mon adresse</h2>
                     <div class="md:flex md:items-center mb-6">
                         <div class="md:w-1/3">
@@ -100,9 +100,9 @@
                             <input onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="10" required v-model="number" class="form-control bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="number" type="text">
                         </div>
                     </div>
-                    <div class="md:w-1/3 text-right">
+                    <div class="md:w-1/3 text-left mb-6">
                         <input class="leading-tight" type="checkbox">
-                        <label class="font-bold md:text-left md:mb-0 pr-8" for="newsletter">
+                        <label class="font-bold md:mb-0 pr-8" for="newsletter">
                             S'inscrire à la newsletter
                         </label>
                     </div>
