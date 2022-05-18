@@ -39,7 +39,7 @@ export default {
       if (isAdmin) {
         this.canBeDisplay = true;
       } else {
-        alert("Vous n'êtes pas administrateur");
+        window.location.href = "/redir/erreur_droits";
       }
     }
   },
