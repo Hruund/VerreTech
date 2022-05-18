@@ -24,8 +24,8 @@ const axios = require('axios');
 export default {
   data: function() {
     return {
-      tabs: ["Statistiques", "Gestion"],
-      selected: "Statistiques",
+      tabs: ["Gestion", "Statistiques"],
+      selected: "Gestion",
       canBeDisplay : false
     };
   },

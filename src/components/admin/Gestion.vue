@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-10">
+  <div class="container p-6 mb-8">
     <div class="space-y-2">
       <div>
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">
@@ -330,21 +330,22 @@
         </button>
       </form>
       <!-- Affichage du tableau des articles à modifier ou supprimer -->
-      <div>
+      <div class="container mb-8">
         <h2 class="mt-24 mb-4 font-semi-bold text-3xl text-gray-900">
           Modifier ou supprimer des articles
         </h2>
       </div>
     </div>
-    <table class="container mx-auto">
-      <tr>
-        <th>NOM DE L'ARTICLE</th>
-        <th>DESCRIPTION</th>
-        <th>PRIX</th>
-        <th>QUANTITE</th>
-        <th>CATEGORIE</th>
-        <th>ACTION</th>
+    <table class="">
+      <tr class="bg-gray-600">
+        <th>Article</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Stock</th>
+        <th>Catégorie</th>
+        <th>Action</th>
       </tr>
+      <tbody class="divide-y divide-gray-300">
       <ProductInAdmin
         v-for="product in products"
         :key="product.id"
@@ -357,6 +358,7 @@
         :id="product.id"
         @deleteItem="deleteItem"
       />
+      </tbody>
     </table>
   </div>
 </template>

@@ -24,7 +24,7 @@
                                 </label>
                             </div>
                             <div class="md:w-2/3 text-right">
-                                {{ number }}
+                                {{ date }}
                             </div>
                         </div>
                         <div class="md:flex md:items-center mb-6">
@@ -34,7 +34,7 @@
                                 </label>
                             </div>
                             <div class="md:w-2/3 text-right">
-                                {{ date }}
+                                {{ date_maj }}
                             </div>
                         </div>
                         <div class="md:flex md:items-center mb-6">
@@ -59,9 +59,19 @@
                         </div>
                     </div>
 
-                    <div class="w-full md:w-1/4 mb-6 md:mb-0">
-                        <PDFgenerator :pdfData="pdfDataToSend"></PDFgenerator>
+                    <div class="md:flex md:items-center md:p-4">
+                        <div class="md:w-2/3">
+                            <router-link to="/userspace">
+                                <button class="shadow bg-gray-900 hover:bg-gray-700 focus:shadow-outline focus:outline-none text-white font-bold mt-6 py-2 px-4 rounded">
+                                    Retour à mon profil
+                                </button>
+                            </router-link>
+                        </div>
+                        <div class="md:w-2/3">
+                            <PDFgenerator :pdfData="pdfDataToSend"></PDFgenerator>
+                        </div>
                     </div>
+
                 </div>
                 <!--Liste des articles de la commande-->
                 <div class="w-full md:w-3/4 px-3 ml-auto md:mb-0">
