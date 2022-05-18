@@ -3,6 +3,7 @@
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Résumé de commande.</h2>
         <h3 class="mt-4 mb-4 font-semi-bold text-2xl text-gray-900">Récapitulatif</h3>
         <p class="font-bold mt-4 mb-4 text-gray-900">Etat de la commande: {{ state }}.</p>
+        <button @click="sendToPDF">PDF</button>
         <p>Numéro de commande: {{ number }}.</p>
         <p>Date de la commande: {{ date }}.</p>
         <p v-if="date_maj">Dernière mise à jour: {{ date_maj }}.</p>
@@ -38,14 +39,16 @@ export default {
                 // {name:"Miroir", img:"../../assets/produits/miroirs/miroir2.jpeg", price:29}
             ], 
             state:'Validation du paiement',
-            shop:'Verre-Tech Paris'
+            shop:'Verre-Tech Paris',
+            datafromServer : null
         }
     },
     created() {
         this.number = this.$route.params.id;
         axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/cart/order/'+this.number)
         .then(response => {
-            console.log(response.data);
+            console.log(response);
+            this.dataFromServer = response.data;
             this.number = response.data.order.id;
             this.date = response.data.order.date;
             this.date_maj = response.data.order.date_maj;
@@ -104,7 +107,45 @@ export default {
                 productList.push(toPush);
             });
             return productList;
-        }
+        },
+        sendToPDF(){
+            var self = this;
+            if (document.cookie.length > 0) {
+                const cookies = document.cookie.split(";");
+                let actualCookies = {};
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookiename = cookies[i].split("=")[0];
+                    let cookievalue = cookies[i].split("=")[1];
+                    actualCookies[cookiename.trim()] = cookievalue;
+                }
+                const idOfUser = actualCookies.id;
+                const access_token = actualCookies.access_token; 
+                axios.get("http://"+ process.env.VUE_APP_SERVER_IP + ":" + process.env.VUE_APP_USER_PORT + "/api/user/" + idOfUser,
+                {
+                    params : access_token
+                })
+                .then(response=>{
+                    const objectToSend = {
+                        id_order : self.dataFromServer.order.id,
+                        date : self.dataFromServer.order.date,
+                        nom : response.data.user.nom,
+                        prenom : response.data.user.prenom,
+                        mail : response.data.user.email,
+                        telephone : response.data.user.user_phone,
+                        productsList : self.dataFromServer.products,
+                    }
+                    console.log(objectToSend);
+                })
+                .catch(error=>{
+                    console.log(error);
+                })
+
+
+                // const objectToSendToPDF = {
+           
+                // };
+            }
+        },
     }
 }
 </script>
