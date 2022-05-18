@@ -72,14 +72,16 @@
                 let prenom = this.pdfData.prenom;
                 let tel = this.pdfData.telephone;
                 let products = [];
+                let total = 0;
                 for (let i = 0; i < this.pdfData.productsList.length; i++) {
                     products.push({
                         name: this.pdfData.productsList[i][0].name,
                         quantity: this.pdfData.productsList[i][0].quantity,
                         price: this.pdfData.productsList[i][0].price,
+                        total: this.pdfData.productsList[i][0].price * this.pdfData.productsList[i][0].quantity
                     });
+                    total = total + (this.pdfData.productsList[i][0].price * this.pdfData.productsList[i][0].quantity);
                 }
-                var vm = this // HERE products
                 var columns = [
                     {
                         title: "Nom de l'article",
@@ -134,7 +136,7 @@
                 doc.text("Résumé de la commande", 10, 85);
                 doc.autoTable(
                     columns,
-                    vm.products,
+                    products,
                     {
                         margin: {top: 90},
                         styles: { halign: "center" },
@@ -155,7 +157,7 @@
                         0: { cellWidth: 60, halign: "right" },
                     },
                     head: [["Total de la commande"]],
-                    body: [[this.cost+" €"]] // On peut mettre le price si c'est bien le total
+                    body: [[total+" €"]] // On peut mettre le price si c'est bien le total
                 });
                 // Enregistrement du pdf
                 let pdfName = 'facture-'+ this.date; // HERE date
