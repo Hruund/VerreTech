@@ -215,6 +215,42 @@
             </div>
           </div>
         </div>
+       <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label
+              class="
+                block
+                uppercase
+                tracking-wide
+                text-gray-700 text-xs
+                font-bold
+                mb-2
+              "
+              for="article-desc"
+            >
+              Quantité
+            </label>
+            <input
+              v-model="article_quantity"
+              class="
+                appearance-none
+                block
+                w-full
+                bg-gray-200
+                text-gray-700
+                rounded
+                py-3
+                px-4
+                mb-3
+                leading-tight
+                focus:outline-none focus:bg-white
+              "
+              id="article-quantity"
+              type="input"
+              placeholder="Quantité voulu"
+            />
+          </div>
+        </div>
         <div class="font-bold mt-6">
           Boutiques Verre-Tech proposant de retirer cet article :
         </div>
@@ -338,6 +374,7 @@ export default {
       article_categorie: "",
       article_id: "",
       article_imageLink: "",
+      article_quantity: 0,
     };
   },
   async mounted() {
@@ -453,6 +490,7 @@ export default {
           price: this.article_price,
           id_categorie: this.article_categorie,
           image: this.article_imageLink,
+          quantity: this.article_quantity
         };
         axios
           .post("http://"+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+"/api/addProduct", null, {

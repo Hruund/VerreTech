@@ -3,17 +3,17 @@
     <div class="mx-auto">
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Statistiques</h2>
         <div class="container mx-auto">
-            <Chart/>
+            <!-- <Chart/> -->
         </div>
     </div>
   </div>
 </template>
 
 <script>
-import Chart from './Chart.vue'
+// import Chart from './Chart.vue'
 export default {
   components: {
-    Chart
+    // Chart
   }
 }
 </script>
