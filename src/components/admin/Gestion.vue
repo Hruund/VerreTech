@@ -341,6 +341,7 @@
         <th>NOM DE L'ARTICLE</th>
         <th>DESCRIPTION</th>
         <th>PRIX</th>
+        <th>QUANTITE</th>
         <th>CATEGORIE</th>
         <th>ACTION</th>
       </tr>
@@ -351,6 +352,7 @@
         :description="product.feature"
         :image="product.image"
         :price="product.price"
+        :quantity="product.quantity"
         :category="product.id_categorie"
         :id="product.id"
         @deleteItem="deleteItem"

@@ -48,6 +48,14 @@
             </div>
         </div>
         </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+            <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="article-quantity">
+                Quantité 
+                </label>
+                <input v-model="article_quantity" class="appearance-none block w-full bg-gray-200 text-gray-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="article-quantity" type="number">
+            </div>
+        </div>
         <div class="font-bold mt-6">Boutiques Verre-Tech proposant de retirer cet article :</div>
 
         <div class="md:flex w-full place-content-center mt-3">
@@ -101,6 +109,7 @@ export default {
             article_name: "",
             article_imageLink: "",
             article_price: 0,
+            article_quantity: 0,
             article_desc: "",
             article_categorie: ""
         }
@@ -119,6 +128,7 @@ export default {
                 this.article_name = response.data.name;
                 this.article_imageLink = response.data.image;
                 this.article_price = response.data.price;
+                this.article_quantity = response.data.quantity;
                 this.article_desc = response.data.feature;
                 this.article_categorie = response.data.id_categorie;
             })
@@ -131,12 +141,14 @@ export default {
             console.log(this.article_name);
             console.log(this.article_imageLink);
             console.log(this.article_price);
+            console.log(this.article_quantity);
             console.log(this.article_desc);
             console.log(this.article_categorie);
             const paramsToUse = {
                 name: this.article_name,
                 image: this.article_imageLink,
                 price: this.article_price,
+                quantity: this.article_quantity,
                 feature: this.article_desc,
                 id_categorie: this.article_categorie
             }

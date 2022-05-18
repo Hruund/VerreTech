@@ -3,6 +3,7 @@
         <td>{{name}}</td>
         <td>{{description}}</td>
         <td>{{price}}€</td>
+        <td>{{quantity}}</td>
         <td>{{category}}</td>
         <td>
             <button class="btn btn-primary mr-2" @click="clickOnEditItem">Modifier</button>
@@ -25,6 +26,7 @@ export default {
             name: this.$attrs.name,
             description: this.$attrs.description,
             price: this.$attrs.price,
+            quantity: this.$attrs.quantity,
             category: this.$attrs.category,
             id: this.$attrs.id
         }
