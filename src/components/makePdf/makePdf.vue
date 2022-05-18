@@ -14,6 +14,15 @@
                 type: Object,
             }
         },
+        // watch: {
+        //     pdfData: {
+        //         handler(newVal, oldVal) {
+        //             console.log(newVal);
+        //             console.log(oldVal);
+        //         },
+        //         deep: true
+        //     }
+        // },
         data(){
             return{
                 // number:'1783', 
@@ -55,6 +64,21 @@
         },
         methods: {
             exportPdf(){
+                console.log("this.data : ",this.pdfData);
+                let id = this.pdfData.id_order;
+                let date = this.pdfData.date;
+                let email = this.pdfData.mail
+                let nom = this.pdfData.nom;
+                let prenom = this.pdfData.prenom;
+                let tel = this.pdfData.telephone;
+                let products = [];
+                for (let i = 0; i < this.pdfData.productsList.length; i++) {
+                    products.push({
+                        name: this.pdfData.productsList[i][0].name,
+                        quantity: this.pdfData.productsList[i][0].quantity,
+                        price: this.pdfData.productsList[i][0].price,
+                    });
+                }
                 var vm = this // HERE products
                 var columns = [
                     {
@@ -94,16 +118,16 @@
 
                 // Indicateurs de commande
                 doc.setFontSize(12);
-                doc.text("Facture de la commande n° "+ this.number, 10, 55); // HERE id
-                doc.text("Date de la commande "+ this.date, 10, 60); // HERE date
+                doc.text("Facture de la commande n° "+ id, 10, 55); // HERE id
+                doc.text("Date de la commande "+ date, 10, 60); // HERE date
 
                 // Indicateur client
                 doc.setFontSize(12);
                 doc.rect(128, 50, 65, 22);
                 doc.text("Informations de l'acteur", 130, 55);
-                doc.text("M/ Mme JOHN DOE", 130, 60);
-                doc.text("adresse@mail.com", 130, 65);
-                doc.text("06xxxxxxxx", 130, 70);
+                doc.text(nom.toUpperCase() + " "+prenom, 130, 60);
+                doc.text(email, 130, 65);
+                doc.text(tel, 130, 70);
 
                 // Tableau du résumé des articles
                 doc.setFontSize(18);

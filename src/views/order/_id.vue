@@ -2,7 +2,7 @@
     <div class="flex-grow">
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Résumé de commande.</h2>
         <h3 class="mt-4 mb-4 font-semi-bold text-2xl text-gray-900">Récapitulatif</h3>
-        <PDFgenerator :pdfData="pdfData"></PDFgenerator>
+        <PDFgenerator :pdfData="pdfDataToSend"></PDFgenerator>
         <p class="font-bold mt-4 mb-4 text-gray-900">Etat de la commande: {{ state }}.</p>
         <p>Numéro de commande: {{ number }}.</p>
         <p>Date de la commande: {{ date }}.</p>
@@ -45,10 +45,11 @@ export default {
             ], 
             state:'Validation du paiement',
             shop:'Verre-Tech Paris',
-            datafromServer : null
+            datafromServer : null,
+            pdfDataToSend : null
         }
     },
-    created() {
+    mounted() {
         this.number = this.$route.params.id;
         axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_CART_PORT+'/api/cart/order/'+this.number)
         .then(response => {
@@ -75,6 +76,7 @@ export default {
             }
             this.state = stateToSend;
             this.products = this.getProductList(response.data.products);
+            this.sendToPDF();
         })
         .catch(error => {
             console.log(error);
@@ -94,7 +96,7 @@ export default {
             });
             return productList;
         },
-        sendToPDF(){
+        async sendToPDF(){
             var self = this;
             if (document.cookie.length > 0) {
                 const cookies = document.cookie.split(";");
@@ -110,7 +112,7 @@ export default {
                 {
                     params : access_token
                 })
-                .then(response=>{
+                .then(async response=>{
                     const objectToSend = {
                         id_order : self.dataFromServer.order.id,
                         date : self.dataFromServer.order.date,
@@ -120,8 +122,9 @@ export default {
                         telephone : response.data.user.user_phone,
                         productsList : self.dataFromServer.products,
                     }
-                    console.log(objectToSend);
-                    this.pdfData = objectToSend;
+                    await this.$nextTick();
+                    console.log(" this.pdfData : ",objectToSend);
+                    self.pdfDataToSend = objectToSend;
                 })
                 .catch(error=>{
                     console.log(error);
