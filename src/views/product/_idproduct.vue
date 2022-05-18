@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto">
+    <div class="container mx-auto bg-gray-100 p-6 md:h-screen">
         <div class="text-4xl font-bold">Nos produits</div>
         <nav id="filter" class="w-full z-30 top-0 px-6 py-1">
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">

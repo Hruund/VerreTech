@@ -2,8 +2,8 @@
     <div class="flex-grow">
         <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Résumé de commande.</h2>
         <h3 class="mt-4 mb-4 font-semi-bold text-2xl text-gray-900">Récapitulatif</h3>
+        <PDFgenerator :pdfData="pdfData"></PDFgenerator>
         <p class="font-bold mt-4 mb-4 text-gray-900">Etat de la commande: {{ state }}.</p>
-        <button @click="sendToPDF">PDF</button>
         <p>Numéro de commande: {{ number }}.</p>
         <p>Date de la commande: {{ date }}.</p>
         <p v-if="date_maj">Dernière mise à jour: {{ date_maj }}.</p>
@@ -24,8 +24,13 @@
 </template>
 
 <script>
+
+import PDFgenerator from "../../components/makePdf/makePdf.vue";
 const axios = require('axios');
 export default {
+    components: {
+        PDFgenerator
+    },
     data() {
         return {
             number:'1783', 
@@ -34,9 +39,9 @@ export default {
             cost:137, 
             products:
             [
-                // {name:"Parroi de douche", img:"../../assets/produits/miroirs/miroir2.jpeg", price:59},
-                // {name:"Cloison", img:"../../assets/produits/miroirs/miroir2.jpeg", price:49},
-                // {name:"Miroir", img:"../../assets/produits/miroirs/miroir2.jpeg", price:29}
+                {name:"Parroi de douche", img:"../../assets/produits/miroirs/miroir2.jpeg", price:59},
+                {name:"Cloison", img:"../../assets/produits/miroirs/miroir2.jpeg", price:49},
+                {name:"Miroir", img:"../../assets/produits/miroirs/miroir2.jpeg", price:29}
             ], 
             state:'Validation du paiement',
             shop:'Verre-Tech Paris',
@@ -70,25 +75,6 @@ export default {
             }
             this.state = stateToSend;
             this.products = this.getProductList(response.data.products);
-            /*
-                 number:'1783', 
-            date:'11-10-2021', 
-            date_maj:'', 
-            cost:137, 
-            products:
-            [
-                {name:"Parroi de douche", img:"../../assets/produits/miroirs/miroir2.jpeg", price:59},
-                {name:"Cloison", img:"../../assets/produits/miroirs/miroir2.jpeg", price:49},
-                {name:"Miroir", img:"../../assets/produits/miroirs/miroir2.jpeg", price:29}
-            ], 
-            state:'Validation du paiement',
-            shop:'Verre-Tech Paris'
-            */
-            // this.date = response.data.date;
-            // this.date_maj = response.data.date_maj;
-            // this.cost = response.data.cost;
-            // this.state = response.data.state;
-            // this.shop = response.data.shop;
         })
         .catch(error => {
             console.log(error);
@@ -135,6 +121,7 @@ export default {
                         productsList : self.dataFromServer.products,
                     }
                     console.log(objectToSend);
+                    this.pdfData = objectToSend;
                 })
                 .catch(error=>{
                     console.log(error);
