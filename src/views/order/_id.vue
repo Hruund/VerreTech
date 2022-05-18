@@ -1,25 +1,88 @@
 <template>
     <div class="flex-grow">
-        <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Résumé de commande.</h2>
-        <h3 class="mt-4 mb-4 font-semi-bold text-2xl text-gray-900">Récapitulatif</h3>
-        <PDFgenerator :pdfData="pdfDataToSend"></PDFgenerator>
-        <p class="font-bold mt-4 mb-4 text-gray-900">Etat de la commande: {{ state }}.</p>
-        <p>Numéro de commande: {{ number }}.</p>
-        <p>Date de la commande: {{ date }}.</p>
-        <p v-if="date_maj">Dernière mise à jour: {{ date_maj }}.</p>
-        <p>Boutique de retrait: {{ shop }}.</p>
-        <p>Prix total: {{ cost }}€.</p>
-        <h3 class="mt-12 mb-4 font-semi-bold text-2xl text-gray-900">Articles</h3>
-    </div>
-    <div class="flex-grow grid grid-flow-col justify-items-center mx-12 md:w-1/2 container mx-auto">
-        <div v-for="product in products" :key="product" class="text-gray-900 justify-items-center">
-            <router-link :to="`/ficheProduit/${product.id}`">
-                <img v-if="product.img" :src="product.img" class="h-32 w-32">
-                <!-- <img v-if="product.img" src="../../assets/produits/miroirs/miroir2.jpeg" class="h-32 w-32"> -->
-            </router-link>
-            <h1 class="mt-6 font-bold">{{ product.name }}</h1>
-            <h2 class="mt-4 mb-4 font-semi-bold">{{ product.price }}€</h2>
-        </div>
+        <h2 class="mt-4 mb-4 font-semi-bold text-3xl text-gray-900">Résumé de commande</h2>
+
+            <div class="w-full container mx-auto items-center justify-between px-2 py-3">
+                <!--Information de la commande-->
+                <div class="md:fixed md:mt-1 w-full md:w-1/4 px-7 mb-6 md:mb-0">
+                    <h2 class="font-bold text-xl pb-4">Information commande n° {{ number }}</h2>
+                    <div class="p-8 border-gray-900 rounded-lg border border-4">
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-2/3">
+                                <label class="block font-bold mb-1 md:mb-0 text-left">
+                                    Statut de la commande
+                                </label>
+                            </div>
+                            <div class="md:w-2/3 text-right">
+                                {{ state }}
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-2/3">
+                                <label class="block font-bold mb-1 md:mb-0 text-left">
+                                    Date de la commande
+                                </label>
+                            </div>
+                            <div class="md:w-2/3 text-right">
+                                {{ number }}
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-2/3">
+                                <label v-if="date_maj" class="block font-bold mb-1 md:mb-0 text-left">
+                                    Dernière mise à jour
+                                </label>
+                            </div>
+                            <div class="md:w-2/3 text-right">
+                                {{ date }}
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-2/3">
+                                <label class="block font-bold mb-1 md:mb-0 text-left">
+                                    Boutique de retrait
+                                </label>
+                            </div>
+                            <div class="md:w-2/3 text-right">
+                                {{ shop }}
+                            </div>
+                        </div>
+                        <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-2/3">
+                                <label class="block font-bold mb-1 md:mb-0 text-left">
+                                    Prix total
+                                </label>
+                            </div>
+                            <div class="md:w-2/3 text-right">
+                                {{ cost }} €
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                        <PDFgenerator :pdfData="pdfDataToSend"></PDFgenerator>
+                    </div>
+                </div>
+                <!--Liste des articles de la commande-->
+                <div class="w-full md:w-3/4 px-3 ml-auto md:mb-0">
+                    <label class="mt-4 mb-4 font-bold text-xl pb-4 text-gray-900">
+                        Articles commandés
+                    </label>
+                    <div v-for="product in products" :key="product" class="text-gray-900 justify-items-center mx-auto flex mb-10 my-1 px-1 md:w-1/2 lg:my-4 lg:px-4 lg:w-2/3">
+                        <router-link :to="`/ficheProduit/${product.id}`">
+                            <div class="px-24 py-12 border-b flex flex-col sm:flex-row md:w-96 place-content-center">
+                                <img v-if="product.img" :src="product.img" class="lg:h-auto lg:w-64">
+                                <div class="w-3/4 text-right">
+                                    <h1 class="text-gray-900 font-bold text-xl mb-3 mt-3">
+                                        {{ product.name }}
+                                    </h1>
+                                    <h2 class="mt-4 mb-4 font-semi-bold">{{ product.price }}€</h2>
+                                </div>
+                            </div>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
     </div>
 </template>
 

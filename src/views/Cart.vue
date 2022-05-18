@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-auto container bg-gray-100 p-6 h-screen">
+    <div class="mx-auto container bg-gray-100 p-6 h-full">
         <div class="text-4xl font-bold mb-6">Panier</div>
         <!-- Cards des articles du panier -->
         <ProductCart

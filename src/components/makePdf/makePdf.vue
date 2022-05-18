@@ -52,7 +52,7 @@
         },
         computed:{
             /**
-            * Calcul du total des articles (TODO à recalculer)
+            * Calcul du total des articles
             */
             totalProduct(){
                 let sum = 0;
@@ -110,7 +110,7 @@
                 doc.setFontSize(12);
                 doc.rect(8, 25, 65, 22);
                 doc.text("Informations du vendeur", 10, 30);
-                doc.text("Entreprise VERRE TECH", 10, 35); // Soit laisse comme ça, soit mettre le shop
+                doc.text("Entreprise VERRE TECH", 10, 35);
                 doc.text("verretech@contact.com", 10, 40);
                 doc.text("06 50 45 54 44", 10, 45);
 
@@ -120,8 +120,8 @@
 
                 // Indicateurs de commande
                 doc.setFontSize(12);
-                doc.text("Facture de la commande n° "+ id, 10, 55); // HERE id
-                doc.text("Date de la commande "+ date, 10, 60); // HERE date
+                doc.text("Facture de la commande n° "+ id, 10, 55);
+                doc.text("Date de la commande "+ date, 10, 60);
 
                 // Indicateur client
                 doc.setFontSize(12);
@@ -157,10 +157,10 @@
                         0: { cellWidth: 60, halign: "right" },
                     },
                     head: [["Total de la commande"]],
-                    body: [[total+" €"]] // On peut mettre le price si c'est bien le total
+                    body: [[total+" €"]]
                 });
                 // Enregistrement du pdf
-                let pdfName = 'facture-'+ this.date; // HERE date
+                let pdfName = 'facture-'+ date;
                 doc.save(pdfName + '.pdf');
             }
         }

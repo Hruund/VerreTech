@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-center container mx-auto bg-gray-100 p-6 md:h-screen">
+    <div class="bg-center">
         <h2 class="mt-4 mb-4 font-bold text-4xl text-gray-900">Administration</h2>
     </div>
 
