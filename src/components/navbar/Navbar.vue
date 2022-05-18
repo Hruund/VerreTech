@@ -109,7 +109,7 @@
                 </MenuItem>
                 <!-- Déconnexion de l'utilisateur -->
                 <MenuItem v-slot="{ active }">
-                  <a href="#" v-on:click="navTabSelected = 'Accueil';disconnectedUser()" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Déconnexion</a>
+                  <router-link to="/redir/page_deconnexion"><p v-on:click="navTabSelected = 'Accueil';disconnectedUser()" :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Déconnexion</p></router-link>
                 </MenuItem>
               </MenuItems>
             </transition>

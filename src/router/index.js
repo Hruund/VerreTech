@@ -15,6 +15,9 @@ import AppAdmin from '../views/Administration.vue'
 import AppCards from '../views/PaymentForm.vue'
 import AppMentions from '../views/footer_infos/MentionsLegales.vue'
 import AppCookies from '../views/footer_infos/cookies.vue'
+import AppPageDeco from '../views/pages_redirections/page_deconnexion.vue'
+import AppPageErrDroits from '../views/pages_redirections/erreur_droits.vue'
+import AppPageInex from '../views/pages_redirections/page_inexistante.vue'
 
 import AppTestPDF from '../components/makePdf/makePdf.vue'
 
@@ -103,6 +106,21 @@ const routes = [
     path: '/pdfGenerator',
     name: 'PDF',
     component: AppTestPDF 
+  },
+  {
+    path: '/redir/page_deconnexion',
+    name: 'Page de déconnexion',
+    component: AppPageDeco
+  },
+  {
+    path: '/redir/erreur_droits',
+    name: 'Page erreur de droits',
+    component: AppPageErrDroits
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Page inexistante',
+    component: AppPageInex
   }
 ]
 
