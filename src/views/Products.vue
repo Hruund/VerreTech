@@ -43,6 +43,7 @@
                     :name="product.name"
                     :imageLink="product.image"
                     :price="product.price"
+                    :quantity="product.quantity"
                 ></Product>
             </div>
         </div>
@@ -169,6 +170,7 @@ export default {
             //axios call for getting products list without filter
             axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+'/api/products')
                 .then(response => {
+                    console.log("response : ",response);
                     this.productsList = response.data;
                     this.readyToDisplay = true;
                 })

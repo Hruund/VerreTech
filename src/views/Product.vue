@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+    <div class="w-full md:w-1/4 px-3 mb-6 md:mb-0" :style="[quantity > 0 ? {} : {opacity:0.5}]">
         <div class="max-w-xs rounded overflow-hidden shadow-lg">
             <img class="w-full" ref="image" :src="imageLink.default">
             <div class="px-6 py-4">
@@ -32,7 +32,8 @@ export default {
         id : {default :'1'},
         imageLink : {default :'../assets/produits/miroirs/miroir2.jpeg'},
         name : {default :'Paroi de douche Arbor'},
-        price : {default :'250€'}
+        price : {default :'250€'},
+        quantity : {default : 0}
     },
     mounted(){
         if(this.imageLink != this.imageLink.default){
