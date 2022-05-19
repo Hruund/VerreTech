@@ -86,7 +86,7 @@
                                     Ajouter au panier
                                 </button>
 
-                                <button id="buttonBuy" :disabled='checkQuantity()' class="px-6 py-3 text-lg text-white rounded-lg shadow outline-none bg-blue-600 hover:bg-blue-500 hover:shadow-lg focus:outline-none">
+                                <button id="buttonBuy" :disabled='checkQuantity()' @click="addProductToCart" class="px-6 py-3 text-lg text-white rounded-lg shadow outline-none bg-blue-600 hover:bg-blue-500 hover:shadow-lg focus:outline-none">
                                     <router-link to="/panier"> Acheter maintenant </router-link>
                                 </button>
                             </div>
@@ -155,6 +155,7 @@ export default {
         * Ajout de l'article au panier
         */
         addProductToCart(){
+            console.log("ttt");
             if (this.id != null) {
                 let idProduct = this.id;
                 let quantityToUse = document.querySelector("#quantite").value
