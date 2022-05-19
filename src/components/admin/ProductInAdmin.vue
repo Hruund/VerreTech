@@ -1,5 +1,5 @@
 <template>
-    <tr>
+    <tr class="hover:bg-gray-300">
         <td>{{name}}</td>
         <td>{{description}}</td>
         <td>{{price}}€</td>

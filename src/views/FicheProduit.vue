@@ -66,6 +66,11 @@
                                 <br>
                                 {{ productInfo.feature }}
                             </p>
+                            <p>
+                                <span class="mt-4 font-semibold"> Quantité restante : </span>
+                                <br>
+                                {{ productInfo.quantity }}
+                            </p>
                             <div class="mt-4">
                                 <span class="text-xl">Quantité : </span>
                                 <select class="bg-gray-200 border border-gray-200 text-gray-700 py-2 px-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="quantite">
@@ -77,11 +82,11 @@
                                 </select>
                             </div>
                             <div class="mx-auto mt-4">
-                                <button id="buttonAdd" @click="addProductToCart" class="px-6 py-3 text-lg mr-2 mb-2 text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-gray-900 hover:bg-gray-800 hover:shadow-lg focus:outline-none">
+                                <button id="buttonAdd" :disabled='checkQuantity()' @click="addProductToCart" class="px-6 py-3 text-lg mr-2 mb-2 text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-gray-900 hover:bg-gray-800 hover:shadow-lg focus:outline-none">
                                     Ajouter au panier
                                 </button>
 
-                                <button id="buttonBuy" class="px-6 py-3 text-lg text-white rounded-lg shadow outline-none bg-blue-600 hover:bg-blue-500 hover:shadow-lg focus:outline-none">
+                                <button id="buttonBuy" :disabled='checkQuantity()' class="px-6 py-3 text-lg text-white rounded-lg shadow outline-none bg-blue-600 hover:bg-blue-500 hover:shadow-lg focus:outline-none">
                                     <router-link to="/panier"> Acheter maintenant </router-link>
                                 </button>
                             </div>
@@ -106,8 +111,10 @@ export default {
             name : "Paroi de douche Arbor",
             image : 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
             price : 250,
+            quantity : 1,
             description : "La paroi de douche Arbor sera parfaitement étanche pour éviter les projections d'eau tout en sublimant votre salle de bain. Facile à nettoyer, laissant passer la lumière en apportant confort et modernité à la pièce.",
-            readyToDisplay : false
+            readyToDisplay : false,
+            isDisabled : false
         }
     },
     mounted() {
@@ -132,11 +139,17 @@ export default {
             axios.get('http://'+process.env.VUE_APP_SERVER_IP+":"+process.env.VUE_APP_PRODUCT_PORT+'/api/product/'+idToUse)
                 .then(response => {
                     this.productInfo = response.data;
+                    
                     this.readyToDisplay = true;
                 })
                 .catch(error => {
                     console.log(error);
                 });
+        },
+        checkQuantity(){
+            if (this.productInfo.quantity == 0) { 
+                return true;
+            }
         },
         /**
         * Ajout de l'article au panier
